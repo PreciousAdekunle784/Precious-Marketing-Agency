@@ -1,0 +1,2056 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Blueprint — Precious Marketing Agency</title>
+    <meta name="description"
+        content="Get the exact 7-step digital marketing blueprint that helped 2,400+ Nigerian businesses generate more leads and close more clients in 90 days.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            font-size: 16px;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        :root {
+            --g: #00E676;
+            --g-dark: #00C15E;
+            --g-glow: rgba(0, 230, 118, .18);
+            --g-soft: rgba(0, 230, 118, .08);
+            --g-border: rgba(0, 230, 118, .22);
+            --bg: #080B10;
+            --s1: #0D1117;
+            --s2: #111820;
+            --s3: #17202C;
+            --s4: #1C2635;
+            --b1: rgba(255, 255, 255, .06);
+            --b2: rgba(255, 255, 255, .10);
+            --t1: #F0F4F8;
+            --t2: #A8B4C0;
+            --t3: #5C6B7A;
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 18px;
+            --shadow-green: 0 0 40px rgba(0, 230, 118, .12);
+            --shadow-card: 0 24px 64px rgba(0, 0, 0, .5);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--t1);
+            min-height: 100vh;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        .bg-layer {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .bg-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: .35;
+        }
+
+        .bb1 {
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(0, 230, 118, .12), transparent 70%);
+            top: -200px;
+            right: -200px;
+            animation: float1 14s ease-in-out infinite;
+        }
+
+        .bb2 {
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(0, 100, 255, .08), transparent 70%);
+            bottom: -100px;
+            left: -150px;
+            animation: float2 18s ease-in-out infinite;
+        }
+
+        .bg-grid {
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(var(--b1) 1px, transparent 1px), linear-gradient(90deg, var(--b1) 1px, transparent 1px);
+            background-size: 48px 48px;
+            mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+        }
+
+        @keyframes float1 {
+
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1)
+            }
+
+            50% {
+                transform: translate(-40px, 60px) scale(1.08)
+            }
+        }
+
+        @keyframes float2 {
+
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1)
+            }
+
+            50% {
+                transform: translate(50px, -40px) scale(1.06)
+            }
+        }
+
+        .page {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* ── SCARCITY TICKER ── */
+        .scarcity-bar {
+            background: linear-gradient(90deg, #1A0500, #2D0C00, #1A0500);
+            border-bottom: 1px solid rgba(255, 100, 50, .25);
+            padding: 8px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 12.5px;
+            font-weight: 500;
+            color: #FF8C5A;
+            animation: slideDown .4s ease both;
+        }
+
+        .sc-pill {
+            background: #FF5722;
+            color: #fff;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            padding: 2px 8px;
+            border-radius: 4px;
+            flex-shrink: 0;
+        }
+
+        .sc-bar strong {
+            color: #FFD0B0;
+        }
+
+        .sc-bar span {
+            color: #C4735A;
+        }
+
+        .fire {
+            animation: fireShake .5s ease-in-out infinite alternate;
+            display: inline-block;
+        }
+
+        @keyframes fireShake {
+            from {
+                transform: rotate(-6deg) scale(1)
+            }
+
+            to {
+                transform: rotate(6deg) scale(1.1)
+            }
+        }
+
+        /* ── COUNTDOWN BAR ── */
+        .countdown-bar {
+            background: linear-gradient(90deg, #001F10, #002D18, #001F10);
+            border-bottom: 1px solid var(--g-border);
+            padding: 9px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            animation: slideDown .4s .05s ease both;
+            flex-wrap: wrap;
+        }
+
+        .cd-label {
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--t2);
+        }
+
+        .cd-label strong {
+            color: var(--t1);
+        }
+
+        .cd-timer {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .cd-unit {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2px;
+        }
+
+        .cd-num {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-size: 18px;
+            font-weight: 800;
+            color: var(--g);
+            background: var(--s2);
+            border: 1px solid var(--g-border);
+            border-radius: 5px;
+            padding: 2px 10px;
+            min-width: 42px;
+            text-align: center;
+            line-height: 1.3;
+        }
+
+        .cd-sep {
+            font-size: 16px;
+            font-weight: 800;
+            color: var(--g);
+            margin-bottom: 12px;
+        }
+
+        .cd-lbl {
+            font-size: 9px;
+            font-weight: 600;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--t3);
+        }
+
+        .cd-pill {
+            background: var(--g);
+            color: var(--bg);
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            padding: 3px 10px;
+            border-radius: 4px;
+            flex-shrink: 0;
+        }
+
+        /* ── NAV ── */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(8, 11, 16, .88);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--b1);
+            padding: 0 48px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            animation: slideDown .5s .1s ease both;
+            opacity: 0;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--g);
+            border-radius: var(--radius-sm);
+            display: grid;
+            place-items: center;
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-weight: 800;
+            font-size: 17px;
+            color: var(--bg);
+            box-shadow: 0 0 20px var(--g-glow);
+            flex-shrink: 0;
+        }
+
+        .logo-name {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--t1);
+            line-height: 1.1;
+            letter-spacing: -.01em;
+        }
+
+        .logo-sub {
+            font-size: 10px;
+            font-weight: 500;
+            color: var(--t3);
+            letter-spacing: .12em;
+            text-transform: uppercase;
+        }
+
+        .nav-center {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .nav-trust {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--t3);
+        }
+
+        .nav-trust svg {
+            color: var(--g);
+            flex-shrink: 0;
+        }
+
+        .nav-sep {
+            width: 1px;
+            height: 18px;
+            background: var(--b1);
+        }
+
+        .nav-cta {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            background: var(--g-soft);
+            border: 1px solid var(--g-border);
+            border-radius: 7px;
+            padding: 7px 14px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--g);
+            cursor: pointer;
+            text-decoration: none;
+            transition: background .2s, box-shadow .2s;
+        }
+
+        .nav-cta:hover {
+            background: rgba(0, 230, 118, .14);
+            box-shadow: var(--shadow-green);
+        }
+
+        .status-dot {
+            width: 7px;
+            height: 7px;
+            background: var(--g);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 rgba(0, 230, 118, .5)
+            }
+
+            50% {
+                box-shadow: 0 0 0 5px rgba(0, 230, 118, 0)
+            }
+        }
+
+        /* ── MAIN ── */
+        main {
+            flex: 1;
+            display: grid;
+            grid-template-columns: 1fr 460px;
+            max-width: 1160px;
+            margin: 0 auto;
+            width: 100%;
+            padding: 72px 48px;
+            gap: 64px;
+            align-items: center;
+        }
+
+        /* ── COPY COL ── */
+        .copy-col {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 28px;
+            opacity: 0;
+            animation: fadeUp .6s .2s ease forwards;
+        }
+
+        .eyebrow-dash {
+            width: 28px;
+            height: 2px;
+            background: var(--g);
+            border-radius: 2px;
+            flex-shrink: 0;
+        }
+
+        .eyebrow-text {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            color: var(--g);
+        }
+
+        .headline {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-weight: 800;
+            font-size: clamp(36px, 4vw, 54px);
+            line-height: 1.08;
+            letter-spacing: -.03em;
+            color: var(--t1);
+            margin-bottom: 22px;
+            opacity: 0;
+            animation: fadeUp .6s .3s ease forwards;
+        }
+
+        .hl-green {
+            color: var(--g);
+        }
+
+        .hl-struck {
+            position: relative;
+            color: var(--t3);
+            display: inline-block;
+        }
+
+        .hl-struck::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 54%;
+            height: 2.5px;
+            background: var(--g);
+            border-radius: 2px;
+        }
+
+        .lead {
+            font-size: 16.5px;
+            font-weight: 400;
+            color: var(--t2);
+            line-height: 1.75;
+            max-width: 500px;
+            margin-bottom: 44px;
+            opacity: 0;
+            animation: fadeUp .6s .4s ease forwards;
+        }
+
+        .lead strong {
+            color: var(--t1);
+            font-weight: 600;
+        }
+
+        /* ── LIVE ACTIVITY ── */
+        .live-activity {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--s1);
+            border: 1px solid var(--b1);
+            border-radius: var(--radius-sm);
+            padding: 10px 16px;
+            margin-bottom: 28px;
+            font-size: 12.5px;
+            color: var(--t2);
+            opacity: 0;
+            animation: fadeUp .6s .42s ease forwards;
+        }
+
+        .live-dot-g {
+            width: 8px;
+            height: 8px;
+            background: var(--g);
+            border-radius: 50%;
+            flex-shrink: 0;
+            animation: pulse 1.5s infinite;
+        }
+
+        .live-activity strong {
+            color: var(--t1);
+        }
+
+        .live-activity em {
+            color: var(--g);
+            font-style: normal;
+            font-weight: 600;
+        }
+
+        .section-divider {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 24px;
+            opacity: 0;
+            animation: fadeUp .6s .45s ease forwards;
+        }
+
+        .sd-line {
+            flex: 1;
+            height: 1px;
+            background: var(--b1);
+        }
+
+        .sd-text {
+            font-size: 10.5px;
+            font-weight: 700;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: var(--t3);
+            white-space: nowrap;
+        }
+
+        .bullets {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-bottom: 48px;
+        }
+
+        .bullet {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            padding: 16px 18px;
+            border: 1px solid transparent;
+            border-radius: var(--radius-md);
+            transition: background .2s, border-color .25s, transform .2s;
+            cursor: default;
+            opacity: 0;
+            animation: fadeUp .5s ease forwards;
+        }
+
+        .bullet:nth-child(1) {
+            animation-delay: .5s
+        }
+
+        .bullet:nth-child(2) {
+            animation-delay: .62s
+        }
+
+        .bullet:nth-child(3) {
+            animation-delay: .74s
+        }
+
+        .bullet:nth-child(4) {
+            animation-delay: .86s
+        }
+
+        .bullet:hover {
+            background: var(--s2);
+            border-color: var(--b2);
+            transform: translateX(4px);
+        }
+
+        .b-icon {
+            width: 30px;
+            height: 30px;
+            flex-shrink: 0;
+            background: var(--g-soft);
+            border: 1px solid var(--g-border);
+            border-radius: 7px;
+            display: grid;
+            place-items: center;
+            font-size: 14px;
+            margin-top: 1px;
+        }
+
+        .b-title {
+            font-size: 14.5px;
+            font-weight: 700;
+            color: var(--t1);
+            line-height: 1.35;
+            margin-bottom: 4px;
+        }
+
+        .b-desc {
+            font-size: 13px;
+            font-weight: 400;
+            color: var(--t2);
+            line-height: 1.65;
+        }
+
+        /* ── SCARCITY SLOT ── */
+        .slots-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(255, 87, 34, .06);
+            border: 1px solid rgba(255, 87, 34, .2);
+            border-radius: var(--radius-md);
+            padding: 14px 18px;
+            margin-bottom: 24px;
+            opacity: 0;
+            animation: fadeUp .6s .88s ease forwards;
+        }
+
+        .slots-bar-wrap {
+            flex: 1;
+        }
+
+        .slots-bar-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            font-weight: 600;
+            color: #FF8C5A;
+            margin-bottom: 6px;
+        }
+
+        .slots-track {
+            height: 6px;
+            background: rgba(255, 87, 34, .15);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .slots-fill {
+            height: 100%;
+            width: 73%;
+            background: linear-gradient(90deg, #FF5722, #FF8C5A);
+            border-radius: 3px;
+            animation: fillUp 1.4s 1.2s ease both;
+        }
+
+        @keyframes fillUp {
+            from {
+                width: 0
+            }
+
+            to {
+                width: 73%
+            }
+        }
+
+        .slots-icon {
+            font-size: 20px;
+        }
+
+        .proof-bar {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            background: var(--s1);
+            border: 1px solid var(--b1);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            opacity: 0;
+            animation: fadeUp .6s 1s ease forwards;
+        }
+
+        .proof-item {
+            padding: 18px 20px;
+            border-right: 1px solid var(--b1);
+            transition: background .2s;
+        }
+
+        .proof-item:last-child {
+            border-right: none;
+        }
+
+        .proof-item:hover {
+            background: var(--s2);
+        }
+
+        .proof-num {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--g);
+            line-height: 1;
+            margin-bottom: 4px;
+            letter-spacing: -.02em;
+        }
+
+        .proof-label {
+            font-size: 11px;
+            font-weight: 500;
+            color: var(--t3);
+            line-height: 1.3;
+        }
+
+        /* ── FORM COL ── */
+        .form-col {
+            opacity: 0;
+            animation: fadeUp .7s .25s ease forwards;
+        }
+
+        .form-card {
+            background: var(--s1);
+            border: 1px solid var(--b2);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+            position: relative;
+        }
+
+        .form-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent 0%, var(--g) 30%, var(--g-dark) 70%, transparent 100%);
+        }
+
+        /* ── SPOT COUNTER on card ── */
+        .card-urgency {
+            background: rgba(255, 87, 34, .08);
+            border-bottom: 1px solid rgba(255, 87, 34, .18);
+            padding: 10px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 12.5px;
+            font-weight: 600;
+            color: #FF8C5A;
+        }
+
+        .card-urgency svg {
+            flex-shrink: 0;
+        }
+
+        .report-preview {
+            padding: 26px 30px 22px;
+            border-bottom: 1px solid var(--b1);
+            background: linear-gradient(135deg, var(--s2), var(--s1));
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .report-book {
+            flex-shrink: 0;
+            width: 68px;
+            aspect-ratio: 3/4.2;
+            background: linear-gradient(145deg, var(--g), var(--g-dark));
+            border-radius: 4px 8px 8px 4px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            box-shadow: 6px 6px 20px rgba(0, 0, 0, .5), inset 0 1px 0 rgba(255, 255, 255, .2);
+            position: relative;
+        }
+
+        .report-book::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 6px;
+            background: rgba(0, 0, 0, .25);
+            border-radius: 4px 0 0 4px;
+        }
+
+        .book-letter {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-size: 26px;
+            font-weight: 800;
+            color: var(--bg);
+            line-height: 1;
+        }
+
+        .book-lines {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            width: 34px;
+        }
+
+        .book-line {
+            height: 3px;
+            background: rgba(0, 0, 0, .2);
+            border-radius: 2px;
+        }
+
+        .book-line:nth-child(1) {
+            width: 100%
+        }
+
+        .book-line:nth-child(2) {
+            width: 72%
+        }
+
+        .book-line:nth-child(3) {
+            width: 88%
+        }
+
+        .report-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: var(--g-soft);
+            border: 1px solid var(--g-border);
+            color: var(--g);
+            font-size: 9.5px;
+            font-weight: 700;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            padding: 3px 9px;
+            border-radius: 4px;
+            margin-bottom: 8px;
+        }
+
+        .report-title {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--t1);
+            line-height: 1.25;
+            margin-bottom: 6px;
+        }
+
+        .report-author {
+            font-size: 11.5px;
+            color: var(--t3);
+            margin-bottom: 10px;
+        }
+
+        .report-value {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .val-was {
+            font-size: 12px;
+            color: var(--t3);
+            text-decoration: line-through;
+        }
+
+        .val-now {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--g);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .form-body {
+            padding: 26px 30px 30px;
+        }
+
+        .form-heading {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--t1);
+            letter-spacing: -.02em;
+            margin-bottom: 6px;
+        }
+
+        .form-sub {
+            font-size: 13.5px;
+            color: var(--t2);
+            line-height: 1.65;
+            margin-bottom: 24px;
+        }
+
+        .form-sub strong {
+            color: var(--t1);
+            font-weight: 600;
+        }
+
+        .fields {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-bottom: 16px;
+        }
+
+        .field-label {
+            display: block;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--t3);
+            margin-bottom: 7px;
+        }
+
+        .field-input-wrap {
+            position: relative;
+        }
+
+        .field-icon {
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--t3);
+            pointer-events: none;
+            display: flex;
+        }
+
+        .field-input {
+            width: 100%;
+            background: var(--s3);
+            border: 1.5px solid var(--b1);
+            border-radius: var(--radius-sm);
+            padding: 13px 16px 13px 42px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--t1);
+            outline: none;
+            transition: border-color .2s, background .2s, box-shadow .2s;
+        }
+
+        .field-input::placeholder {
+            color: var(--t3);
+        }
+
+        .field-input:focus {
+            border-color: var(--g);
+            background: var(--s4);
+            box-shadow: 0 0 0 3px rgba(0, 230, 118, .08);
+        }
+
+        /* ── REMAINING SPOTS ── */
+        .spots-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 14px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .spots-text {
+            color: #FF8C5A;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .spots-count {
+            color: var(--t3);
+        }
+
+        .urgency-msg {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 200, 0, .05);
+            border: 1px solid rgba(255, 200, 0, .12);
+            border-radius: var(--radius-sm);
+            padding: 10px 14px;
+            margin-bottom: 16px;
+            font-size: 12.5px;
+            color: #FFCC00;
+            font-weight: 500;
+        }
+
+        .cta-btn {
+            width: 100%;
+            padding: 15px 20px;
+            background: var(--g);
+            border: none;
+            border-radius: var(--radius-sm);
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--bg);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: transform .15s, box-shadow .2s, background .2s;
+            position: relative;
+            overflow: hidden;
+            letter-spacing: -.01em;
+            margin-bottom: 16px;
+        }
+
+        .cta-btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .22), transparent);
+            transition: left .5s;
+        }
+
+        .cta-btn:hover::after {
+            left: 160%;
+        }
+
+        .cta-btn:hover {
+            background: #1AFFA0;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 36px rgba(0, 230, 118, .35);
+        }
+
+        .cta-btn:active {
+            transform: translateY(0);
+            box-shadow: none;
+        }
+
+        .btn-spinner {
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            border: 2px solid rgba(8, 11, 16, .3);
+            border-top-color: var(--bg);
+            border-radius: 50%;
+            animation: spin .7s linear infinite;
+            flex-shrink: 0
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg)
+            }
+        }
+
+        .optin-success {
+            display: none;
+            text-align: center;
+            padding: 48px 32px
+        }
+
+        .optin-success-icon {
+            font-size: 52px;
+            margin-bottom: 16px;
+            display: block;
+            animation: successPop .5s cubic-bezier(.34, 1.56, .64, 1) both
+        }
+
+        @keyframes successPop {
+            from {
+                transform: scale(0) rotate(-20deg);
+                opacity: 0
+            }
+
+            to {
+                transform: scale(1) rotate(0);
+                opacity: 1
+            }
+        }
+
+        .optin-success-title {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--t1);
+            margin-bottom: 12px;
+            letter-spacing: -.02em
+        }
+
+        .optin-success-text {
+            font-size: 14px;
+            color: var(--t2);
+            line-height: 1.7;
+            max-width: 280px;
+            margin: 0 auto 24px
+        }
+
+        .optin-success-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--g-soft);
+            border: 1px solid var(--g-border);
+            color: var(--g);
+            font-size: 12px;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 20px
+        }
+
+        .micro-trust {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        .mt-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 11.5px;
+            font-weight: 500;
+            color: var(--t3);
+        }
+
+        .mt-item svg {
+            color: var(--g);
+            flex-shrink: 0;
+        }
+
+        /* ── LOGOS STRIP ── */
+        .logos-strip {
+            max-width: 1160px;
+            margin: 0 auto;
+            width: 100%;
+            padding: 0 48px 64px;
+            opacity: 0;
+            animation: fadeUp .6s 1.1s ease forwards;
+        }
+
+        .logos-label {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: var(--t3);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .logos-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .logo-pill {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 9px 18px;
+            background: var(--s1);
+            border: 1px solid var(--b1);
+            border-radius: 8px;
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--t3);
+            letter-spacing: .02em;
+            transition: border-color .2s, color .2s;
+        }
+
+        .logo-pill:hover {
+            border-color: var(--b2);
+            color: var(--t2);
+        }
+
+        .logo-pill span {
+            font-size: 16px;
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            border-top: 1px solid var(--b1);
+            padding: 18px 48px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .foot-left {
+            font-size: 12px;
+            color: var(--t3);
+        }
+
+        .foot-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .foot-link {
+            font-size: 12px;
+            color: var(--t3);
+            text-decoration: none;
+            transition: color .2s;
+        }
+
+        .foot-link:hover {
+            color: var(--g);
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-14px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(22px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        /* ── FLOATING PARTICLES ── */
+        .particles {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: var(--g);
+            opacity: 0;
+            animation: particleDrift linear infinite;
+        }
+
+        @keyframes particleDrift {
+            0% {
+                transform: translateY(100vh) scale(0);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: .4;
+            }
+
+            90% {
+                opacity: .15;
+            }
+
+            100% {
+                transform: translateY(-20vh) translateX(var(--dx)) scale(1);
+                opacity: 0;
+            }
+        }
+
+        /* ── TYPEWRITER CURSOR ── */
+        .hl-cursor {
+            display: inline-block;
+            width: 3px;
+            height: .85em;
+            background: var(--g);
+            margin-left: 4px;
+            vertical-align: middle;
+            border-radius: 2px;
+            animation: cursorBlink .8s ease-in-out infinite;
+        }
+
+        @keyframes cursorBlink {
+
+            0%,
+            100% {
+                opacity: 1
+            }
+
+            50% {
+                opacity: 0
+            }
+        }
+
+        /* ── ANIMATED NUMBER COUNTERS ── */
+        .proof-num {
+            transition: color .3s;
+        }
+
+        .proof-num.counting {
+            animation: numPop .3s ease;
+        }
+
+        @keyframes numPop {
+            0% {
+                transform: scale(1)
+            }
+
+            50% {
+                transform: scale(1.18)
+            }
+
+            100% {
+                transform: scale(1)
+            }
+        }
+
+        /* ── SCROLL REVEAL ── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity .6s ease, transform .6s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ── FORM CARD GLOW RING ── */
+        .form-card {
+            background: var(--s1);
+            border: 1px solid var(--b2);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-card), 0 0 0 0 rgba(0, 230, 118, 0);
+            position: relative;
+            animation: formCardGlow 4s ease-in-out 1.5s infinite;
+        }
+
+        @keyframes formCardGlow {
+
+            0%,
+            100% {
+                box-shadow: var(--shadow-card), 0 0 0 0 rgba(0, 230, 118, 0);
+            }
+
+            50% {
+                box-shadow: var(--shadow-card), 0 0 40px 6px rgba(0, 230, 118, .12);
+            }
+        }
+
+        /* ── SHIMMER GRADIENT BAR ── */
+        .form-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--g), var(--g-dark), var(--g), transparent);
+            background-size: 200% 100%;
+            animation: shimmerBar 2.5s linear infinite;
+        }
+
+        @keyframes shimmerBar {
+            from {
+                background-position: 200% 0
+            }
+
+            to {
+                background-position: -200% 0
+            }
+        }
+
+        /* ── MAGNETIC CTA ── */
+        .cta-btn {
+            width: 100%;
+            padding: 15px 20px;
+            background: var(--g);
+            border: none;
+            border-radius: var(--radius-sm);
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--bg);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: transform .15s, box-shadow .2s, background .2s;
+            position: relative;
+            overflow: hidden;
+            letter-spacing: -.01em;
+            margin-bottom: 16px;
+            transform-style: preserve-3d;
+        }
+
+        .cta-btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .28), transparent);
+            transition: left .5s;
+        }
+
+        .cta-btn:hover::after {
+            left: 160%;
+        }
+
+        .cta-btn:hover {
+            background: #1AFFA0;
+            transform: translateY(-3px) scale(1.01);
+            box-shadow: 0 14px 40px rgba(0, 230, 118, .4);
+        }
+
+        .cta-btn:active {
+            transform: translateY(0) scale(.99);
+            box-shadow: none;
+        }
+
+        /* ── BOOK FLOAT ── */
+        .report-book {
+            animation: bookFloat 3.5s ease-in-out infinite;
+        }
+
+        @keyframes bookFloat {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(-1deg);
+            }
+
+            50% {
+                transform: translateY(-8px) rotate(1deg);
+            }
+        }
+
+        /* ── LOGO ICON SPIN ON HOVER ── */
+        .logo-icon {
+            transition: transform .4s cubic-bezier(.34, 1.56, .64, 1);
+        }
+
+        .logo-icon:hover {
+            transform: rotate(15deg) scale(1.1);
+        }
+
+        /* ── BULLET ICON WIGGLE ── */
+        .bullet:hover .b-icon {
+            animation: iconWiggle .4s ease;
+        }
+
+        @keyframes iconWiggle {
+
+            0%,
+            100% {
+                transform: rotate(0)
+            }
+
+            25% {
+                transform: rotate(-12deg)
+            }
+
+            75% {
+                transform: rotate(10deg)
+            }
+        }
+
+        /* ── PROOF BAR COUNT-UP GLOW ── */
+        .proof-item:hover .proof-num {
+            text-shadow: 0 0 20px rgba(0, 230, 118, .6);
+        }
+
+        /* ── SCARCITY BAR PULSE ── */
+        .sc-pill {
+            animation: pillPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pillPulse {
+
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 rgba(255, 87, 34, .5)
+            }
+
+            50% {
+                box-shadow: 0 0 0 6px rgba(255, 87, 34, 0)
+            }
+        }
+
+        /* ── COUNTDOWN FLIP ── */
+        .cd-num {
+            transition: transform .15s ease, opacity .15s ease;
+        }
+
+        .cd-num.flip {
+            animation: flipNum .25s ease;
+        }
+
+        @keyframes flipNum {
+            0% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            49% {
+                transform: translateY(-12px);
+                opacity: 0;
+            }
+
+            50% {
+                transform: translateY(12px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @media(max-width:960px) {
+            nav {
+                padding: 0 24px;
+            }
+
+            .nav-center {
+                display: none;
+            }
+
+            main {
+                grid-template-columns: 1fr;
+                padding: 40px 24px 48px;
+                gap: 48px;
+            }
+
+            .logos-strip {
+                padding: 0 24px 48px;
+            }
+
+            footer {
+                padding: 16px 24px;
+            }
+        }
+
+        @media(max-width:560px) {
+            .proof-bar {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .proof-item:nth-child(2) {
+                border-right: none;
+            }
+
+            .proof-item:nth-child(3) {
+                border-top: 1px solid var(--b1);
+            }
+
+            .proof-item:nth-child(4) {
+                border-top: 1px solid var(--b1);
+                border-right: none;
+            }
+
+            .cd-timer .cd-num {
+                font-size: 15px;
+                min-width: 34px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg-layer" aria-hidden="true">
+        <div class="bg-blob bb1"></div>
+        <div class="bg-blob bb2"></div>
+        <div class="bg-grid"></div>
+    </div>
+    <div class="particles" id="particles" aria-hidden="true"></div>
+    <div class="page">
+
+
+        <!-- COUNTDOWN BAR -->
+        <div class="countdown-bar">
+            <span class="cd-label"><strong>Free access expires in:</strong></span>
+            <div class="cd-timer">
+                <div class="cd-unit">
+                    <div class="cd-num" id="cd-h">23</div>
+                    <div class="cd-lbl">Hours</div>
+                </div>
+                <div class="cd-sep">:</div>
+                <div class="cd-unit">
+                    <div class="cd-num" id="cd-m">47</div>
+                    <div class="cd-lbl">Mins</div>
+                </div>
+                <div class="cd-sep">:</div>
+                <div class="cd-unit">
+                    <div class="cd-num" id="cd-s">59</div>
+                    <div class="cd-lbl">Secs</div>
+                </div>
+            </div>
+            <span class="cd-pill">Limited Offer</span>
+        </div>
+
+        <!-- NAV -->
+        <nav>
+            <a href="#" class="nav-logo">
+                <div class="logo-icon">P</div>
+                <div>
+                    <div class="logo-name">Precious Marketing Agency</div>
+                    <div class="logo-sub">Digital Growth Specialists</div>
+                </div>
+            </a>
+            <div class="nav-center">
+                <div class="nav-trust"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5">
+                        <polyline points="20 6 9 17 4 12" />
+                    </svg>Trusted by 500+ businesses</div>
+                <div class="nav-sep"></div>
+                <div class="nav-trust"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5">
+                        <polyline points="20 6 9 17 4 12" />
+                    </svg>No credit card required</div>
+            </div>
+            <a href="#form" class="nav-cta"><span class="status-dot"></span>Get Free Blueprint</a>
+        </nav>
+
+        <!-- MAIN -->
+        <main>
+            <!-- LEFT -->
+            <div class="copy-col">
+                <div class="eyebrow">
+                    <div class="eyebrow-dash"></div><span class="eyebrow-text">Free Digital Marketing Blueprint</span>
+                </div>
+
+                <h1 class="headline">
+                    <span class="hl-green">7</span> Brutal Truths<br>
+                    Your Competitors<br>
+                    <span class="hl-struck" id="tw-word">Hope</span><span class="hl-cursor" id="tw-cursor"></span> You
+                    Never<br>
+                    Discover
+                </h1>
+
+                <p class="lead">Businesses waste millions on ads, content, and campaigns that simply don't
+                    convert. This free blueprint reveals the <strong>exact 7-step growth system</strong> our agency uses
+                    to help clients generate consistent leads, dominate their market, and get <strong>maximum ROI from
+                        every marketing dollar they spend.</strong></p>
+
+                <!-- LIVE ACTIVITY -->
+                <div class="live-activity">
+                    <span class="live-dot-g"></span>
+                    <span><em id="live-count">247</em> people are viewing this page right now — <strong>37 free copies
+                            remaining</strong></span>
+                </div>
+
+                <div class="section-divider">
+                    <div class="sd-line"></div><span class="sd-text">What You'll Discover Inside</span>
+                    <div class="sd-line"></div>
+                </div>
+
+                <ul class="bullets">
+                    <li class="bullet">
+                        <div class="b-icon"></div>
+                        <div>
+                            <div class="b-title">Why your ads are getting clicks but zero sales — and the exact fix
+                            </div>
+                            <div class="b-desc">Most businesses are targeting the right audience with the wrong message.
+                                We reveal the proven ad framework our agency uses to turn cold traffic into paying
+                                clients consistently month after month.</div>
+                        </div>
+                    </li>
+                    <li class="bullet">
+                        <div class="b-icon"></div>
+                        <div>
+                            <div class="b-title">The exact funnel structure we build to turn strangers into ₦500k+
+                                clients</div>
+                            <div class="b-desc">The 5-stage conversion system our agency deploys for clients from
+                                first ad impression to closed deal that makes sales predictable, scalable, and
+                                repeatable every single month.</div>
+                        </div>
+                    </li>
+                    <li class="bullet">
+                        <div class="b-icon"></div>
+                        <div>
+                            <div class="b-title">The social media strategy that makes every post work as a 24/7 sales
+                                machine</div>
+                            <div class="b-desc">Posting isn't enough positioning is everything. Discover how we craft
+                                content, reels, and campaigns that build authority AND drive real buying decisions for
+                                our clients' brands.</div>
+                        </div>
+                    </li>
+                    <li class="bullet">
+                        <div class="b-icon"></div>
+                        <div>
+                            <div class="b-title">How to make every naira of ad spend generate 3× — 10× returns</div>
+                            <div class="b-desc">The 3-part ROI system our agency runs for clients that eliminates wasted
+                                budget, maximises campaign performance, and turns marketing from a cost into your most
+                                profitable business asset.</div>
+                        </div>
+                    </li>
+                </ul>
+
+                <!-- SCARCITY PROGRESS BAR -->
+
+                <div class="proof-bar reveal" id="proof-bar">
+                    <div class="proof-item">
+                        <div class="proof-num">500+</div>
+                        <div class="proof-label">Businesses Served</div>
+                    </div>
+                    <div class="proof-item">
+                        <div class="proof-num">$100k+</div>
+                        <div class="proof-label">Revenue Generated</div>
+                    </div>
+                    <div class="proof-item">
+                        <div class="proof-num">98%</div>
+                        <div class="proof-label">Client Satisfaction</div>
+                    </div>
+                    <div class="proof-item">
+                        <div class="proof-num">90-Day</div>
+                        <div class="proof-label">Results Guarantee</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT: FORM -->
+            <div class="form-col" id="form">
+                <div class="form-card">
+                    <!-- Card urgency -->
+                    <div class="card-urgency" id="card-urgency">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5">
+                            <circle cx="12" cy="12" r="10" />
+                            <polyline points="12 6 12 12 16 14" />
+                        </svg>
+                        <span>Offer expires in <strong id="card-timer">23:47:59</strong> — Grab your free copy
+                            now</span>
+                    </div>
+
+                    <!-- Report Preview -->
+                    <div class="report-preview" id="report-preview">
+                        <div class="report-book">
+                            <div class="book-letter">P</div>
+                            <div class="book-lines">
+                                <div class="book-line"></div>
+                                <div class="book-line"></div>
+                                <div class="book-line"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="report-badge"><svg width="9" height="9" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                </svg>Free Report — $2000 Value</div>
+                            <div class="report-title">The Digital Growth Blueprint</div>
+                            <div class="report-author">by Precious Marketing Agency</div>
+                            <div class="report-value"><span class="val-was">$2000</span><span class="val-now"><svg
+                                        width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2.5">
+                                        <polyline points="20 6 9 17 4 12" />
+                                    </svg>FREE Today Only</span></div>
+                        </div>
+                    </div>
+
+                    <!-- Form -->
+                    <div class="form-body">
+                        <div id="optin-form-content">
+                            <h2 class="form-heading">Get Instant Free Access</h2>
+                            <p class="form-sub">Enter your details and we'll deliver the blueprint to your inbox
+                                <strong>within 60 seconds.</strong> No fluff, no upsells.
+                            </p>
+                            <div class="fields">
+                                <div><label class="field-label" for="fname">First Name</label>
+                                    <div class="field-input-wrap"><span class="field-icon"><svg width="16" height="16"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                                                <circle cx="12" cy="7" r="4" />
+                                            </svg></span><input class="field-input" id="fname" type="text"
+                                            placeholder="e.g. Chisom" autocomplete="given-name" /></div>
+                                </div>
+                                <div><label class="field-label" for="email">Email Address</label>
+                                    <div class="field-input-wrap"><span class="field-icon"><svg width="16" height="16"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <path
+                                                    d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                                <polyline points="22,6 12,13 2,6" />
+                                            </svg></span><input class="field-input" id="email" type="email"
+                                            placeholder="your@email.com" autocomplete="email" /></div>
+                                </div>
+                            </div>
+
+
+                            <button class="cta-btn" id="optin-btn" type="button" onclick="submitOptin()">Send Me The
+                                Free Blueprint <span class="cta-arrow"></span></button>
+
+                            <div class="micro-trust">
+                                <div class="mt-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-width="2.5">
+                                        <rect x="3" y="11" width="18" height="11" rx="2" />
+                                        <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                                    </svg>256-bit SSL Secure</div>
+                                <div class="mt-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-width="2.5">
+                                        <polyline points="20 6 9 17 4 12" />
+                                    </svg>Zero Spam, Ever</div>
+                                <div class="mt-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-width="2.5">
+                                        <polyline points="20 6 9 17 4 12" />
+                                    </svg>Unsubscribe Anytime</div>
+                            </div>
+                        </div>
+
+                        <div class="optin-success" id="optin-success">
+                            <div class="optin-success-icon">🎉</div>
+                            <div class="optin-success-title">You're In!<br>Check Your Inbox</div>
+                            <p class="optin-success-text">Your free Digital Growth Blueprint is on its way. Check your
+                                inbox within the next 60 seconds.</p>
+                            <div class="optin-success-badge">
+                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.5">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg>
+                                Blueprint sent successfully
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- LOGOS -->
+        <div class="logos-strip">
+            <div class="logos-label">Trusted by businesses across Nigeria</div>
+            <div class="logos-row">
+                <div class="logo-pill"><span></span> Finance Brands</div>
+                <div class="logo-pill"><span></span> E-Commerce Stores</div>
+                <div class="logo-pill"><span></span> Health Clinics</div>
+                <div class="logo-pill"><span></span> Real Estate Firms</div>
+                <div class="logo-pill"><span></span> EdTech Startups</div>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <footer>
+            <div class="foot-left">© 2026 Precious Marketing Agency. All rights reserved.</div>
+            <nav class="foot-links">
+                <a href="privacy.html" class="foot-link">Privacy Policy</a>
+                <a href="terms.html" class="foot-link">Terms of Use</a>
+                <a href="disclaimer.html" class="foot-link">Disclaimer</a>
+                <a href="contact.html" class="foot-link">Contact Us</a>
+            </nav>
+        </footer>
+    </div>
+
+    <script>
+        // ══════════════════════════════════════════
+        //  1. FLOATING PARTICLES
+        // ══════════════════════════════════════════
+        (function () {
+            const container = document.getElementById('particles');
+            const count = 28;
+            for (let i = 0; i < count; i++) {
+                const p = document.createElement('div');
+                p.className = 'particle';
+                const size = Math.random() * 4 + 2;
+                const delay = Math.random() * 18;
+                const duration = Math.random() * 14 + 10;
+                const x = Math.random() * 100;
+                const dx = (Math.random() - 0.5) * 200;
+                p.style.cssText = `
+      width:${size}px; height:${size}px;
+      left:${x}%;
+      --dx:${dx}px;
+      animation-duration:${duration}s;
+      animation-delay:${delay}s;
+      opacity:0;
+    `;
+                container.appendChild(p);
+            }
+        })();
+
+        // ══════════════════════════════════════════
+        //  2. TYPEWRITER — cycling struck words
+        // ══════════════════════════════════════════
+        (function () {
+            const words = ['Hope', 'Pray', 'Wish', 'Expect', 'Assume'];
+            const el = document.getElementById('tw-word');
+            const cursor = document.getElementById('tw-cursor');
+            if (!el) return;
+            let wi = 0, ci = 0, deleting = false;
+            function tick() {
+                const word = words[wi];
+                if (!deleting) {
+                    el.textContent = word.slice(0, ++ci);
+                    if (ci === word.length) { deleting = true; return setTimeout(tick, 1800); }
+                } else {
+                    el.textContent = word.slice(0, --ci);
+                    if (ci === 0) { deleting = false; wi = (wi + 1) % words.length; }
+                }
+                setTimeout(tick, deleting ? 60 : 100);
+            }
+            setTimeout(tick, 1400);
+        })();
+
+        // ══════════════════════════════════════════
+        //  3. SCROLL REVEAL (IntersectionObserver)
+        // ══════════════════════════════════════════
+        (function () {
+            const obs = new IntersectionObserver((entries) => {
+                entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+            }, { threshold: 0.15 });
+            document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+        })();
+
+        // ══════════════════════════════════════════
+        //  4. ANIMATED NUMBER COUNTERS (proof bar)
+        // ══════════════════════════════════════════
+        (function () {
+            const targets = [
+                { id: 'pn1', end: 500, suffix: '+', prefix: '' },
+                { id: 'pn2', end: 100, suffix: 'k+', prefix: '$', },
+                { id: 'pn3', end: 98, suffix: '%', prefix: '' },
+                { id: 'pn4', end: 90, suffix: '', prefix: '', label: true },
+            ];
+
+            // Add ids to proof nums
+            const nums = document.querySelectorAll('.proof-num');
+            nums.forEach((el, i) => { if (targets[i]) el.id = targets[i].id; });
+
+            function animateNum(el, target) {
+                const start = performance.now();
+                const duration = 1800;
+                const { end, suffix, prefix, decimals } = target;
+                function step(now) {
+                    const p = Math.min((now - start) / duration, 1);
+                    const ease = 1 - Math.pow(1 - p, 3);
+                    const val = end * ease;
+                    el.textContent = prefix + (decimals ? val.toFixed(decimals) : Math.floor(val).toLocaleString()) + suffix;
+                    el.classList.add('counting');
+                    if (p < 1) requestAnimationFrame(step);
+                    else {
+                        el.textContent = prefix + (decimals ? end.toFixed(decimals) : end.toLocaleString()) + suffix;
+                        el.classList.remove('counting');
+                    }
+                }
+                requestAnimationFrame(step);
+            }
+
+            const proofBar = document.getElementById('proof-bar');
+            if (proofBar) {
+                const obs = new IntersectionObserver((entries) => {
+                    entries.forEach(e => {
+                        if (e.isIntersecting) {
+                            targets.forEach(t => {
+                                const el = document.getElementById(t.id);
+                                if (el) animateNum(el, t);
+                            });
+                            obs.unobserve(e.target);
+                        }
+                    });
+                }, { threshold: 0.3 });
+                obs.observe(proofBar);
+            }
+        })();
+
+        // ══════════════════════════════════════════
+        //  5. MAGNETIC CTA BUTTON
+        // ══════════════════════════════════════════
+        (function () {
+            const btn = document.getElementById('optin-btn');
+            if (!btn) return;
+            btn.addEventListener('mousemove', e => {
+                const r = btn.getBoundingClientRect();
+                const x = e.clientX - r.left - r.width / 2;
+                const y = e.clientY - r.top - r.height / 2;
+                btn.style.transform = `translate(${x * 0.18}px, ${y * 0.18}px) translateY(-3px) scale(1.01)`;
+            });
+            btn.addEventListener('mouseleave', () => {
+                btn.style.transform = '';
+            });
+        })();
+
+        // ══════════════════════════════════════════
+        //  6. COUNTDOWN TIMER with flip animation
+        // ══════════════════════════════════════════
+        (function () {
+            const end = new Date().getTime() + (23 * 3600 + 47 * 60 + 59) * 1000;
+            let prevH = -1, prevM = -1, prevS = -1;
+
+            function flipEl(id) { const el = document.getElementById(id); if (!el) return; el.classList.remove('flip'); void el.offsetWidth; el.classList.add('flip'); }
+            function update() {
+                const diff = Math.max(0, end - Date.now());
+                const h = Math.floor(diff / 3600000);
+                const m = Math.floor((diff % 3600000) / 60000);
+                const s = Math.floor((diff % 60000) / 1000);
+                const pad = n => String(n).padStart(2, '0');
+                if (h !== prevH) { document.getElementById('cd-h').textContent = pad(h); flipEl('cd-h'); prevH = h; }
+                if (m !== prevM) { document.getElementById('cd-m').textContent = pad(m); flipEl('cd-m'); prevM = m; }
+                if (s !== prevS) { document.getElementById('cd-s').textContent = pad(s); flipEl('cd-s'); prevS = s; }
+                const t = `${pad(h)}:${pad(m)}:${pad(s)}`;
+                const ct = document.getElementById('card-timer'); if (ct) ct.textContent = t;
+            }
+            update(); setInterval(update, 1000);
+        })();
+
+        // ══════════════════════════════════════════
+        //  7. LIVE VIEWER COUNT
+        // ══════════════════════════════════════════
+        (function () {
+            let count = 247;
+            function wiggle() {
+                count = Math.max(230, Math.min(290, count + Math.floor(Math.random() * 5) - 2));
+                const lc = document.getElementById('live-count'); if (lc) lc.textContent = count;
+                const ld = document.getElementById('live-dl'); if (ld) ld.textContent = count;
+                setTimeout(wiggle, 4000 + Math.random() * 4000);
+            }
+            setTimeout(wiggle, 3000);
+        })();
+
+        // ══════════════════════════════════════════
+        //  8. SPOTS COUNTDOWN
+        // ══════════════════════════════════════════
+        (function () {
+            let spots = 37;
+            function drop() {
+                if (spots > 12) { spots--; const el = document.getElementById('spots-num'); if (el) { el.textContent = spots; el.style.animation = 'none'; void el.offsetWidth; el.style.animation = 'numPop .3s ease'; } }
+                setTimeout(drop, 45000 + Math.random() * 60000);
+            }
+            setTimeout(drop, 30000);
+        })();
+
+
+        // ══════════════════════════════════════════
+        //  9. OPT-IN FORM SUBMIT
+        // ══════════════════════════════════════════
+        function submitOptin() {
+            const fname = document.getElementById('fname').value.trim();
+            const email = document.getElementById('email').value.trim();
+            if (!fname) { showOptinError('Please enter your first name.'); return; }
+            if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showOptinError('Please enter a valid email address.'); return; }
+            document.getElementById('optin-form-content').style.display = 'none';
+            document.querySelector('.card-urgency').style.display = 'none';
+            document.querySelector('.report-preview').style.display = 'none';
+            document.getElementById('optin-success').style.display = 'block';
+        }
+        function showOptinError(msg) {
+            let el = document.getElementById('optin-error');
+            if (!el) { el = document.createElement('p'); el.id = 'optin-error'; el.style.cssText = 'color:#FF6B6B;font-size:13px;margin-bottom:10px;font-weight:500;'; document.getElementById('optin-btn').before(el); }
+            el.textContent = '⚠️ ' + msg;
+        }
+    </script>
+</body>
+
+</html>

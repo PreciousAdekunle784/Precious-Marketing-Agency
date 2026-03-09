@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Use — Precious Marketing Agency</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        html {
+            font-size: 16px
+        }
+
+        :root {
+            --g: #00E676;
+            --g-dark: #00C15E;
+            --g-glow: rgba(0, 230, 118, .18);
+            --g-soft: rgba(0, 230, 118, .08);
+            --g-border: rgba(0, 230, 118, .22);
+            --bg: #080B10;
+            --s1: #0D1117;
+            --s2: #111820;
+            --s3: #17202C;
+            --b1: rgba(255, 255, 255, .06);
+            --b2: rgba(255, 255, 255, .10);
+            --t1: #F0F4F8;
+            --t2: #A8B4C0;
+            --t3: #5C6B7A;
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 18px;
+            --shadow-green: 0 0 40px rgba(0, 230, 118, .12)
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--t1);
+            min-height: 100vh;
+            overflow-x: hidden;
+            line-height: 1.6
+        }
+
+        .bg-layer {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden
+        }
+
+        .bg-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: .25
+        }
+
+        .bb1 {
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0, 230, 118, .09), transparent 70%);
+            top: -150px;
+            right: -150px;
+            animation: float1 14s ease-in-out infinite
+        }
+
+        .bb2 {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(0, 100, 255, .06), transparent 70%);
+            bottom: -80px;
+            left: -100px;
+            animation: float2 18s ease-in-out infinite
+        }
+
+        .bg-grid {
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(var(--b1) 1px, transparent 1px), linear-gradient(90deg, var(--b1) 1px, transparent 1px);
+            background-size: 48px 48px;
+            mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%)
+        }
+
+        @keyframes float1 {
+
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1)
+            }
+
+            50% {
+                transform: translate(-30px, 50px) scale(1.06)
+            }
+        }
+
+        @keyframes float2 {
+
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1)
+            }
+
+            50% {
+                transform: translate(40px, -30px) scale(1.04)
+            }
+        }
+
+        .page {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(8, 11, 16, .88);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--b1);
+            padding: 0 48px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            animation: slideDown .5s ease both
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none
+        }
+
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--g);
+            border-radius: 8px;
+            display: grid;
+            place-items: center;
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-weight: 800;
+            font-size: 17px;
+            color: var(--bg);
+            box-shadow: 0 0 20px var(--g-glow);
+            flex-shrink: 0
+        }
+
+        .logo-name {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--t1);
+            line-height: 1.1;
+            letter-spacing: -.01em
+        }
+
+        .logo-sub {
+            font-size: 10px;
+            font-weight: 500;
+            color: var(--t3);
+            letter-spacing: .12em;
+            text-transform: uppercase
+        }
+
+        .nav-back {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            background: var(--g-soft);
+            border: 1px solid var(--g-border);
+            border-radius: 7px;
+            padding: 7px 14px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--g);
+            text-decoration: none;
+            transition: background .2s, box-shadow .2s
+        }
+
+        .nav-back:hover {
+            background: rgba(0, 230, 118, .14);
+            box-shadow: var(--shadow-green)
+        }
+
+        .doc-wrap {
+            max-width: 780px;
+            margin: 0 auto;
+            width: 100%;
+            padding: 64px 48px 80px;
+            flex: 1;
+            animation: fadeUp .6s .1s ease both;
+            opacity: 0
+        }
+
+        .doc-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px
+        }
+
+        .doc-eyebrow-dash {
+            width: 24px;
+            height: 2px;
+            background: var(--g);
+            border-radius: 2px
+        }
+
+        .doc-eyebrow-text {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            color: var(--g)
+        }
+
+        .doc-title {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-size: clamp(28px, 4vw, 42px);
+            font-weight: 800;
+            letter-spacing: -.03em;
+            color: var(--t1);
+            margin-bottom: 8px;
+            line-height: 1.1
+        }
+
+        .doc-meta {
+            font-size: 12.5px;
+            color: var(--t3);
+            margin-bottom: 48px
+        }
+
+        .doc-meta strong {
+            color: var(--t2)
+        }
+
+        .doc-section {
+            margin-bottom: 40px
+        }
+
+        .doc-section h2 {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--t1);
+            margin-bottom: 12px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--b1);
+            display: flex;
+            align-items: center;
+            gap: 10px
+        }
+
+        .sec-num {
+            width: 24px;
+            height: 24px;
+            background: var(--g-soft);
+            border: 1px solid var(--g-border);
+            border-radius: 5px;
+            display: grid;
+            place-items: center;
+            font-size: 11px;
+            font-weight: 800;
+            color: var(--g);
+            flex-shrink: 0
+        }
+
+        .doc-section p {
+            font-size: 14.5px;
+            color: var(--t2);
+            line-height: 1.8;
+            margin-bottom: 12px
+        }
+
+        .doc-section ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 12px
+        }
+
+        .doc-section ul li {
+            font-size: 14.5px;
+            color: var(--t2);
+            line-height: 1.7;
+            padding-left: 18px;
+            position: relative
+        }
+
+        .doc-section ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 11px;
+            width: 6px;
+            height: 6px;
+            background: var(--g);
+            border-radius: 50%
+        }
+
+        .doc-highlight {
+            background: var(--g-soft);
+            border: 1px solid var(--g-border);
+            border-radius: var(--radius-md);
+            padding: 18px 22px;
+            margin-bottom: 12px
+        }
+
+        .doc-highlight p {
+            color: var(--t1);
+            margin-bottom: 0
+        }
+
+        footer {
+            border-top: 1px solid var(--b1);
+            padding: 18px 48px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap
+        }
+
+        .foot-left {
+            font-size: 12px;
+            color: var(--t3)
+        }
+
+        .foot-links {
+            display: flex;
+            gap: 20px
+        }
+
+        .foot-link {
+            font-size: 12px;
+            color: var(--t3);
+            text-decoration: none;
+            transition: color .2s
+        }
+
+        .foot-link:hover {
+            color: var(--g)
+        }
+
+        .foot-link.active {
+            color: var(--g)
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-14px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(22px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        @media(max-width:760px) {
+            nav {
+                padding: 0 20px
+            }
+
+            .doc-wrap {
+                padding: 40px 20px 60px
+            }
+
+            footer {
+                padding: 16px 20px
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg-layer">
+        <div class="bg-blob bb1"></div>
+        <div class="bg-blob bb2"></div>
+        <div class="bg-grid"></div>
+    </div>
+    <div class="page">
+        <nav>
+            <a href="javascript:history.back()" class="nav-logo">
+                <div class="logo-icon">P</div>
+                <div>
+                    <div class="logo-name">Precious Marketing Agency</div>
+                    <div class="logo-sub">Digital Growth Specialists</div>
+                </div>
+            </a>
+            <a href="javascript:history.back()" class="nav-back">← Back to Home</a>
+        </nav>
+        <div class="doc-wrap">
+            <div class="doc-eyebrow">
+                <div class="doc-eyebrow-dash"></div><span class="doc-eyebrow-text">Legal</span>
+            </div>
+            <h1 class="doc-title">Terms of Use</h1>
+            <p class="doc-meta">Last updated: <strong>January 1, 2026</strong> &nbsp;·&nbsp; By accessing our website or
+                services, you agree to these terms.</p>
+            <div class="doc-highlight">
+                <p>Please read these Terms of Use carefully before accessing or using any part of our website or
+                    services. These terms constitute a legally binding agreement between you and Precious Marketing
+                    Agency.</p>
+            </div>
+
+            <div class="doc-section">
+                <h2><span class="sec-num">1</span> Acceptance of Terms</h2>
+                <p>By accessing our website, downloading our materials, or engaging with any of our services, you agree
+                    to be bound by these Terms of Use, our Privacy Policy, and our Disclaimer. If you do not agree with
+                    any part of these terms, you must not use our website or services.</p>
+            </div>
+
+            <div class="doc-section">
+                <h2><span class="sec-num">2</span> Use of Our Website & Content</h2>
+                <p>All content on this website — including text, graphics, logos, blueprints, and other materials — is
+                    the intellectual property of Precious Marketing Agency and is protected by applicable copyright
+                    laws.</p>
+                <ul>
+                    <li>You may download and use our free materials for personal or business use only.</li>
+                    <li>You may not reproduce, redistribute, resell, or commercially exploit any of our content without
+                        prior written permission.</li>
+                    <li>You may not use our content in a way that is misleading, defamatory, or illegal.</li>
+                    <li>You may not attempt to reverse-engineer, scrape, or copy the structure or design of our website.
+                    </li>
+                </ul>
+            </div>
+
+            <div class="doc-section">
+                <h2><span class="sec-num">3</span> Free Resources & Email Consent</h2>
+                <p>By submitting your name and email address through our opt-in forms, you consent to receive our free
+                    resources and to be added to our email marketing list. You will receive educational content,
+                    updates, and promotional offers from Precious Marketing Agency. You may unsubscribe at any time
+                    using the link provided in every email.</p>
+            </div>
+
+            <div class="doc-section">
+                <h2><span class="sec-num">4</span> No Professional Advice</h2>
+                <p>The content provided on this website and in our materials is for educational and informational
+                    purposes only. It does not constitute professional financial, legal, or business advice. Always
+                    consult a qualified professional before making significant business decisions. See our full
+                    Disclaimer for more details.</p>
+            </div>
+
+            <div class="doc-section">
+                <h2><span class="sec-num">5</span> Limitation of Liability</h2>
+                <p>To the maximum extent permitted by law, Precious Marketing Agency, its directors, employees, and
+                    partners shall not be liable for any indirect, incidental, special, or consequential damages arising
+                    from your use of our website or services, including but not limited to lost profits, loss of data,
+                    or business interruption.</p>
+            </div>
+
+            <div class="doc-section">
+                <h2><span class="sec-num">6</span> Third-Party Links</h2>
+                <p>Our website may contain links to third-party websites for your convenience. These links do not
+                    constitute an endorsement of those websites. We are not responsible for the content, privacy
+                    practices, or accuracy of any third-party sites.</p>
+            </div>
+
+            <div class="doc-section">
+                <h2><span class="sec-num">7</span> Modifications</h2>
+                <p>We reserve the right to modify these Terms of Use at any time. Changes will be posted on this page
+                    with an updated date. Your continued use of our website after changes are posted constitutes your
+                    acceptance of the updated terms.</p>
+            </div>
+
+            <div class="doc-section">
+                <h2><span class="sec-num">8</span> Governing Law</h2>
+                <p>These Terms of Use shall be governed by and construed in accordance with the laws of the Federal
+                    Republic of Nigeria. Any disputes shall be subject to the exclusive jurisdiction of the courts of
+                    Nigeria.</p>
+            </div>
+
+            <div class="doc-section">
+                <h2><span class="sec-num">9</span> Contact</h2>
+                <p>For questions about these Terms, contact us at <strong><a href="/cdn-cgi/l/email-protection"
+                            class="__cf_email__"
+                            data-cfemail="24484143454864545641474d4b51574945564f41504d4a430a4a43">[email&#160;protected]</a></strong>
+                    or visit our <a href="contact.html"
+                        style="color:var(--g);text-decoration:none;font-weight:600">Contact Page</a>.</p>
+            </div>
+        </div>
+        <footer>
+            <div class="foot-left">© 2026 Precious Marketing Agency. All rights reserved.</div>
+            <nav class="foot-links">
+                <a href="privacy.html" class="foot-link">Privacy Policy</a>
+                <a href="terms.html" class="foot-link active">Terms of Use</a>
+                <a href="disclaimer.html" class=
