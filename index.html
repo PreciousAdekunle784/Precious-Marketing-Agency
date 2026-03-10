@@ -1878,27 +1878,34 @@
                 window.showOptinError('Please enter a valid email address.'); return;
             }
 
+            // Block duplicate submissions
+            const submitted = JSON.parse(localStorage.getItem('pma_submitted') || '[]');
+            if (submitted.includes(email.toLowerCase())) {
+                window.showOptinError('This email has already been registered. Check your inbox!');
+                return;
+            }
+
             const btn = document.getElementById('optin-btn');
             const orig = btn.innerHTML;
             btn.innerHTML = '<span class="btn-spinner"></span> Sending\u2026';
             btn.disabled = true;
 
             try {
-                // 1. Save lead to Supabase database
+                // 1. Save lead to Supabase — ignore if email already exists
                 const res = await fetch(`${SUPA_URL}/rest/v1/leads`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                         'apikey': SUPA_KEY,
                         'Authorization': `Bearer ${SUPA_KEY}`,
-                        'Prefer': 'return=minimal'
+                        'Prefer': 'return=minimal,resolution=ignore-duplicates'
                     },
                     body: JSON.stringify({ fname, email, source: 'Opt-In Page' })
                 });
-                if (!res.ok) throw new Error(`DB error HTTP ${res.status}`);
+                if (!res.ok && res.status !== 409) throw new Error(`DB error HTTP ${res.status}`);
 
-                // 2. Call edge function to send blueprint email
-                await fetch(`${SUPA_URL}/functions/v1/quick-handler`, {
+                // 2. Always send the email — even if they submitted before
+                const emailRes = await fetch(`${SUPA_URL}/functions/v1/quick-handler`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -1906,8 +1913,13 @@
                     },
                     body: JSON.stringify({ fname, email })
                 });
+                if (!emailRes.ok) throw new Error(`Email error HTTP ${emailRes.status}`);
 
-                // 3. Show success screen regardless of email result (lead is saved)
+                // 3. Save email so same address can't submit again
+                submitted.push(email.toLowerCase());
+                localStorage.setItem('pma_submitted', JSON.stringify(submitted));
+
+                // 4. Show success screen
                 const u = document.getElementById('card-urgency');
                 const p = document.getElementById('report-preview');
                 if (u) u.style.display = 'none';
