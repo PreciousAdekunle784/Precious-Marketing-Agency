@@ -1884,7 +1884,7 @@
             btn.disabled = true;
 
             try {
-                // 1. Save lead to database
+                // 1. Save lead to Supabase database
                 const res = await fetch(`${SUPA_URL}/rest/v1/leads`, {
                     method: 'POST',
                     headers: {
@@ -1895,11 +1895,10 @@
                     },
                     body: JSON.stringify({ fname, email, source: 'Opt-In Page' })
                 });
+                if (!res.ok) throw new Error(`DB error HTTP ${res.status}`);
 
-                if (!res.ok) throw new Error(`HTTP ${res.status}`);
-
-                // 2. Trigger edge function to email the blueprint
-                await fetch(`${SUPA_URL}/functions/v1/send-blueprint`, {
+                // 2. Call edge function to send blueprint email
+                await fetch(`${SUPA_URL}/functions/v1/quick-handler`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -1908,7 +1907,7 @@
                     body: JSON.stringify({ fname, email })
                 });
 
-                // 3. success — hide card sections, show thank you
+                // 3. Show success screen regardless of email result (lead is saved)
                 const u = document.getElementById('card-urgency');
                 const p = document.getElementById('report-preview');
                 if (u) u.style.display = 'none';
