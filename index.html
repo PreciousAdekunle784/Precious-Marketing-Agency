@@ -1566,7 +1566,7 @@
                     <li class="bullet">
                         <div class="b-icon"></div>
                         <div>
-                            <div class="b-title">Why your ads are getting clicks but zero sales — and the exact fix
+                            <div class="b-title">Why your ads are getting clicks but zero sales and the exact fix
                             </div>
                             <div class="b-desc">Most businesses target the right audience with the wrong message. We
                                 reveal the proven ad framework our agency uses to turn cold traffic into paying clients
@@ -1596,7 +1596,8 @@
                     <li class="bullet">
                         <div class="b-icon"></div>
                         <div>
-                            <div class="b-title">How to make every dollar of ad spend generate 3× — 10× returns</div>
+                            <div class="b-title">How to make every dollar of ad spend generate 3&times; &mdash;
+                                10&times; returns</div>
                             <div class="b-desc">The 3-part ROI system our agency runs for clients that eliminates wasted
                                 budget, maximises campaign performance, and turns marketing from a cost into your most
                                 profitable business asset.</div>
@@ -1634,7 +1635,8 @@
                             <circle cx="12" cy="12" r="10" />
                             <polyline points="12 6 12 12 16 14" />
                         </svg>
-                        <span>⚡ Offer expires in <strong id="card-timer">23:47:59</strong> — Grab your free copy
+                        <span>&#x26A1; Offer expires in <strong id="card-timer">23:47:59</strong> &mdash; Grab your free
+                            copy
                             now</span>
                     </div>
 
@@ -1651,7 +1653,7 @@
                             <div class="report-badge"><svg width="9" height="9" viewBox="0 0 24 24" fill="currentColor">
                                     <path
                                         d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z" />
-                                </svg>Free Report — $1999 Value</div>
+                                </svg>Free Report &mdash; $1999 Value</div>
                             <div class="report-title">The Digital Growth Blueprint</div>
                             <div class="report-author">by Precious Marketing Agency</div>
                             <div class="report-value"><span class="val-was">$1999</span><span class="val-now"><svg
@@ -1720,7 +1722,7 @@
                         </div>
 
                         <div class="optin-success" id="optin-success">
-                            <div class="optin-success-icon">🎉</div>
+                            <div class="optin-success-icon">&#x1F389;</div>
                             <div class="optin-success-title">You're In!<br>Check Your Inbox</div>
                             <p class="optin-success-text">Your free Digital Growth Blueprint is on its way. Check your
                                 inbox within the next 60 seconds.</p>
@@ -1751,7 +1753,7 @@
 
         <!-- FOOTER -->
         <footer>
-            <div class="foot-left">© 2026 Precious Marketing Agency. All rights reserved.</div>
+            <div class="foot-left">&copy; 2026 Precious Marketing Agency. All rights reserved.</div>
             <nav class="foot-links">
                 <a href="privacy.html" class="foot-link">Privacy Policy</a>
                 <a href="terms.html" class="foot-link">Terms of Use</a>
@@ -1864,17 +1866,9 @@
             el.textContent = '⚠️ ' + msg;
         };
 
-        // ── 10. SUBMIT — pure fetch() to Supabase REST API. No SDK. No extra download.
-        // ─────────────────────────────────────────────────────────────────────────────
-        // SETUP (one-time, 3 minutes):
-        //  1. Go to https://supabase.com → New Project
-        //  2. In Table Editor → New Table → name it "leads"
-        //     Columns: id (auto), fname (text), email (text), source (text), created_at (timestamptz, default now())
-        //  3. In Settings → API → copy your Project URL and anon/public key
-        //  4. Paste them into the two lines below
-        // ─────────────────────────────────────────────────────────────────────────────
-        const SUPA_URL = 'https://ilnhoxhxqciyeqquzbjj.supabase.co';   // ← paste your Project URL
-        const SUPA_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlsbmhveGh4cWNpeWVxcXV6YmpqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMwOTE5ODEsImV4cCI6MjA4ODY2Nzk4MX0.R0DPlzpY2CWOglJN7Ve70gohBfmrw0SR8hIk_EW-Daw';               // ← paste your anon key
+        // ── 10. SUBMIT
+        const SUPA_URL = 'https://ilnhoxhxqciyeqquzbjj.supabase.co';
+        const SUPA_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlsbmhveGh4cWNpeWVxcXV6YmpqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMwOTE5ODEsImV4cCI6MjA4ODY2Nzk4MX0.R0DPlzpY2CWOglJN7Ve70gohBfmrw0SR8hIk_EW-Daw';
 
         window.submitOptin = async function () {
             const fname = document.getElementById('fname').value.trim();
@@ -1886,10 +1880,11 @@
 
             const btn = document.getElementById('optin-btn');
             const orig = btn.innerHTML;
-            btn.innerHTML = '<span class="btn-spinner"></span> Sending…';
+            btn.innerHTML = '<span class="btn-spinner"></span> Sending\u2026';
             btn.disabled = true;
 
             try {
+                // 1. Save lead to database
                 const res = await fetch(`${SUPA_URL}/rest/v1/leads`, {
                     method: 'POST',
                     headers: {
@@ -1903,7 +1898,17 @@
 
                 if (!res.ok) throw new Error(`HTTP ${res.status}`);
 
-                // success — hide card sections, show thank you
+                // 2. Trigger edge function to email the blueprint
+                await fetch(`${SUPA_URL}/functions/v1/send-blueprint`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${SUPA_KEY}`
+                    },
+                    body: JSON.stringify({ fname, email })
+                });
+
+                // 3. success — hide card sections, show thank you
                 const u = document.getElementById('card-urgency');
                 const p = document.getElementById('report-preview');
                 if (u) u.style.display = 'none';
