@@ -7,25 +7,12 @@
     <title>Free Blueprint — Precious Marketing Agency</title>
     <meta name="description"
         content="Get the exact 7-step digital marketing blueprint that helped 2,400+ Nigerian businesses generate more leads and close more clients in 90 days.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap"
-        rel="stylesheet">
+    <!-- ZERO external font requests. System fonts paint instantly on every device. -->
     <style>
-        *,
-        *::before,
-        *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        html {
-            font-size: 16px;
-            -webkit-text-size-adjust: 100%;
-        }
-
+        /* ── SYSTEM FONT STACK — loads in 0ms, looks great on every Nigerian device ── */
         :root {
+            --font-head: 'Segoe UI', 'SF Pro Display', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+            --font-body: 'Segoe UI', 'SF Pro Text', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
             --g: #00E676;
             --g-dark: #00C15E;
             --g-glow: rgba(0, 230, 118, .18);
@@ -48,8 +35,21 @@
             --shadow-card: 0 24px 64px rgba(0, 0, 0, .5);
         }
 
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            font-size: 16px;
+            -webkit-text-size-adjust: 100%;
+        }
+
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: var(--font-body);
             background: var(--bg);
             color: var(--t1);
             min-height: 100vh;
@@ -57,6 +57,7 @@
             line-height: 1.6;
         }
 
+        /* ── BACKGROUND ── */
         .bg-layer {
             position: fixed;
             inset: 0;
@@ -65,29 +66,53 @@
             overflow: hidden;
         }
 
-        .bg-blob {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(120px);
-            opacity: .35;
-        }
-
+        /* Use CSS-only gradient blobs — no filter:blur on mobile (too slow) */
         .bb1 {
-            width: 700px;
-            height: 700px;
-            background: radial-gradient(circle, rgba(0, 230, 118, .12), transparent 70%);
-            top: -200px;
-            right: -200px;
-            animation: float1 14s ease-in-out infinite;
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(0, 230, 118, .08) 0%, transparent 65%);
+            top: -150px;
+            right: -150px;
+            border-radius: 50%;
+            animation: float1 24s ease-in-out infinite;
+            will-change: transform;
         }
 
         .bb2 {
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(0, 100, 255, .08), transparent 70%);
-            bottom: -100px;
-            left: -150px;
-            animation: float2 18s ease-in-out infinite;
+            position: absolute;
+            width: 380px;
+            height: 380px;
+            background: radial-gradient(circle, rgba(0, 80, 255, .06) 0%, transparent 65%);
+            bottom: -80px;
+            left: -100px;
+            border-radius: 50%;
+            animation: float2 28s ease-in-out infinite;
+            will-change: transform;
+        }
+
+        @keyframes float1 {
+
+            0%,
+            100% {
+                transform: translate(0, 0)
+            }
+
+            50% {
+                transform: translate(-25px, 35px)
+            }
+        }
+
+        @keyframes float2 {
+
+            0%,
+            100% {
+                transform: translate(0, 0)
+            }
+
+            50% {
+                transform: translate(30px, -25px)
+            }
         }
 
         .bg-grid {
@@ -98,27 +123,40 @@
             mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
         }
 
-        @keyframes float1 {
-
-            0%,
-            100% {
-                transform: translate(0, 0) scale(1)
-            }
-
-            50% {
-                transform: translate(-40px, 60px) scale(1.08)
-            }
+        /* ── PARTICLES ── */
+        .particles {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
         }
 
-        @keyframes float2 {
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: var(--g);
+            opacity: 0;
+            animation: particleDrift linear infinite;
+        }
 
-            0%,
-            100% {
-                transform: translate(0, 0) scale(1)
+        @keyframes particleDrift {
+            0% {
+                transform: translateY(100vh) scale(0);
+                opacity: 0;
             }
 
-            50% {
-                transform: translate(50px, -40px) scale(1.06)
+            10% {
+                opacity: .35;
+            }
+
+            90% {
+                opacity: .1;
+            }
+
+            100% {
+                transform: translateY(-20vh) translateX(var(--dx)) scale(1);
+                opacity: 0;
             }
         }
 
@@ -130,7 +168,7 @@
             min-height: 100vh;
         }
 
-        /* ── SCARCITY TICKER ── */
+        /* ── SCARCITY BAR ── */
         .scarcity-bar {
             background: linear-gradient(90deg, #1A0500, #2D0C00, #1A0500);
             border-bottom: 1px solid rgba(255, 100, 50, .25);
@@ -142,7 +180,7 @@
             font-size: 12.5px;
             font-weight: 500;
             color: #FF8C5A;
-            animation: slideDown .4s ease both;
+            animation: slideDown .3s ease both;
         }
 
         .sc-pill {
@@ -155,28 +193,37 @@
             padding: 2px 8px;
             border-radius: 4px;
             flex-shrink: 0;
+            animation: pillPulse 2.5s ease-in-out infinite;
         }
 
         .sc-bar strong {
             color: #FFD0B0;
         }
 
-        .sc-bar span {
-            color: #C4735A;
+        @keyframes pillPulse {
+
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 rgba(255, 87, 34, .5)
+            }
+
+            50% {
+                box-shadow: 0 0 0 5px rgba(255, 87, 34, 0)
+            }
         }
 
         .fire {
-            animation: fireShake .5s ease-in-out infinite alternate;
+            animation: fireShake .6s ease-in-out infinite alternate;
             display: inline-block;
         }
 
         @keyframes fireShake {
             from {
-                transform: rotate(-6deg) scale(1)
+                transform: rotate(-5deg)
             }
 
             to {
-                transform: rotate(6deg) scale(1.1)
+                transform: rotate(5deg)
             }
         }
 
@@ -189,7 +236,7 @@
             align-items: center;
             justify-content: center;
             gap: 16px;
-            animation: slideDown .4s .05s ease both;
+            animation: slideDown .3s .05s ease both;
             flex-wrap: wrap;
         }
 
@@ -217,7 +264,7 @@
         }
 
         .cd-num {
-            font-family: 'Bricolage Grotesque', sans-serif;
+            font-family: var(--font-head);
             font-size: 18px;
             font-weight: 800;
             color: var(--g);
@@ -257,21 +304,47 @@
             flex-shrink: 0;
         }
 
+        .cd-num.flip {
+            animation: flipNum .22s ease;
+        }
+
+        @keyframes flipNum {
+            0% {
+                transform: translateY(0);
+                opacity: 1
+            }
+
+            49% {
+                transform: translateY(-10px);
+                opacity: 0
+            }
+
+            50% {
+                transform: translateY(10px);
+                opacity: 0
+            }
+
+            100% {
+                transform: translateY(0);
+                opacity: 1
+            }
+        }
+
         /* ── NAV ── */
         nav {
             position: sticky;
             top: 0;
             z-index: 50;
-            background: rgba(8, 11, 16, .88);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+            background: rgba(8, 11, 16, .92);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
             border-bottom: 1px solid var(--b1);
             padding: 0 48px;
             height: 64px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            animation: slideDown .5s .1s ease both;
+            animation: slideDown .4s .1s ease both;
             opacity: 0;
         }
 
@@ -289,16 +362,21 @@
             border-radius: var(--radius-sm);
             display: grid;
             place-items: center;
-            font-family: 'Bricolage Grotesque', sans-serif;
+            font-family: var(--font-head);
             font-weight: 800;
             font-size: 17px;
             color: var(--bg);
             box-shadow: 0 0 20px var(--g-glow);
             flex-shrink: 0;
+            transition: transform .3s cubic-bezier(.34, 1.56, .64, 1);
+        }
+
+        .logo-icon:hover {
+            transform: rotate(12deg) scale(1.08);
         }
 
         .logo-name {
-            font-family: 'Bricolage Grotesque', sans-serif;
+            font-family: var(--font-head);
             font-size: 14px;
             font-weight: 700;
             color: var(--t1);
@@ -381,7 +459,7 @@
             }
         }
 
-        /* ── MAIN ── */
+        /* ── MAIN GRID ── */
         main {
             flex: 1;
             display: grid;
@@ -406,7 +484,7 @@
             gap: 10px;
             margin-bottom: 28px;
             opacity: 0;
-            animation: fadeUp .6s .2s ease forwards;
+            animation: fadeUp .5s .15s ease forwards;
         }
 
         .eyebrow-dash {
@@ -426,15 +504,15 @@
         }
 
         .headline {
-            font-family: 'Bricolage Grotesque', sans-serif;
+            font-family: var(--font-head);
             font-weight: 800;
-            font-size: clamp(36px, 4vw, 54px);
+            font-size: clamp(34px, 4vw, 52px);
             line-height: 1.08;
             letter-spacing: -.03em;
             color: var(--t1);
             margin-bottom: 22px;
             opacity: 0;
-            animation: fadeUp .6s .3s ease forwards;
+            animation: fadeUp .5s .22s ease forwards;
         }
 
         .hl-green {
@@ -458,15 +536,38 @@
             border-radius: 2px;
         }
 
+        .hl-cursor {
+            display: inline-block;
+            width: 3px;
+            height: .85em;
+            background: var(--g);
+            margin-left: 4px;
+            vertical-align: middle;
+            border-radius: 2px;
+            animation: cursorBlink .8s ease-in-out infinite;
+        }
+
+        @keyframes cursorBlink {
+
+            0%,
+            100% {
+                opacity: 1
+            }
+
+            50% {
+                opacity: 0
+            }
+        }
+
         .lead {
-            font-size: 16.5px;
+            font-size: 16px;
             font-weight: 400;
             color: var(--t2);
             line-height: 1.75;
             max-width: 500px;
-            margin-bottom: 44px;
+            margin-bottom: 40px;
             opacity: 0;
-            animation: fadeUp .6s .4s ease forwards;
+            animation: fadeUp .5s .3s ease forwards;
         }
 
         .lead strong {
@@ -487,7 +588,7 @@
             font-size: 12.5px;
             color: var(--t2);
             opacity: 0;
-            animation: fadeUp .6s .42s ease forwards;
+            animation: fadeUp .5s .35s ease forwards;
         }
 
         .live-dot-g {
@@ -515,7 +616,7 @@
             gap: 14px;
             margin-bottom: 24px;
             opacity: 0;
-            animation: fadeUp .6s .45s ease forwards;
+            animation: fadeUp .5s .38s ease forwards;
         }
 
         .sd-line {
@@ -533,47 +634,68 @@
             white-space: nowrap;
         }
 
+        /* ── BULLETS ── */
         .bullets {
             list-style: none;
             display: flex;
             flex-direction: column;
             gap: 6px;
-            margin-bottom: 48px;
+            margin-bottom: 44px;
         }
 
         .bullet {
             display: flex;
             align-items: flex-start;
             gap: 14px;
-            padding: 16px 18px;
+            padding: 14px 16px;
             border: 1px solid transparent;
             border-radius: var(--radius-md);
-            transition: background .2s, border-color .25s, transform .2s;
+            transition: background .2s, border-color .2s, transform .18s;
             cursor: default;
             opacity: 0;
-            animation: fadeUp .5s ease forwards;
+            animation: fadeUp .4s ease forwards;
         }
 
         .bullet:nth-child(1) {
-            animation-delay: .5s
+            animation-delay: .44s
         }
 
         .bullet:nth-child(2) {
-            animation-delay: .62s
+            animation-delay: .54s
         }
 
         .bullet:nth-child(3) {
-            animation-delay: .74s
+            animation-delay: .64s
         }
 
         .bullet:nth-child(4) {
-            animation-delay: .86s
+            animation-delay: .74s
         }
 
         .bullet:hover {
             background: var(--s2);
             border-color: var(--b2);
             transform: translateX(4px);
+        }
+
+        .bullet:hover .b-icon {
+            animation: iconWiggle .35s ease;
+        }
+
+        @keyframes iconWiggle {
+
+            0%,
+            100% {
+                transform: rotate(0)
+            }
+
+            25% {
+                transform: rotate(-10deg)
+            }
+
+            75% {
+                transform: rotate(8deg)
+            }
         }
 
         .b-icon {
@@ -599,12 +721,11 @@
 
         .b-desc {
             font-size: 13px;
-            font-weight: 400;
             color: var(--t2);
             line-height: 1.65;
         }
 
-        /* ── SCARCITY SLOT ── */
+        /* ── SCARCITY PROGRESS BAR ── */
         .slots-left {
             display: flex;
             align-items: center;
@@ -615,7 +736,7 @@
             padding: 14px 18px;
             margin-bottom: 24px;
             opacity: 0;
-            animation: fadeUp .6s .88s ease forwards;
+            animation: fadeUp .5s .76s ease forwards;
         }
 
         .slots-bar-wrap {
@@ -643,7 +764,7 @@
             width: 73%;
             background: linear-gradient(90deg, #FF5722, #FF8C5A);
             border-radius: 3px;
-            animation: fillUp 1.4s 1.2s ease both;
+            animation: fillUp 1.2s 1s ease both;
         }
 
         @keyframes fillUp {
@@ -660,6 +781,7 @@
             font-size: 20px;
         }
 
+        /* ── PROOF BAR ── */
         .proof-bar {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -668,11 +790,11 @@
             border-radius: var(--radius-md);
             overflow: hidden;
             opacity: 0;
-            animation: fadeUp .6s 1s ease forwards;
+            animation: fadeUp .5s .85s ease forwards;
         }
 
         .proof-item {
-            padding: 18px 20px;
+            padding: 16px 18px;
             border-right: 1px solid var(--b1);
             transition: background .2s;
         }
@@ -685,8 +807,12 @@
             background: var(--s2);
         }
 
+        .proof-item:hover .proof-num {
+            text-shadow: 0 0 18px rgba(0, 230, 118, .55);
+        }
+
         .proof-num {
-            font-family: 'Bricolage Grotesque', sans-serif;
+            font-family: var(--font-head);
             font-size: 20px;
             font-weight: 800;
             color: var(--g);
@@ -702,10 +828,22 @@
             line-height: 1.3;
         }
 
+        /* ── SCROLL REVEAL ── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity .5s ease, transform .5s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         /* ── FORM COL ── */
         .form-col {
             opacity: 0;
-            animation: fadeUp .7s .25s ease forwards;
+            animation: fadeUp .6s .2s ease forwards;
         }
 
         .form-card {
@@ -715,8 +853,22 @@
             overflow: hidden;
             box-shadow: var(--shadow-card);
             position: relative;
+            animation: formCardGlow 5s ease-in-out 2s infinite;
         }
 
+        @keyframes formCardGlow {
+
+            0%,
+            100% {
+                box-shadow: var(--shadow-card)
+            }
+
+            50% {
+                box-shadow: var(--shadow-card), 0 0 36px 4px rgba(0, 230, 118, .1)
+            }
+        }
+
+        /* shimmer top bar */
         .form-card::before {
             content: '';
             position: absolute;
@@ -724,10 +876,22 @@
             left: 0;
             right: 0;
             height: 3px;
-            background: linear-gradient(90deg, transparent 0%, var(--g) 30%, var(--g-dark) 70%, transparent 100%);
+            background: linear-gradient(90deg, transparent, var(--g), var(--g-dark), var(--g), transparent);
+            background-size: 200% 100%;
+            animation: shimmerBar 3s linear infinite;
         }
 
-        /* ── SPOT COUNTER on card ── */
+        @keyframes shimmerBar {
+            from {
+                background-position: 200% 0
+            }
+
+            to {
+                background-position: -200% 0
+            }
+        }
+
+        /* ── CARD URGENCY ── */
         .card-urgency {
             background: rgba(255, 87, 34, .08);
             border-bottom: 1px solid rgba(255, 87, 34, .18);
@@ -745,6 +909,7 @@
             flex-shrink: 0;
         }
 
+        /* ── REPORT PREVIEW ── */
         .report-preview {
             padding: 26px 30px 22px;
             border-bottom: 1px solid var(--b1);
@@ -767,6 +932,7 @@
             gap: 5px;
             box-shadow: 6px 6px 20px rgba(0, 0, 0, .5), inset 0 1px 0 rgba(255, 255, 255, .2);
             position: relative;
+            animation: bookFloat 4s ease-in-out infinite;
         }
 
         .report-book::before {
@@ -780,8 +946,20 @@
             border-radius: 4px 0 0 4px;
         }
 
+        @keyframes bookFloat {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(-1deg)
+            }
+
+            50% {
+                transform: translateY(-7px) rotate(1deg)
+            }
+        }
+
         .book-letter {
-            font-family: 'Bricolage Grotesque', sans-serif;
+            font-family: var(--font-head);
             font-size: 26px;
             font-weight: 800;
             color: var(--bg);
@@ -830,7 +1008,7 @@
         }
 
         .report-title {
-            font-family: 'Bricolage Grotesque', sans-serif;
+            font-family: var(--font-head);
             font-size: 16px;
             font-weight: 700;
             color: var(--t1);
@@ -865,12 +1043,13 @@
             gap: 4px;
         }
 
+        /* ── FORM BODY ── */
         .form-body {
             padding: 26px 30px 30px;
         }
 
         .form-heading {
-            font-family: 'Bricolage Grotesque', sans-serif;
+            font-family: var(--font-head);
             font-size: 20px;
             font-weight: 800;
             color: var(--t1);
@@ -927,9 +1106,8 @@
             border: 1.5px solid var(--b1);
             border-radius: var(--radius-sm);
             padding: 13px 16px 13px 42px;
-            font-family: 'Inter', sans-serif;
+            font-family: var(--font-body);
             font-size: 14px;
-            font-weight: 400;
             color: var(--t1);
             outline: none;
             transition: border-color .2s, background .2s, box-shadow .2s;
@@ -945,7 +1123,7 @@
             box-shadow: 0 0 0 3px rgba(0, 230, 118, .08);
         }
 
-        /* ── REMAINING SPOTS ── */
+        /* ── SPOTS ROW ── */
         .spots-row {
             display: flex;
             align-items: center;
@@ -980,13 +1158,14 @@
             font-weight: 500;
         }
 
+        /* ── CTA BUTTON ── */
         .cta-btn {
             width: 100%;
             padding: 15px 20px;
             background: var(--g);
             border: none;
             border-radius: var(--radius-sm);
-            font-family: 'Bricolage Grotesque', sans-serif;
+            font-family: var(--font-head);
             font-size: 15px;
             font-weight: 700;
             color: var(--bg);
@@ -1009,8 +1188,8 @@
             left: -100%;
             width: 50%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .22), transparent);
-            transition: left .5s;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .25), transparent);
+            transition: left .45s;
         }
 
         .cta-btn:hover::after {
@@ -1020,7 +1199,7 @@
         .cta-btn:hover {
             background: #1AFFA0;
             transform: translateY(-2px);
-            box-shadow: 0 10px 36px rgba(0, 230, 118, .35);
+            box-shadow: 0 12px 36px rgba(0, 230, 118, .38);
         }
 
         .cta-btn:active {
@@ -1036,7 +1215,7 @@
             border-top-color: var(--bg);
             border-radius: 50%;
             animation: spin .7s linear infinite;
-            flex-shrink: 0
+            flex-shrink: 0;
         }
 
         @keyframes spin {
@@ -1045,17 +1224,18 @@
             }
         }
 
+        /* ── SUCCESS ── */
         .optin-success {
             display: none;
             text-align: center;
-            padding: 48px 32px
+            padding: 48px 32px;
         }
 
         .optin-success-icon {
             font-size: 52px;
             margin-bottom: 16px;
             display: block;
-            animation: successPop .5s cubic-bezier(.34, 1.56, .64, 1) both
+            animation: successPop .45s cubic-bezier(.34, 1.56, .64, 1) both;
         }
 
         @keyframes successPop {
@@ -1071,12 +1251,12 @@
         }
 
         .optin-success-title {
-            font-family: 'Bricolage Grotesque', sans-serif;
+            font-family: var(--font-head);
             font-size: 24px;
             font-weight: 800;
             color: var(--t1);
             margin-bottom: 12px;
-            letter-spacing: -.02em
+            letter-spacing: -.02em;
         }
 
         .optin-success-text {
@@ -1084,7 +1264,7 @@
             color: var(--t2);
             line-height: 1.7;
             max-width: 280px;
-            margin: 0 auto 24px
+            margin: 0 auto 24px;
         }
 
         .optin-success-badge {
@@ -1097,9 +1277,10 @@
             font-size: 12px;
             font-weight: 600;
             padding: 8px 16px;
-            border-radius: 20px
+            border-radius: 20px;
         }
 
+        /* ── MICRO TRUST ── */
         .micro-trust {
             display: flex;
             align-items: center;
@@ -1129,7 +1310,7 @@
             width: 100%;
             padding: 0 48px 64px;
             opacity: 0;
-            animation: fadeUp .6s 1.1s ease forwards;
+            animation: fadeUp .5s .95s ease forwards;
         }
 
         .logos-label {
@@ -1158,7 +1339,7 @@
             background: var(--s1);
             border: 1px solid var(--b1);
             border-radius: 8px;
-            font-family: 'Bricolage Grotesque', sans-serif;
+            font-family: var(--font-head);
             font-size: 13px;
             font-weight: 700;
             color: var(--t3);
@@ -1207,10 +1388,11 @@
             color: var(--g);
         }
 
+        /* ── KEYFRAMES ── */
         @keyframes slideDown {
             from {
                 opacity: 0;
-                transform: translateY(-14px)
+                transform: translateY(-12px)
             }
 
             to {
@@ -1222,7 +1404,7 @@
         @keyframes fadeUp {
             from {
                 opacity: 0;
-                transform: translateY(22px)
+                transform: translateY(20px)
             }
 
             to {
@@ -1231,298 +1413,7 @@
             }
         }
 
-        /* ── FLOATING PARTICLES ── */
-        .particles {
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: 0;
-            overflow: hidden;
-        }
-
-        .particle {
-            position: absolute;
-            border-radius: 50%;
-            background: var(--g);
-            opacity: 0;
-            animation: particleDrift linear infinite;
-        }
-
-        @keyframes particleDrift {
-            0% {
-                transform: translateY(100vh) scale(0);
-                opacity: 0;
-            }
-
-            10% {
-                opacity: .4;
-            }
-
-            90% {
-                opacity: .15;
-            }
-
-            100% {
-                transform: translateY(-20vh) translateX(var(--dx)) scale(1);
-                opacity: 0;
-            }
-        }
-
-        /* ── TYPEWRITER CURSOR ── */
-        .hl-cursor {
-            display: inline-block;
-            width: 3px;
-            height: .85em;
-            background: var(--g);
-            margin-left: 4px;
-            vertical-align: middle;
-            border-radius: 2px;
-            animation: cursorBlink .8s ease-in-out infinite;
-        }
-
-        @keyframes cursorBlink {
-
-            0%,
-            100% {
-                opacity: 1
-            }
-
-            50% {
-                opacity: 0
-            }
-        }
-
-        /* ── ANIMATED NUMBER COUNTERS ── */
-        .proof-num {
-            transition: color .3s;
-        }
-
-        .proof-num.counting {
-            animation: numPop .3s ease;
-        }
-
-        @keyframes numPop {
-            0% {
-                transform: scale(1)
-            }
-
-            50% {
-                transform: scale(1.18)
-            }
-
-            100% {
-                transform: scale(1)
-            }
-        }
-
-        /* ── SCROLL REVEAL ── */
-        .reveal {
-            opacity: 0;
-            transform: translateY(28px);
-            transition: opacity .6s ease, transform .6s ease;
-        }
-
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* ── FORM CARD GLOW RING ── */
-        .form-card {
-            background: var(--s1);
-            border: 1px solid var(--b2);
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            box-shadow: var(--shadow-card), 0 0 0 0 rgba(0, 230, 118, 0);
-            position: relative;
-            animation: formCardGlow 4s ease-in-out 1.5s infinite;
-        }
-
-        @keyframes formCardGlow {
-
-            0%,
-            100% {
-                box-shadow: var(--shadow-card), 0 0 0 0 rgba(0, 230, 118, 0);
-            }
-
-            50% {
-                box-shadow: var(--shadow-card), 0 0 40px 6px rgba(0, 230, 118, .12);
-            }
-        }
-
-        /* ── SHIMMER GRADIENT BAR ── */
-        .form-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, var(--g), var(--g-dark), var(--g), transparent);
-            background-size: 200% 100%;
-            animation: shimmerBar 2.5s linear infinite;
-        }
-
-        @keyframes shimmerBar {
-            from {
-                background-position: 200% 0
-            }
-
-            to {
-                background-position: -200% 0
-            }
-        }
-
-        /* ── MAGNETIC CTA ── */
-        .cta-btn {
-            width: 100%;
-            padding: 15px 20px;
-            background: var(--g);
-            border: none;
-            border-radius: var(--radius-sm);
-            font-family: 'Bricolage Grotesque', sans-serif;
-            font-size: 15px;
-            font-weight: 700;
-            color: var(--bg);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            transition: transform .15s, box-shadow .2s, background .2s;
-            position: relative;
-            overflow: hidden;
-            letter-spacing: -.01em;
-            margin-bottom: 16px;
-            transform-style: preserve-3d;
-        }
-
-        .cta-btn::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 50%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .28), transparent);
-            transition: left .5s;
-        }
-
-        .cta-btn:hover::after {
-            left: 160%;
-        }
-
-        .cta-btn:hover {
-            background: #1AFFA0;
-            transform: translateY(-3px) scale(1.01);
-            box-shadow: 0 14px 40px rgba(0, 230, 118, .4);
-        }
-
-        .cta-btn:active {
-            transform: translateY(0) scale(.99);
-            box-shadow: none;
-        }
-
-        /* ── BOOK FLOAT ── */
-        .report-book {
-            animation: bookFloat 3.5s ease-in-out infinite;
-        }
-
-        @keyframes bookFloat {
-
-            0%,
-            100% {
-                transform: translateY(0) rotate(-1deg);
-            }
-
-            50% {
-                transform: translateY(-8px) rotate(1deg);
-            }
-        }
-
-        /* ── LOGO ICON SPIN ON HOVER ── */
-        .logo-icon {
-            transition: transform .4s cubic-bezier(.34, 1.56, .64, 1);
-        }
-
-        .logo-icon:hover {
-            transform: rotate(15deg) scale(1.1);
-        }
-
-        /* ── BULLET ICON WIGGLE ── */
-        .bullet:hover .b-icon {
-            animation: iconWiggle .4s ease;
-        }
-
-        @keyframes iconWiggle {
-
-            0%,
-            100% {
-                transform: rotate(0)
-            }
-
-            25% {
-                transform: rotate(-12deg)
-            }
-
-            75% {
-                transform: rotate(10deg)
-            }
-        }
-
-        /* ── PROOF BAR COUNT-UP GLOW ── */
-        .proof-item:hover .proof-num {
-            text-shadow: 0 0 20px rgba(0, 230, 118, .6);
-        }
-
-        /* ── SCARCITY BAR PULSE ── */
-        .sc-pill {
-            animation: pillPulse 2s ease-in-out infinite;
-        }
-
-        @keyframes pillPulse {
-
-            0%,
-            100% {
-                box-shadow: 0 0 0 0 rgba(255, 87, 34, .5)
-            }
-
-            50% {
-                box-shadow: 0 0 0 6px rgba(255, 87, 34, 0)
-            }
-        }
-
-        /* ── COUNTDOWN FLIP ── */
-        .cd-num {
-            transition: transform .15s ease, opacity .15s ease;
-        }
-
-        .cd-num.flip {
-            animation: flipNum .25s ease;
-        }
-
-        @keyframes flipNum {
-            0% {
-                transform: translateY(0);
-                opacity: 1;
-            }
-
-            49% {
-                transform: translateY(-12px);
-                opacity: 0;
-            }
-
-            50% {
-                transform: translateY(12px);
-                opacity: 0;
-            }
-
-            100% {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
+        /* ── RESPONSIVE ── */
         @media(max-width:960px) {
             nav {
                 padding: 0 24px;
@@ -1535,7 +1426,7 @@
             main {
                 grid-template-columns: 1fr;
                 padding: 40px 24px 48px;
-                gap: 48px;
+                gap: 40px;
             }
 
             .logos-strip {
@@ -1570,17 +1461,28 @@
                 min-width: 34px;
             }
         }
+
+        /* ── REDUCE MOTION for users who prefer it ── */
+        @media(prefers-reduced-motion:reduce) {
+            * {
+                animation-duration: .01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: .01ms !important;
+            }
+        }
     </style>
 </head>
 
 <body>
+
     <div class="bg-layer" aria-hidden="true">
-        <div class="bg-blob bb1"></div>
-        <div class="bg-blob bb2"></div>
+        <div class="bb1"></div>
+        <div class="bb2"></div>
         <div class="bg-grid"></div>
     </div>
     <div class="particles" id="particles" aria-hidden="true"></div>
     <div class="page">
+
 
 
         <!-- COUNTDOWN BAR -->
@@ -1625,7 +1527,7 @@
                         <polyline points="20 6 9 17 4 12" />
                     </svg>No credit card required</div>
             </div>
-            <a href="#form" class="nav-cta"><span class="status-dot"></span>Get Free Blueprint</a>
+            <a href="#form" class="nav-cta"><span class="status-dot"></span>Get The Blueprint</a>
         </nav>
 
         <!-- MAIN -->
@@ -1647,9 +1549,8 @@
                 <p class="lead">Businesses waste millions on ads, content, and campaigns that simply don't
                     convert. This free blueprint reveals the <strong>exact 7-step growth system</strong> our agency uses
                     to help clients generate consistent leads, dominate their market, and get <strong>maximum ROI from
-                        every marketing dollar they spend.</strong></p>
+                        every marketing naira they spend.</strong></p>
 
-                <!-- LIVE ACTIVITY -->
                 <div class="live-activity">
                     <span class="live-dot-g"></span>
                     <span><em id="live-count">247</em> people are viewing this page right now — <strong>37 free copies
@@ -1665,17 +1566,17 @@
                     <li class="bullet">
                         <div class="b-icon"></div>
                         <div>
-                            <div class="b-title">Why your ads are getting clicks but zero sales and the exact fix
+                            <div class="b-title">Why your ads are getting clicks but zero sales — and the exact fix
                             </div>
-                            <div class="b-desc">Most businesses are targeting the right audience with the wrong message.
-                                We reveal the proven ad framework our agency uses to turn cold traffic into paying
-                                clients consistently month after month.</div>
+                            <div class="b-desc">Most businesses target the right audience with the wrong message. We
+                                reveal the proven ad framework our agency uses to turn cold traffic into paying clients
+                                consistently, month after month.</div>
                         </div>
                     </li>
                     <li class="bullet">
                         <div class="b-icon"></div>
                         <div>
-                            <div class="b-title">The exact funnel structure we build to turn strangers into ₦500k+
+                            <div class="b-title">The exact funnel structure we build to turn strangers into Premium
                                 clients</div>
                             <div class="b-desc">The 5-stage conversion system our agency deploys for clients from
                                 first ad impression to closed deal that makes sales predictable, scalable, and
@@ -1703,7 +1604,6 @@
                     </li>
                 </ul>
 
-                <!-- SCARCITY PROGRESS BAR -->
 
                 <div class="proof-bar reveal" id="proof-bar">
                     <div class="proof-item">
@@ -1728,18 +1628,16 @@
             <!-- RIGHT: FORM -->
             <div class="form-col" id="form">
                 <div class="form-card">
-                    <!-- Card urgency -->
                     <div class="card-urgency" id="card-urgency">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2.5">
                             <circle cx="12" cy="12" r="10" />
                             <polyline points="12 6 12 12 16 14" />
                         </svg>
-                        <span>Offer expires in <strong id="card-timer">23:47:59</strong> — Grab your free copy
+                        <span>⚡ Offer expires in <strong id="card-timer">23:47:59</strong> — Grab your free copy
                             now</span>
                     </div>
 
-                    <!-- Report Preview -->
                     <div class="report-preview" id="report-preview">
                         <div class="report-book">
                             <div class="book-letter">P</div>
@@ -1753,10 +1651,10 @@
                             <div class="report-badge"><svg width="9" height="9" viewBox="0 0 24 24" fill="currentColor">
                                     <path
                                         d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z" />
-                                </svg>Free Report — $2000 Value</div>
+                                </svg>Free Report — $1999 Value</div>
                             <div class="report-title">The Digital Growth Blueprint</div>
                             <div class="report-author">by Precious Marketing Agency</div>
-                            <div class="report-value"><span class="val-was">$2000</span><span class="val-now"><svg
+                            <div class="report-value"><span class="val-was">$1999</span><span class="val-now"><svg
                                         width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                         stroke-width="2.5">
                                         <polyline points="20 6 9 17 4 12" />
@@ -1764,7 +1662,6 @@
                         </div>
                     </div>
 
-                    <!-- Form -->
                     <div class="form-body">
                         <div id="optin-form-content">
                             <h2 class="form-heading">Get Instant Free Access</h2>
@@ -1772,28 +1669,38 @@
                                 <strong>within 60 seconds.</strong> No fluff, no upsells.
                             </p>
                             <div class="fields">
-                                <div><label class="field-label" for="fname">First Name</label>
-                                    <div class="field-input-wrap"><span class="field-icon"><svg width="16" height="16"
-                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <div>
+                                    <label class="field-label" for="fname">First Name</label>
+                                    <div class="field-input-wrap">
+                                        <span class="field-icon"><svg width="16" height="16" viewBox="0 0 24 24"
+                                                fill="none" stroke="currentColor" stroke-width="2">
                                                 <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
                                                 <circle cx="12" cy="7" r="4" />
-                                            </svg></span><input class="field-input" id="fname" type="text"
-                                            placeholder="e.g. Chisom" autocomplete="given-name" /></div>
+                                            </svg></span>
+                                        <input class="field-input" id="fname" type="text" placeholder="e.g. Chisom"
+                                            autocomplete="given-name" />
+                                    </div>
                                 </div>
-                                <div><label class="field-label" for="email">Email Address</label>
-                                    <div class="field-input-wrap"><span class="field-icon"><svg width="16" height="16"
-                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <div>
+                                    <label class="field-label" for="email">Email Address</label>
+                                    <div class="field-input-wrap">
+                                        <span class="field-icon"><svg width="16" height="16" viewBox="0 0 24 24"
+                                                fill="none" stroke="currentColor" stroke-width="2">
                                                 <path
                                                     d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
                                                 <polyline points="22,6 12,13 2,6" />
-                                            </svg></span><input class="field-input" id="email" type="email"
-                                            placeholder="your@email.com" autocomplete="email" /></div>
+                                            </svg></span>
+                                        <input class="field-input" id="email" type="email" placeholder="your@email.com"
+                                            autocomplete="email" />
+                                    </div>
                                 </div>
                             </div>
 
 
-                            <button class="cta-btn" id="optin-btn" type="button" onclick="submitOptin()">Send Me The
-                                Free Blueprint <span class="cta-arrow"></span></button>
+
+                            <button class="cta-btn" id="optin-btn" type="button" onclick="submitOptin()">
+                                Send Me The Blueprint <span></span>
+                            </button>
 
                             <div class="micro-trust">
                                 <div class="mt-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"
@@ -1855,204 +1762,163 @@
     </div>
 
     <script>
-        // ══════════════════════════════════════════
-        //  1. FLOATING PARTICLES
-        // ══════════════════════════════════════════
+        // ── 1. PARTICLES (12 only — lightweight)
         (function () {
-            const container = document.getElementById('particles');
-            const count = 28;
-            for (let i = 0; i < count; i++) {
-                const p = document.createElement('div');
-                p.className = 'particle';
-                const size = Math.random() * 4 + 2;
-                const delay = Math.random() * 18;
-                const duration = Math.random() * 14 + 10;
-                const x = Math.random() * 100;
-                const dx = (Math.random() - 0.5) * 200;
-                p.style.cssText = `
-      width:${size}px; height:${size}px;
-      left:${x}%;
-      --dx:${dx}px;
-      animation-duration:${duration}s;
-      animation-delay:${delay}s;
-      opacity:0;
-    `;
-                container.appendChild(p);
+            const c = document.getElementById('particles');
+            for (let i = 0; i < 12; i++) {
+                const p = document.createElement('div'); p.className = 'particle';
+                const s = Math.random() * 3 + 1.5, x = Math.random() * 100, dx = (Math.random() - .5) * 160;
+                p.style.cssText = `width:${s}px;height:${s}px;left:${x}%;--dx:${dx}px;animation-duration:${Math.random() * 12 + 10}s;animation-delay:${Math.random() * 16}s;`;
+                c.appendChild(p);
             }
         })();
 
-        // ══════════════════════════════════════════
-        //  2. TYPEWRITER — cycling struck words
-        // ══════════════════════════════════════════
+        // ── 2. TYPEWRITER
         (function () {
             const words = ['Hope', 'Pray', 'Wish', 'Expect', 'Assume'];
-            const el = document.getElementById('tw-word');
-            const cursor = document.getElementById('tw-cursor');
-            if (!el) return;
-            let wi = 0, ci = 0, deleting = false;
+            const el = document.getElementById('tw-word'); if (!el) return;
+            let wi = 0, ci = 0, del = false;
             function tick() {
-                const word = words[wi];
-                if (!deleting) {
-                    el.textContent = word.slice(0, ++ci);
-                    if (ci === word.length) { deleting = true; return setTimeout(tick, 1800); }
-                } else {
-                    el.textContent = word.slice(0, --ci);
-                    if (ci === 0) { deleting = false; wi = (wi + 1) % words.length; }
-                }
-                setTimeout(tick, deleting ? 60 : 100);
+                const w = words[wi];
+                if (!del) { el.textContent = w.slice(0, ++ci); if (ci === w.length) { del = true; return setTimeout(tick, 1800); } }
+                else { el.textContent = w.slice(0, --ci); if (ci === 0) { del = false; wi = (wi + 1) % words.length; } }
+                setTimeout(tick, del ? 55 : 95);
             }
-            setTimeout(tick, 1400);
+            setTimeout(tick, 1200);
         })();
 
-        // ══════════════════════════════════════════
-        //  3. SCROLL REVEAL (IntersectionObserver)
-        // ══════════════════════════════════════════
+        // ── 3. SCROLL REVEAL
+        new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+        }, { threshold: 0.1 }).observe(document.getElementById('proof-bar'));
+
+        // ── 4. COUNTDOWN TIMER
         (function () {
-            const obs = new IntersectionObserver((entries) => {
-                entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
-            }, { threshold: 0.15 });
-            document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-        })();
-
-        // ══════════════════════════════════════════
-        //  4. ANIMATED NUMBER COUNTERS (proof bar)
-        // ══════════════════════════════════════════
-        (function () {
-            const targets = [
-                { id: 'pn1', end: 500, suffix: '+', prefix: '' },
-                { id: 'pn2', end: 100, suffix: 'k+', prefix: '$', },
-                { id: 'pn3', end: 98, suffix: '%', prefix: '' },
-                { id: 'pn4', end: 90, suffix: '', prefix: '', label: true },
-            ];
-
-            // Add ids to proof nums
-            const nums = document.querySelectorAll('.proof-num');
-            nums.forEach((el, i) => { if (targets[i]) el.id = targets[i].id; });
-
-            function animateNum(el, target) {
-                const start = performance.now();
-                const duration = 1800;
-                const { end, suffix, prefix, decimals } = target;
-                function step(now) {
-                    const p = Math.min((now - start) / duration, 1);
-                    const ease = 1 - Math.pow(1 - p, 3);
-                    const val = end * ease;
-                    el.textContent = prefix + (decimals ? val.toFixed(decimals) : Math.floor(val).toLocaleString()) + suffix;
-                    el.classList.add('counting');
-                    if (p < 1) requestAnimationFrame(step);
-                    else {
-                        el.textContent = prefix + (decimals ? end.toFixed(decimals) : end.toLocaleString()) + suffix;
-                        el.classList.remove('counting');
-                    }
-                }
-                requestAnimationFrame(step);
-            }
-
-            const proofBar = document.getElementById('proof-bar');
-            if (proofBar) {
-                const obs = new IntersectionObserver((entries) => {
-                    entries.forEach(e => {
-                        if (e.isIntersecting) {
-                            targets.forEach(t => {
-                                const el = document.getElementById(t.id);
-                                if (el) animateNum(el, t);
-                            });
-                            obs.unobserve(e.target);
-                        }
-                    });
-                }, { threshold: 0.3 });
-                obs.observe(proofBar);
-            }
-        })();
-
-        // ══════════════════════════════════════════
-        //  5. MAGNETIC CTA BUTTON
-        // ══════════════════════════════════════════
-        (function () {
-            const btn = document.getElementById('optin-btn');
-            if (!btn) return;
-            btn.addEventListener('mousemove', e => {
-                const r = btn.getBoundingClientRect();
-                const x = e.clientX - r.left - r.width / 2;
-                const y = e.clientY - r.top - r.height / 2;
-                btn.style.transform = `translate(${x * 0.18}px, ${y * 0.18}px) translateY(-3px) scale(1.01)`;
-            });
-            btn.addEventListener('mouseleave', () => {
-                btn.style.transform = '';
-            });
-        })();
-
-        // ══════════════════════════════════════════
-        //  6. COUNTDOWN TIMER with flip animation
-        // ══════════════════════════════════════════
-        (function () {
-            const end = new Date().getTime() + (23 * 3600 + 47 * 60 + 59) * 1000;
-            let prevH = -1, prevM = -1, prevS = -1;
-
-            function flipEl(id) { const el = document.getElementById(id); if (!el) return; el.classList.remove('flip'); void el.offsetWidth; el.classList.add('flip'); }
-            function update() {
-                const diff = Math.max(0, end - Date.now());
-                const h = Math.floor(diff / 3600000);
-                const m = Math.floor((diff % 3600000) / 60000);
-                const s = Math.floor((diff % 60000) / 1000);
-                const pad = n => String(n).padStart(2, '0');
-                if (h !== prevH) { document.getElementById('cd-h').textContent = pad(h); flipEl('cd-h'); prevH = h; }
-                if (m !== prevM) { document.getElementById('cd-m').textContent = pad(m); flipEl('cd-m'); prevM = m; }
-                if (s !== prevS) { document.getElementById('cd-s').textContent = pad(s); flipEl('cd-s'); prevS = s; }
-                const t = `${pad(h)}:${pad(m)}:${pad(s)}`;
+            const end = Date.now() + (23 * 3600 + 47 * 60 + 59) * 1000;
+            let ph = -1, pm = -1, ps = -1;
+            function flip(id) { const e = document.getElementById(id); if (!e) return; e.classList.remove('flip'); void e.offsetWidth; e.classList.add('flip'); }
+            function pad(n) { return String(n).padStart(2, '0'); }
+            function tick() {
+                const d = Math.max(0, end - Date.now());
+                const h = Math.floor(d / 3600000), m = Math.floor((d % 3600000) / 60000), s = Math.floor((d % 60000) / 1000);
+                if (h !== ph) { document.getElementById('cd-h').textContent = pad(h); flip('cd-h'); ph = h; }
+                if (m !== pm) { document.getElementById('cd-m').textContent = pad(m); flip('cd-m'); pm = m; }
+                if (s !== ps) { document.getElementById('cd-s').textContent = pad(s); flip('cd-s'); ps = s; }
+                const t = pad(h) + ':' + pad(m) + ':' + pad(s);
                 const ct = document.getElementById('card-timer'); if (ct) ct.textContent = t;
             }
-            update(); setInterval(update, 1000);
+            tick(); setInterval(tick, 1000);
         })();
 
-        // ══════════════════════════════════════════
-        //  7. LIVE VIEWER COUNT
-        // ══════════════════════════════════════════
+        // ── 5. LIVE VIEWER COUNT
         (function () {
-            let count = 247;
-            function wiggle() {
-                count = Math.max(230, Math.min(290, count + Math.floor(Math.random() * 5) - 2));
-                const lc = document.getElementById('live-count'); if (lc) lc.textContent = count;
-                const ld = document.getElementById('live-dl'); if (ld) ld.textContent = count;
-                setTimeout(wiggle, 4000 + Math.random() * 4000);
+            let n = 247;
+            function go() {
+                n = Math.max(230, Math.min(290, n + Math.floor(Math.random() * 5) - 2));
+                const a = document.getElementById('live-count'), b = document.getElementById('live-dl');
+                if (a) a.textContent = n; if (b) b.textContent = n;
+                setTimeout(go, 5000 + Math.random() * 5000);
             }
-            setTimeout(wiggle, 3000);
+            setTimeout(go, 4000);
         })();
 
-        // ══════════════════════════════════════════
-        //  8. SPOTS COUNTDOWN
-        // ══════════════════════════════════════════
+        // ── 6. SPOTS COUNTDOWN
         (function () {
-            let spots = 37;
-            function drop() {
-                if (spots > 12) { spots--; const el = document.getElementById('spots-num'); if (el) { el.textContent = spots; el.style.animation = 'none'; void el.offsetWidth; el.style.animation = 'numPop .3s ease'; } }
-                setTimeout(drop, 45000 + Math.random() * 60000);
+            let s = 37;
+            function go() {
+                if (s > 12) { s--; const e = document.getElementById('spots-num'); if (e) e.textContent = s; }
+                setTimeout(go, 50000 + Math.random() * 60000);
             }
-            setTimeout(drop, 30000);
+            setTimeout(go, 35000);
         })();
 
+        // ── 7. SCARCITY BAR
+        (function () {
+            let pct = 73;
+            const fill = document.getElementById('slots-fill');
+            const txt = document.getElementById('slots-pct-text');
+            function go() {
+                if (pct >= 96) return;
+                pct = Math.min(96, pct + (Math.random() < .5 ? 1 : 2));
+                if (fill) { fill.style.transition = 'width 1.2s ease'; fill.style.width = pct + '%'; }
+                if (txt) txt.textContent = pct + '% taken';
+                setTimeout(go, 65000);
+            }
+            setTimeout(go, 65000);
+        })();
 
-        // ══════════════════════════════════════════
-        //  9. OPT-IN FORM SUBMIT
-        // ══════════════════════════════════════════
-        function submitOptin() {
-            const fname = document.getElementById('fname').value.trim();
-            const email = document.getElementById('email').value.trim();
-            if (!fname) { showOptinError('Please enter your first name.'); return; }
-            if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showOptinError('Please enter a valid email address.'); return; }
-            document.getElementById('optin-form-content').style.display = 'none';
-            document.querySelector('.card-urgency').style.display = 'none';
-            document.querySelector('.report-preview').style.display = 'none';
-            document.getElementById('optin-success').style.display = 'block';
-        }
-        function showOptinError(msg) {
+        // ── 8. MAGNETIC CTA
+        (function () {
+            const btn = document.getElementById('optin-btn'); if (!btn) return;
+            btn.addEventListener('mousemove', e => {
+                const r = btn.getBoundingClientRect();
+                btn.style.transform = `translate(${(e.clientX - r.left - r.width / 2) * .15}px,${(e.clientY - r.top - r.height / 2) * .15}px) translateY(-2px)`;
+            });
+            btn.addEventListener('mouseleave', () => { btn.style.transform = ''; });
+        })();
+
+        // ── 9. FORM ERROR HELPER
+        window.showOptinError = function (msg) {
             let el = document.getElementById('optin-error');
             if (!el) { el = document.createElement('p'); el.id = 'optin-error'; el.style.cssText = 'color:#FF6B6B;font-size:13px;margin-bottom:10px;font-weight:500;'; document.getElementById('optin-btn').before(el); }
             el.textContent = '⚠️ ' + msg;
-        }
+        };
+
+        // ── 10. SUBMIT — pure fetch() to Supabase REST API. No SDK. No extra download.
+        // ─────────────────────────────────────────────────────────────────────────────
+        // SETUP (one-time, 3 minutes):
+        //  1. Go to https://supabase.com → New Project
+        //  2. In Table Editor → New Table → name it "leads"
+        //     Columns: id (auto), fname (text), email (text), source (text), created_at (timestamptz, default now())
+        //  3. In Settings → API → copy your Project URL and anon/public key
+        //  4. Paste them into the two lines below
+        // ─────────────────────────────────────────────────────────────────────────────
+        const SUPA_URL = 'https://ilnhoxhxqciyeqquzbjj.supabase.co';   // ← paste your Project URL
+        const SUPA_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlsbmhveGh4cWNpeWVxcXV6YmpqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMwOTE5ODEsImV4cCI6MjA4ODY2Nzk4MX0.R0DPlzpY2CWOglJN7Ve70gohBfmrw0SR8hIk_EW-Daw';               // ← paste your anon key
+
+        window.submitOptin = async function () {
+            const fname = document.getElementById('fname').value.trim();
+            const email = document.getElementById('email').value.trim();
+            if (!fname) { window.showOptinError('Please enter your first name.'); return; }
+            if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                window.showOptinError('Please enter a valid email address.'); return;
+            }
+
+            const btn = document.getElementById('optin-btn');
+            const orig = btn.innerHTML;
+            btn.innerHTML = '<span class="btn-spinner"></span> Sending…';
+            btn.disabled = true;
+
+            try {
+                const res = await fetch(`${SUPA_URL}/rest/v1/leads`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'apikey': SUPA_KEY,
+                        'Authorization': `Bearer ${SUPA_KEY}`,
+                        'Prefer': 'return=minimal'
+                    },
+                    body: JSON.stringify({ fname, email, source: 'Opt-In Page' })
+                });
+
+                if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+                // success — hide card sections, show thank you
+                const u = document.getElementById('card-urgency');
+                const p = document.getElementById('report-preview');
+                if (u) u.style.display = 'none';
+                if (p) p.style.display = 'none';
+                document.getElementById('optin-form-content').style.display = 'none';
+                document.getElementById('optin-success').style.display = 'block';
+
+            } catch (err) {
+                console.error(err);
+                btn.innerHTML = orig;
+                btn.disabled = false;
+                window.showOptinError('Something went wrong. Please try again.');
+            }
+        };
     </script>
 </body>
 
-
 </html>
-
