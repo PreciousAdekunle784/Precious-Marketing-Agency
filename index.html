@@ -1919,7 +1919,10 @@
                 submitted.push(email.toLowerCase());
                 localStorage.setItem('pma_submitted', JSON.stringify(submitted));
 
-                // 4. Show success screen
+                // 4. Redirect to sales page after brief delay
+                setTimeout(() => { window.location.href = 'sales.html'; }, 1800);
+
+                // 5. Show success screen
                 const u = document.getElementById('card-urgency');
                 const p = document.getElementById('report-preview');
                 if (u) u.style.display = 'none';
