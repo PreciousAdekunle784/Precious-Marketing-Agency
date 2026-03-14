@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>Precious Marketing Agency | We Guarantee Leads in 90 Days Or We Work For Free</title>
     <meta name="description"
-        content="The only done-for-you digital marketing agency in Nigeria that guarantees measurable results in writing — before you pay a single naira.">
+        content="The only done-for-you digital marketing agency in Nigeria that guarantees measurable results in writing, before you pay a cent.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -60,6 +60,10 @@
             font-family: var(--fb);
             line-height: 1.65;
             overflow-x: hidden;
+        }
+
+        * {
+            -webkit-tap-highlight-color: transparent;
         }
 
         a {
@@ -1962,6 +1966,12 @@
             animation-play-state: paused;
         }
 
+        @media(max-width:768px) {
+            .results-track {
+                animation-duration: 32s;
+            }
+        }
+
         @keyframes rtrack {
             from {
                 transform: translateX(0)
@@ -3186,6 +3196,50 @@
             transform: translateX(0);
         }
 
+        .svc2-btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 16px;
+            padding: 12px 18px;
+            border-radius: 9px;
+            background: var(--bg4);
+            border: 1px solid var(--bdr);
+            font-family: var(--fd);
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--t2);
+            text-decoration: none;
+            transition: border-color .2s, color .2s, background .2s, transform .2s;
+        }
+
+        .svc2-btn:hover {
+            border-color: var(--bdrg);
+            color: var(--g);
+            background: var(--gl);
+            transform: translateX(4px);
+        }
+
+        .svc2-btn span {
+            font-size: 15px;
+            transition: transform .2s;
+        }
+
+        .svc2-btn:hover span {
+            transform: translateX(4px);
+        }
+
+        .svc2-btn-live {
+            border-color: var(--bdrg);
+            color: var(--g);
+            background: var(--gl);
+        }
+
+        .svc2-btn-live:hover {
+            background: rgba(0, 230, 118, .14);
+            border-color: rgba(0, 230, 118, .4);
+        }
+
         /* ── FOOTER ── */
         .site-footer {
             border-top: 1px solid var(--bdr);
@@ -3523,6 +3577,901 @@
             transform: translate(-50%, -50%);
             transition: left .1s ease, top .1s ease;
         }
+
+        /* ══════════════════════════════════════════════════════════════
+   MOBILE RESPONSIVE — full overhaul
+   Breakpoints: 480px (phone), 640px (large phone), 768px (tablet)
+══════════════════════════════════════════════════════════════ */
+
+        /* ── GLOBAL ── */
+        @media(max-width:480px) {
+            .sec {
+                padding: 56px 0;
+            }
+
+            .h2 {
+                font-size: clamp(32px, 9vw, 48px);
+                line-height: 1;
+            }
+
+            .lead {
+                font-size: 15px;
+            }
+
+            .btn {
+                font-size: 15px;
+                padding: 16px 28px;
+                white-space: normal;
+                text-align: center;
+            }
+
+            .btn-lg {
+                font-size: 16px;
+                padding: 18px 32px;
+            }
+
+            .subnote {
+                font-size: 11px;
+            }
+        }
+
+        /* ── URGENCY BAR ── */
+        @media(max-width:480px) {
+            .ubar {
+                padding: 10px 14px;
+            }
+
+            .ubar-in {
+                font-size: 12px;
+                gap: 6px;
+                justify-content: center;
+                text-align: center;
+            }
+
+            .utimer {
+                font-size: 13px;
+                padding: 2px 10px;
+            }
+        }
+
+        /* ── NAV ── */
+        @media(max-width:480px) {
+            .nav-in {
+                padding: 0 16px;
+                height: 60px;
+            }
+
+            .logo-mark {
+                width: 34px;
+                height: 34px;
+                font-size: 17px;
+            }
+
+            .logo-name {
+                font-size: 13px;
+            }
+
+            .logo-sub {
+                display: none;
+            }
+
+            .nav-cta {
+                font-size: 12px;
+                padding: 9px 16px;
+            }
+        }
+
+        /* ── HERO ── */
+        @media(max-width:768px) {
+            .hero {
+                padding: 52px 0 44px;
+            }
+
+            .hero-in {
+                gap: 36px;
+            }
+        }
+
+        @media(max-width:480px) {
+            .hero {
+                padding: 40px 0 36px;
+            }
+
+            .hero-tag {
+                font-size: 10px;
+                padding: 5px 14px;
+                margin-bottom: 16px;
+            }
+
+            .hero-pre {
+                font-size: 12px;
+                margin-bottom: 12px;
+            }
+
+            .hero-h1 {
+                font-size: clamp(48px, 13vw, 72px);
+                margin-bottom: 20px;
+            }
+
+            .hero-body {
+                font-size: 16px;
+                margin-bottom: 28px;
+            }
+
+            .hero-ctas {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .hero-ctas .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .hero-note {
+                font-size: 11px;
+                margin-bottom: 24px;
+            }
+
+            .hero-proof {
+                padding: 14px 16px;
+                gap: 12px;
+                flex-wrap: wrap;
+            }
+
+            .avs span {
+                width: 32px;
+                height: 32px;
+                font-size: 10px;
+            }
+
+            .proof-t {
+                font-size: 12px;
+            }
+        }
+
+        /* ── STAT WALL ── */
+        @media(max-width:480px) {
+            .sw-big {
+                padding: 20px;
+            }
+
+            .sw-n {
+                font-size: 42px;
+            }
+
+            .sw-sm .sw-n {
+                font-size: 30px;
+            }
+
+            .sw-sm {
+                padding: 16px 12px;
+            }
+
+            .sw-l {
+                font-size: 10px;
+                letter-spacing: .1em;
+            }
+
+            .sw-row {
+                gap: 8px;
+            }
+
+            .sw {
+                gap: 8px;
+            }
+        }
+
+        /* ── MARQUEE ── */
+        @media(max-width:480px) {
+            .mq {
+                padding: 14px 0;
+            }
+
+            .mq-label {
+                font-size: 9px;
+                margin-bottom: 10px;
+            }
+
+            .mqi {
+                font-size: 12px;
+            }
+
+            .mq-track {
+                gap: 36px;
+            }
+        }
+
+        /* ── PROBLEM SECTION ── */
+        @media(max-width:640px) {
+            .pain-head {
+                margin-bottom: 36px;
+            }
+
+            .pain-head .h2 {
+                font-size: clamp(34px, 9vw, 52px);
+            }
+
+            .pain-pre {
+                font-size: 12px;
+            }
+
+            .prob {
+                padding: 26px 20px;
+                gap: 14px;
+            }
+
+            .prob-n {
+                font-size: 48px;
+            }
+
+            .prob-t {
+                font-size: 16px;
+            }
+
+            .prob-body {
+                font-size: 13px;
+            }
+        }
+
+        @media(max-width:480px) {
+            .pain-cta {
+                padding: 44px 20px;
+            }
+
+            .pain-cta-h {
+                font-size: clamp(28px, 8vw, 44px);
+            }
+
+            .pain-cta-p {
+                font-size: 14px;
+                margin-bottom: 28px;
+            }
+        }
+
+        /* ── SOLUTION SECTION ── */
+        @media(max-width:480px) {
+            .sol-pts {
+                gap: 10px;
+                margin-bottom: 36px;
+            }
+
+            .spt {
+                padding: 20px 16px;
+                gap: 14px;
+            }
+
+            .spt-num {
+                width: 36px;
+                height: 36px;
+                font-size: 18px;
+            }
+
+            .spt-t {
+                font-size: 15px;
+            }
+
+            .spt-b {
+                font-size: 13px;
+            }
+
+            .funnel-wrap {
+                padding: 24px 16px;
+            }
+
+            .funnel-label {
+                font-size: 10px;
+                margin-bottom: 20px;
+            }
+
+            .fs-dot {
+                width: 44px;
+                height: 44px;
+                font-size: 16px;
+                margin-bottom: 10px;
+            }
+
+            .fs-t {
+                font-size: 11px;
+            }
+
+            .fs-s {
+                font-size: 10px;
+            }
+
+            .fs-r {
+                font-size: 15px;
+            }
+
+            .fs-rl {
+                font-size: 9px;
+            }
+
+            .funnel-outcome {
+                gap: 8px;
+            }
+
+            .fo-item {
+                font-size: 11px;
+            }
+        }
+
+        /* ── SERVICE CARDS ── */
+        @media(max-width:480px) {
+            .svc2-inner {
+                padding: 24px 20px;
+            }
+
+            .svc2-t {
+                font-size: 24px;
+            }
+
+            .svc2-b {
+                font-size: 13px;
+            }
+
+            .svc2-ico {
+                width: 48px;
+                height: 48px;
+                font-size: 22px;
+            }
+
+            .svc2-num {
+                font-size: 44px;
+            }
+
+            .svc2-badge {
+                font-size: 10px;
+                padding: 3px 10px;
+            }
+
+            .svc2-btn {
+                font-size: 12px;
+                padding: 11px 14px;
+            }
+
+            .svc-grid {
+                gap: 12px;
+                margin-top: 36px;
+            }
+        }
+
+        @media(max-width:480px) {
+            .svc-cta {
+                margin-top: 36px !important;
+            }
+
+            .svc-cta .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* ── GUARANTEE ── */
+        @media(max-width:860px) {
+            .guar-grid {
+                gap: 44px;
+                text-align: center;
+            }
+
+            .g-pts {
+                text-align: left;
+            }
+        }
+
+        @media(max-width:480px) {
+            .guar {
+                padding: 64px 0;
+            }
+
+            .gbadge {
+                width: 170px;
+                height: 170px;
+            }
+
+            .gb-n {
+                font-size: 66px;
+            }
+
+            .gb-top,
+            .gb-bot {
+                font-size: 9px;
+            }
+
+            .gb-sub {
+                font-size: 11px;
+            }
+
+            .gpt {
+                font-size: 14px;
+                gap: 12px;
+            }
+
+            .gck {
+                width: 22px;
+                height: 22px;
+                font-size: 11px;
+                flex-shrink: 0;
+            }
+
+            .g-pts {
+                gap: 12px;
+                margin: 22px 0 28px;
+            }
+
+            .guar-eyebrow {
+                font-size: 10px;
+                padding: 4px 12px;
+            }
+        }
+
+        /* ── PROCESS ── */
+        @media(max-width:480px) {
+            .step {
+                padding: 0 8px;
+            }
+
+            .step-n {
+                width: 60px;
+                height: 60px;
+                font-size: 22px;
+            }
+
+            .step-ring {
+                margin-bottom: 16px;
+            }
+
+            .step-t {
+                font-size: 14px;
+                margin-bottom: 8px;
+            }
+
+            .step-b {
+                font-size: 12px;
+            }
+
+            .step-day {
+                font-size: 9px;
+                padding: 3px 10px;
+            }
+
+            .steps {
+                gap: 32px;
+            }
+        }
+
+        /* ── RESULTS ── */
+        @media(max-width:480px) {
+            .rc {
+                min-width: 280px;
+                max-width: 280px;
+            }
+
+            .rc-top {
+                padding: 20px 20px 16px;
+            }
+
+            .rc-num {
+                font-size: 46px;
+            }
+
+            .rc-lbl {
+                font-size: 10px;
+            }
+
+            .rc-body {
+                padding: 16px 20px;
+            }
+
+            .rc-q {
+                font-size: 13px;
+            }
+
+            .rc-name {
+                font-size: 13px;
+            }
+
+            .rc-role {
+                font-size: 10px;
+            }
+
+            .bal {
+                font-size: 8px;
+            }
+
+            .bav {
+                font-size: 12px;
+            }
+
+            .tick {
+                padding: 20px 12px;
+            }
+
+            .tick-n {
+                font-size: 36px;
+            }
+
+            .tick-l {
+                font-size: 10px;
+            }
+        }
+
+        /* ── COMPARISON ── */
+        @media(max-width:640px) {
+            .ch0 {
+                display: none;
+            }
+
+            .cr {
+                flex-direction: column;
+                gap: 0;
+            }
+
+            .cmp-head {
+                display: flex;
+                flex-direction: column;
+                gap: 2px;
+            }
+
+            .ch-us,
+            .ch-them {
+                border-radius: 0;
+            }
+
+            .cr-l {
+                font-size: 13px;
+                padding: 12px 16px;
+                background: var(--bg4);
+                font-weight: 700;
+                color: var(--t1);
+            }
+
+            .cr-u {
+                padding: 10px 16px;
+                font-size: 13px;
+                justify-content: flex-start;
+                border-radius: 0;
+            }
+
+            .cr-t {
+                padding: 10px 16px;
+                font-size: 13px;
+                justify-content: flex-start;
+                border-radius: 0;
+                border-bottom: 2px solid var(--bg);
+            }
+
+            .cr-u::before {
+                content: "✓ PMA: ";
+                opacity: .8;
+                font-weight: 900;
+                margin-right: 4px;
+            }
+
+            .cr-t::before {
+                content: "✗ Others: ";
+                opacity: .7;
+                font-weight: 700;
+                margin-right: 4px;
+            }
+        }
+
+        @media(max-width:480px) {
+
+            .cmp-head,
+            .cr {
+                gap: 1px;
+            }
+
+            .cr {
+                margin-top: 1px;
+            }
+        }
+
+        /* ── BOOKING ── */
+        @media(max-width:860px) {
+            .book-grid {
+                gap: 44px;
+            }
+        }
+
+        @media(max-width:480px) {
+            .book-sec {
+                padding: 64px 0;
+            }
+
+            .bf-list {
+                gap: 10px;
+                margin: 18px 0;
+            }
+
+            .bfr {
+                font-size: 14px;
+                gap: 10px;
+            }
+
+            .bck {
+                width: 20px;
+                height: 20px;
+                font-size: 10px;
+                flex-shrink: 0;
+            }
+
+            .no-price {
+                padding: 14px 16px;
+            }
+
+            .np-h {
+                font-size: 12px;
+            }
+
+            .np-b {
+                font-size: 12px;
+            }
+
+            .form-card {
+                padding: 28px 20px;
+            }
+
+            .form-h {
+                font-size: clamp(22px, 6vw, 32px);
+            }
+
+            .form-s {
+                font-size: 12px;
+                margin-bottom: 22px;
+            }
+
+            .fg label {
+                font-size: 10px;
+            }
+
+            .fg input,
+            .fg select {
+                padding: 12px 14px;
+                font-size: 14px;
+            }
+
+            .fg {
+                margin-bottom: 12px;
+            }
+
+            .form-trust {
+                gap: 12px;
+            }
+
+            .fti {
+                font-size: 10px;
+            }
+
+            .btn-full {
+                font-size: 15px;
+                padding: 18px;
+            }
+        }
+
+        /* ── FAQ ── */
+        @media(max-width:480px) {
+            .fq {
+                padding: 18px 20px;
+                font-size: 14px;
+            }
+
+            .fi-ico {
+                width: 24px;
+                height: 24px;
+                font-size: 15px;
+                flex-shrink: 0;
+            }
+
+            .fa {
+                padding: 0 20px;
+            }
+
+            .fi.open .fa {
+                padding: 12px 20px 20px;
+            }
+
+            .fa {
+                font-size: 13px;
+            }
+        }
+
+        /* ── CLOSING ── */
+        @media(max-width:480px) {
+            .close-wrap {
+                padding: 56px 20px 48px;
+            }
+
+            .close-pre {
+                font-size: 12px;
+                margin-bottom: 14px;
+            }
+
+            .close-h {
+                font-size: clamp(42px, 12vw, 70px);
+                margin-bottom: 20px;
+            }
+
+            .close-body {
+                font-size: 15px;
+                margin-bottom: 16px;
+            }
+
+            .close-body2 {
+                font-size: 15px;
+                margin-bottom: 32px;
+            }
+
+            .close-wrap .btn {
+                width: 100%;
+                justify-content: center;
+                white-space: normal;
+            }
+        }
+
+        /* ── PS SECTION ── */
+        @media(max-width:480px) {
+            .ps-text {
+                font-size: 15px;
+                line-height: 1.85;
+            }
+
+            .ps-lbl {
+                font-size: 19px;
+            }
+
+            .ps-link {
+                font-size: 14px;
+            }
+
+            .ps-item {
+                margin-bottom: 32px;
+            }
+
+            .ps-div {
+                margin-bottom: 40px;
+            }
+        }
+
+        /* ── FOOTER ── */
+        @media(max-width:480px) {
+            .sf-top {
+                padding: 44px 0 36px;
+            }
+
+            .sf-logo-name {
+                font-size: 12px;
+            }
+
+            .sf-tagline {
+                font-size: 12px;
+            }
+
+            .sf-ci {
+                font-size: 11px;
+            }
+
+            .sf-col-h {
+                font-size: 13px;
+                margin-bottom: 14px;
+            }
+
+            .sf-links a {
+                font-size: 12px;
+            }
+
+            .sf-nl-p {
+                font-size: 12px;
+            }
+
+            .sf-form {
+                border-radius: 8px;
+            }
+
+            .sf-input {
+                font-size: 12px;
+                padding: 11px 12px;
+            }
+
+            .sf-go {
+                padding: 11px 14px;
+                font-size: 12px;
+            }
+
+            .sf-badges-row {
+                padding: 20px 0;
+            }
+
+            .sf-badges {
+                gap: 12px;
+            }
+
+            .sfb {
+                padding: 10px 14px;
+                gap: 8px;
+            }
+
+            .sfb-ico {
+                width: 30px;
+                height: 30px;
+                font-size: 14px;
+            }
+
+            .sfb-t {
+                font-size: 11px;
+            }
+
+            .sfb-s {
+                font-size: 9px;
+            }
+
+            .sf-copy {
+                font-size: 11px;
+            }
+
+            .sf-bottom-links a {
+                font-size: 11px;
+            }
+
+            .sf-bottom-links {
+                gap: 14px;
+            }
+        }
+
+        @media(max-width:380px) {
+            .sf-bottom-in {
+                flex-direction: column;
+                gap: 8px;
+                text-align: center;
+            }
+
+            .sf-bottom-links {
+                justify-content: center;
+            }
+        }
+
+        /* ── STICKY FOOTER ── */
+        @media(max-width:480px) {
+            .sfooter {
+                padding: 12px 16px;
+            }
+
+            .sft {
+                font-size: 13px;
+                text-align: center;
+            }
+
+            .sfbtn {
+                font-size: 13px;
+                padding: 12px 24px;
+            }
+        }
+
+        /* ── MISC TOUCH-UPS ── */
+        @media(max-width:480px) {
+
+            /* Section headings */
+            .eyebrow {
+                font-size: 10px;
+                letter-spacing: .18em;
+            }
+
+            /* Comparison table on tiny screens */
+            .cr-l {
+                line-height: 1.35;
+            }
+
+            /* Ticker */
+            .tick:nth-child(odd) {
+                border-right: 1px solid var(--bdr);
+            }
+
+            /* Pain section CTA text */
+            .pain-cta-p {
+                text-align: center;
+            }
+        }
     </style>
 </head>
 
@@ -3573,9 +4522,9 @@
                             stroke-width="3">
                             <polyline points="20 6 9 17 4 12" />
                         </svg>
-                        Blueprint Downloaded &mdash; Your Next Step Is Here
+                        Blueprint Downloaded. Your Next Step Is Here
                     </div>
-                    <span class="hero-pre">Done-For-You Digital Marketing &mdash; Nigeria &amp; Beyond</span>
+                    <span class="hero-pre">Done-For-You Digital Marketing. Nigeria &amp; Beyond</span>
                     <h1 class="hero-h1">
                         We Build The<br>
                         System That<br>
@@ -3584,14 +4533,15 @@
                     </h1>
                     <p class="hero-body">
                         Stop guessing. Stop bleeding ad budget on campaigns that don't convert.
-                        We deploy a <b>complete, done-for-you client acquisition machine</b>,
-                        ads, funnels, email automation, content, and analytics,
-                        we back everything with an <em>iron-clad written guarantee of measurable results in 90
+                        We deploy a <b>complete, done-for-you client acquisition machine</b> —
+                        ads, funnels, email automation, content, and analytics —
+                        and we back everything with an <em>iron-clad written guarantee of measurable results in 90
                             days.</em>
                         Miss the targets? We keep working at our own expense until we deliver. No exceptions.
                     </p>
                     <div class="hero-ctas">
-                        <a href="#booking" class="btn">Claim Your Free Strategy Session <span class="arr"></span></a>
+                        <a href="#booking" class="btn">Claim Your Free Strategy Session <span
+                                class="arr">&#8594;</span></a>
                         <a href="#guarantee" class="btn btn-ghost">See The Guarantee</a>
                     </div>
                     <div class="hero-note">30 minutes &middot; Completely free &middot; No pitch &middot; You leave with
@@ -3678,7 +4628,7 @@
                 <p class="lead" style="margin:0 auto;">
                     Here is the uncomfortable truth nobody in marketing will say to your face.
                     <b>It has nothing to do with your product, your price point, your industry, or the economy.</b>
-                    It has everything to do with the system you are using to get clients
+                    It has everything to do with the system you are using to get clients —
                     or more precisely, the complete absence of one.
                     These four invisible traps are costing you clients, revenue, and growth every single day right now.
                 </p>
@@ -3691,14 +4641,14 @@
                         <div class="prob-t">Your Lead Flow Is Unpredictable and You Cannot Scale What You Cannot Control
                         </div>
                         <div class="prob-body">Great month. Dead month. Great month. Dead month.
-                            This is not a market problem it is a system problem. Without a machine generating
-                            qualified leads
+                            This is not a market problem. It is a system problem. Without a machine generating qualified
+                            leads
                             on autopilot every single day, you are always one slow month away from a real cashflow
                             crisis.
                             <b>You cannot scale what you cannot predict.</b>
                             Chasing referrals and posting on social media is not a growth strategy. It is a survival
                             strategy.
-                            And survival strategies do not build businesses, they keep you permanently exhausted on a
+                            And survival strategies do not build businesses. They keep you permanently exhausted on a
                             treadmill
                             that only speeds up over time.
                         </div>
@@ -3712,8 +4662,9 @@
                         <div class="prob-body">Boosted posts with no targeting. Broad campaigns sending cold traffic to
                             an
                             Instagram page or a generic website with no conversion mechanism.
-                            Every single naira you spend without a tested, optimised funnel behind it is not marketing
-                            it is a donation to your competitors.
+                            Every single dollar you spend without a tested, optimised funnel behind it is not marketing
+                            —
+                            It is a donation to your competitors.
                             <b>The problem is almost never the size of your budget.</b>
                             It is what happens after the click. Right now, the honest answer is probably nothing.
                             No landing page engineered to convert. No follow-up sequence to close. Just vanished
@@ -3747,7 +4698,7 @@
                             Month</div>
                         <div class="prob-body">Research across thousands of sales cycles is clear:
                             <b>80% of sales close after five or more touchpoints.</b>
-                            The average business follows up once, if at all and then gives up and moves on.
+                            The average business follows up once, if at all, and then gives up and moves on.
                             Every single lead you paid to generate is quietly dying in your inbox, your WhatsApp, and
                             your DMs
                             because nobody built the automated system to follow up, educate, and close them.
@@ -3758,17 +4709,17 @@
                 </div>
             </div>
             <div class="pain-cta rv">
-                <h2 class="pain-cta-h">Sound Familiar? Good, Because <span class="g">Every Single One Is 100%
+                <h2 class="pain-cta-h">Sound Familiar? Good. Because <span class="g">Every Single One Is 100%
                         Fixable.</span></h2>
                 <p class="pain-cta-p">
                     The businesses dominating their markets right now are not smarter, better-funded, or luckier than
                     you.
                     <b>They have a working system that solves all four of these problems at the same time.</b>
-                    We build that exact system for you fully deployed in 14 days, with a written guarantee
+                    We build that exact system for you. Fully deployed in 14 days, with a written guarantee
                     it delivers measurable results in 90 or we work for free until it does.
                     Not a promise. A signed contract with your specific outcome targets in it before we begin.
                 </p>
-                <a href="#booking" class="btn">Show Me How We Fix This <span class="arr"></span></a>
+                <a href="#booking" class="btn">Show Me How We Fix This <span class="arr">&#8594;</span></a>
                 <div class="subnote">Free 30-minute strategy call &middot; No commitment &middot; Written plan included
                 </div>
             </div>
@@ -3783,8 +4734,8 @@
                 <h2 class="h2">One Integrated Machine.<br>Every <span class="g">Weapon</span> Working Together.</h2>
                 <p class="lead" style="margin:0 auto 0;">
                     Not a single service plugged in. Not a few disconnected campaigns.
-                    <b>A complete, end-to-end client acquisition system</b> built, tested, and fully operational in 14
-                    days
+                    <b>A complete, end-to-end client acquisition system</b>. Built, tested, and fully operational in 14
+                    days.
                     with every component engineered to work together, compound over time, and deliver measurable results
                     every month.
                 </p>
@@ -3795,8 +4746,8 @@
                     <div class="spt-num">1</div>
                     <div>
                         <div class="spt-t">Deep Market &amp; Audience Intelligence</div>
-                        <div class="spt-b">Before a single naira is spent, we learn your ideal client at a depth most
-                            businesses never reach their exact language, fears, desires, and objections. This
+                        <div class="spt-b">Before a single dollar is spent, we learn your ideal client at a depth most
+                            businesses never reach. Their exact language, fears, desires, and objections. This
                             intelligence makes every campaign feel personally written for each reader. Relevance
                             converts. Generic doesn't.</div>
                     </div>
@@ -3805,7 +4756,7 @@
                     <div class="spt-num">2</div>
                     <div>
                         <div class="spt-t">High-Converting Funnel Architecture</div>
-                        <div class="spt-b">Landing pages, email nurture flows, WhatsApp automations — your complete
+                        <div class="spt-b">Landing pages, email nurture flows, WhatsApp automations. Your complete
                             conversion infrastructure built and load-tested before a single visitor is sent. Every page
                             has one job: move a prospect one step closer to becoming a paying client.</div>
                     </div>
@@ -3826,7 +4777,7 @@
                         <div class="spt-t">Continuous Optimisation &amp; Compounding Returns</div>
                         <div class="spt-b">Weekly performance analysis. Monthly strategy reviews. Continuous
                             split-testing. The businesses that grow fastest never stop optimising. Your results compound
-                            month after month, they don't plateau like every other agency's work does.</div>
+                            month after month. They don't plateau like every other agency's work does.</div>
                     </div>
                 </div>
             </div>
@@ -3897,7 +4848,7 @@
                 <span class="eyebrow">What We Deploy For You</span>
                 <h2 class="h2">Every Tool. Every Channel.<br><span class="g">Fully Executed.</span></h2>
                 <p class="lead">Not strategy advice. Not training videos. Not a template library.
-                    <b>Full done-for-you execution</b> across every channel that drives clients
+                    <b>Full done-for-you execution</b> across every channel that drives clients —
                     from the first impression to the closed deal, handled entirely by our team.
                 </p>
             </div>
@@ -3920,10 +4871,11 @@
                         </div>
                         <div class="svc2-b">We engineer your organic presence so ideal clients find you before they even
                             know your competitors exist. Technical audits, keyword strategy, on-page optimisation, and
-                            authority-building content all executed by our team. <b>Your rankings compound every month
+                            authority-building content. All executed by our team. <b>Your rankings compound every month
                                 without spending on ads.</b></div>
                         <div class="svc2-foot"><span class="svc2-badge">Compounding Monthly</span><span
                                 class="svc2-arrow">&#8594;</span></div>
+                        <a href="seo.html" class="svc2-btn">See Full SEO Service <span>&#8594;</span></a>
                     </div>
                 </div>
 
@@ -3942,13 +4894,14 @@
                         <div class="svc2-bar">
                             <div class="svc2-bar-fill"></div>
                         </div>
-                        <div class="svc2-b">Conversion Rate Optimisation — turning more of your existing traffic into
+                        <div class="svc2-b">Conversion Rate Optimisation. Turning more of your existing traffic into
                             paying clients without increasing ad spend. We audit every page, form, CTA and funnel step.
                             <b>Then A/B test relentlessly until your conversion rate doubles.</b> The fastest ROI of any
                             marketing investment.
                         </div>
                         <div class="svc2-foot"><span class="svc2-badge">A/B Tested Continuously</span><span
                                 class="svc2-arrow">&#8594;</span></div>
+                        <a href="cro.html" class="svc2-btn">See Full CRO Service <span>&#8594;</span></a>
                     </div>
                 </div>
 
@@ -3967,13 +4920,15 @@
                         <div class="svc2-bar">
                             <div class="svc2-bar-fill"></div>
                         </div>
-                        <div class="svc2-b">Search, Display, YouTube, Shopping managed daily by specialists. We write
+                        <div class="svc2-b">Search, Display, YouTube, Shopping. Managed daily by specialists. We write
                             copy, build audiences, engineer bidding strategy, and scale winners while cutting losers.
-                            <b>Every dollar tracked from first click to closed client.</b> Data-led decisions every
+                            <b>Every click tracked from first impression to closed client.</b> Data-led decisions every
                             single day.
                         </div>
                         <div class="svc2-foot"><span class="svc2-badge">Managed Daily</span><span
                                 class="svc2-arrow">&#8594;</span></div>
+                        <a href="ads.html" class="svc2-btn svc2-btn-live">See Full Google Ads Service
+                            <span>&#8594;</span></a>
                     </div>
                 </div>
 
@@ -3992,12 +4947,14 @@
                         <div class="svc2-bar">
                             <div class="svc2-bar-fill"></div>
                         </div>
-                        <div class="svc2-b">Custom, high-converting pages built specifically for your audience not
+                        <div class="svc2-b">Custom, high-converting pages built specifically for your audience. Not
                             templates with your logo dropped in. Engineered with persuasion psychology, A/B tested
                             against real traffic. <b>We find the highest-converting version first, then pour your ad
                                 spend into it.</b></div>
                         <div class="svc2-foot"><span class="svc2-badge">Built &amp; A/B Tested</span><span
                                 class="svc2-arrow">&#8594;</span></div>
+                        <a href="landing-pages.html" class="svc2-btn">See Full Landing Pages Service
+                            <span>&#8594;</span></a>
                     </div>
                 </div>
 
@@ -4016,20 +4973,23 @@
                         <div class="svc2-bar">
                             <div class="svc2-bar-fill"></div>
                         </div>
-                        <div class="svc2-b">Meta campaigns across Facebook and Instagram — cold, warm, and retargeting
+                        <div class="svc2-b">Meta campaigns across Facebook and Instagram. Cold, warm, and retargeting
                             running simultaneously. We write copy, design creatives, build audiences from scratch.
                             <b>You do not touch a single campaign setting.</b> Qualified leads arrive while we run all
                             the performance work.
                         </div>
                         <div class="svc2-foot"><span class="svc2-badge">Full Management</span><span
                                 class="svc2-arrow">&#8594;</span></div>
+                        <a href="facebook-ads.html" class="svc2-btn">See Full Facebook Ads Service
+                            <span>&#8594;</span></a>
                     </div>
                 </div>
 
             </div>
 
             <div class="svc-cta rv" style="margin-top:52px;text-align:center;">
-                <a href="#booking" class="btn btn-lg">Get All 5 Services Working For You <span class="arr"></span></a>
+                <a href="#booking" class="btn btn-lg">Get All 5 Services Working For You <span
+                        class="arr">&#8594;</span></a>
                 <div class="subnote" style="margin-top:12px;">Full done-for-you execution &middot; Results guaranteed in
                     90 days</div>
             </div>
@@ -4074,20 +5034,20 @@
                     <div class="g-pts">
                         <div class="gpt">
                             <div class="gck">&#10003;</div>
-                            <div><b>Your specific, measurable lead targets are written into the contract</b> — agreed
-                                and signed before a single naira of your budget is allocated or touched. No ambiguity.
-                                No interpretation required. Exact numbers, exact timeline, exact commitment.</div>
+                            <div><b>Your specific, measurable lead targets are written into the contract</b>. Agreed and
+                                signed before a single dollar of your budget is allocated or touched. No ambiguity. No
+                                interpretation required. Exact numbers, exact timeline, exact commitment.</div>
                         </div>
                         <div class="gpt">
                             <div class="gck">&#10003;</div>
-                            <div><b>Live performance dashboard accessible to you 24 hours a day from day one</b> — you
-                                see every naira spent and every result generated in real time. No black box. No waiting
+                            <div><b>Live performance dashboard accessible to you 24 hours a day from day one</b>. You
+                                see every dollar spent and every result generated in real time. No black box. No waiting
                                 for a report. No trusting us at our word. Total transparency, always, from the moment we
                                 launch.</div>
                         </div>
                         <div class="gpt">
                             <div class="gck">&#10003;</div>
-                            <div><b>Miss the 90-day target? We continue working at zero additional cost to you</b> — no
+                            <div><b>Miss the 90-day target? We continue working at zero additional cost to you</b>. No
                                 renegotiation, no revised scope, no additional invoices, no time cap on our side. We
                                 work at our own expense until the specific outcome in the contract is fully delivered.
                             </div>
@@ -4096,11 +5056,12 @@
                             <div class="gck">&#10003;</div>
                             <div><b>Clean contract. Zero loopholes. Zero small print.</b> This is not a promotional
                                 offer or a client acquisition tactic. This is the standard agreement every single client
-                                signs with us before we begin — because we built a system we know delivers and the
+                                signs with us before we begin. Because we built a system we know delivers and the
                                 guarantee is simply the proof of that confidence.</div>
                         </div>
                     </div>
-                    <a href="#booking" class="btn">Claim Your Guaranteed Growth Session <span class="arr"></span></a>
+                    <a href="#booking" class="btn">Claim Your Guaranteed Growth Session <span
+                            class="arr">&#8594;</span></a>
                     <div class="subnote" style="margin-top:12px;">30 min &middot; Free &middot; Senior strategist only
                         &middot; Zero obligation &middot; Written plan included</div>
                 </div>
@@ -4118,7 +5079,7 @@
                     No 8-week onboarding. No waiting months for setup to complete. No "we'll get back to you with a
                     timeline."
                     Your first campaign is generating qualified leads <b>within 14 days of your strategy call.</b>
-                    Here is exactly what happens — day by day — from the moment you book.
+                    Here is exactly what happens, day by day, from the moment you book.
                 </p>
             </div>
             <div class="steps">
@@ -4127,8 +5088,8 @@
                         <div class="step-n act">1</div>
                     </div>
                     <div class="step-t">Free Strategy Session</div>
-                    <div class="step-b">30 minutes with the senior strategist who will actually run your account not a
-                        salesperson. <b>Full marketing audit. We identify every lead leak, every wasted naira, every
+                    <div class="step-b">30 minutes with the senior strategist who will actually run your account. Not a
+                        salesperson. <b>Full marketing audit. We identify every lead leak, every wasted dollar, every
                             missed revenue opportunity.</b> You leave with a written plan whether or not you work with
                         us. Zero obligation. Always.</div>
                     <div class="step-day">Day 1</div>
@@ -4140,7 +5101,7 @@
                     <div class="step-t">Custom Plan &amp; Contract</div>
                     <div class="step-b">Your complete growth roadmap built specifically for your market and revenue
                         targets. <b>Audience strategy, funnel architecture, ad plan, content calendar, written KPIs, and
-                            your lead guarantee all agreed and signed</b> before a single dollar is allocated. Total
+                            your lead guarantee. All agreed and signed</b> before a single dollar is allocated. Total
                         clarity before we touch anything.</div>
                     <div class="step-day">Days 2 to 5</div>
                 </div>
@@ -4160,7 +5121,7 @@
                         <div class="step-n">4</div>
                     </div>
                     <div class="step-t">Leads In. Scale Up.</div>
-                    <div class="step-b">Campaigns live. Qualified leads flowing. <b>We optimise weekly eliminating
+                    <div class="step-b">Campaigns live. Qualified leads flowing. <b>We optimise weekly. Eliminating
                             underperformers, scaling winners, testing new angles.</b> Monthly strategy reviews. Full
                         performance reporting. The system compounds in efficiency and output every month. The longer it
                         runs, the better it gets.</div>
@@ -4168,7 +5129,8 @@
                 </div>
             </div>
             <div class="tc rv" style="margin-top:48px;">
-                <a href="#booking" class="btn btn-lg">Start Step 1 — Book Your Free Call <span class="arr"></span></a>
+                <a href="#booking" class="btn btn-lg">Start Step 1. Book Your Free Call <span
+                        class="arr">&#8594;</span></a>
                 <div class="subnote">No payment. No commitment. You leave with a written plan you keep forever.</div>
             </div>
         </div>
@@ -4184,7 +5146,7 @@
                     These are not the best-case outcomes cherry-picked from 500 clients.
                     <b>These are documented, verified results</b> from business owners across Nigeria, South Africa, the
                     UK,
-                    the US, and beyond who came to us frustrated, burned by previous agencies, and bleeding ad spend
+                    the US, and beyond. They came to us frustrated, burned by previous agencies, and bleeding ad spend
                     with nothing
                     to show for it. They left with a system that compounds every single month.
                 </p>
@@ -4308,7 +5270,7 @@
                     <div class="rc-body">
                         <div class="rc-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
                         <div class="rc-q">"Good product but nobody knew about it. <b>Within 8 weeks my inbox was
-                                overwhelmed with warm enquiries</b> — I had to hire two more staff just to handle the
+                                overwhelmed with warm enquiries.</b> Had to hire two more staff just to handle the
                             volume. A problem I am very happy to have."</div>
                         <div class="rc-name">Emeka F.</div>
                         <div class="rc-role">Tech Services &middot; Port Harcourt</div>
@@ -4707,7 +5669,7 @@
                 <h2 class="h2">PMA vs Every Other <span class="g">Agency</span><br>You Have Ever Tried</h2>
                 <p class="lead">
                     You deserve to see this comparison clearly. Here is what every other agency you have spoken to
-                    <b>refused to show you because most of them cannot afford to.</b>
+                    <b>refused to show you. Because most of them cannot afford to.</b>
                 </p>
             </div>
             <div class="cmp rv">
@@ -4758,7 +5720,7 @@
                 </div>
             </div>
             <div class="tc rv" style="margin-top:48px;">
-                <a href="#booking" class="btn btn-lg">I Want the PMA Advantage <span class="arr"></span></a>
+                <a href="#booking" class="btn btn-lg">I Want the PMA Advantage <span class="arr">&#8594;</span></a>
             </div>
         </div>
     </section>
@@ -4776,7 +5738,7 @@
                     <p class="lead" style="margin-bottom:0;">
                         This is <b>not a sales call.</b> It is a genuine working session with the senior strategist who
                         would
-                        actually manage your account — not a salesperson whose job is to close you.
+                        actually manage your account. Not a salesperson whose job is to close you.
                         We audit your current marketing in real time, find every place you are bleeding clients and
                         revenue,
                         and map your first 90 days of growth in detail.
@@ -4786,27 +5748,27 @@
                     <div class="bf-list">
                         <div class="bfr">
                             <div class="bck">&#10003;</div>
-                            <div><b>Full marketing audit</b> — we find every lead leak and every wasted naira in your
+                            <div><b>Full marketing audit</b>: we find every lead leak and every wasted dollar in your
                                 current strategy, and show you exactly how to fix them</div>
                         </div>
                         <div class="bfr">
                             <div class="bck">&#10003;</div>
-                            <div><b>Custom 90-day written growth plan</b> — specific to your business and audience.
-                                Yours to keep forever, regardless of what you decide after the call</div>
+                            <div><b>Custom 90-day written growth plan</b>: specific to your business and audience. Yours
+                                to keep forever, regardless of what you decide after the call</div>
                         </div>
                         <div class="bfr">
                             <div class="bck">&#10003;</div>
-                            <div><b>Industry-specific funnel strategy</b> — built from scratch for your exact market,
-                                not a generic template adjusted with your logo dropped in</div>
+                            <div><b>Industry-specific funnel strategy</b>: built from scratch for your exact market, not
+                                a generic template adjusted with your logo dropped in</div>
                         </div>
                         <div class="bfr">
                             <div class="bck">&#10003;</div>
-                            <div><b>Transparent investment discussion</b> — every deliverable, every expected outcome,
+                            <div><b>Transparent investment discussion</b>: every deliverable, every expected outcome,
                                 every number laid out clearly before you commit to anything</div>
                         </div>
                         <div class="bfr">
                             <div class="bck">&#10003;</div>
-                            <div><b>Senior strategist only, zero pressure</b> — the actual expert who will run your
+                            <div><b>Senior strategist only, zero pressure</b>: the actual expert who will run your
                                 account, not a closer reading from a qualification script</div>
                         </div>
                     </div>
@@ -4875,8 +5837,8 @@
                         <div id="book-success">
                             <div class="success-ico">&#127881;</div>
                             <div class="success-h">You're In!</div>
-                            <div class="success-p">Redirecting to your calendar now...<br><br>Check your inbox —
-                                confirmation is on its way. Our team will reach out within 24 hours to confirm your slot
+                            <div class="success-p">Redirecting to your calendar now...<br><br>Check your inbox.
+                                Confirmation is on its way. Our team will reach out within 24 hours to confirm your slot
                                 and share everything you need to prepare for a valuable session.</div>
                         </div>
                     </div>
@@ -4900,7 +5862,7 @@
                     <div class="fa">PMA works with serious business owners who have a proven product or service and are
                         ready to invest in predictable, scalable, measurable growth. If you are frustrated with
                         inconsistent results, burned by agencies who took your money and showed you impressions, and
-                        want a team that is <b>contractually accountable to measurable outcomes</b> — this was built for
+                        want a team that is <b>contractually accountable to measurable outcomes</b>. This was built for
                         you. We work across Nigeria, South Africa, UK, US, Ghana, Kenya, and beyond.</div>
                 </div>
                 <div class="fi">
@@ -4910,7 +5872,7 @@
                     <div class="fa">We discuss your specific situation on the strategy call and give you an <b>honest,
                             personalised recommendation</b> based on your market, goals, and the growth speed you are
                         targeting. We never push clients to spend beyond what makes clear commercial sense at their
-                        current stage. Your recommendation will be built around your business — not around a minimum
+                        current stage. Your recommendation will be built around your business. Not around a minimum
                         package we want to sell.</div>
                 </div>
                 <div class="fi">
@@ -4920,8 +5882,8 @@
                     <div class="fa"><b>14 days from signing is our standard.</b> This covers full audience research,
                         complete funnel build, ad creative production, email and WhatsApp automation setup, and full
                         campaign configuration. For simpler scopes we have moved in 7 days. Every week without a working
-                        funnel is compounding revenue lost — speed matters as much to us as it does to you, which is why
-                        we eliminated the 6-to-8-week agency timeline entirely.</div>
+                        funnel is compounding revenue lost. Speed matters as much to us as it does to you, which is why
+                        we eliminated the long agency setup timeline entirely.</div>
                 </div>
                 <div class="fi">
                     <div class="fq" onclick="tFaq(this)">How does the 90-day guarantee actually work?<div
@@ -4929,7 +5891,7 @@
                     </div>
                     <div class="fa"><b>Before we start:</b> we agree in writing on specific, measurable lead targets
                         based on your industry, ad spend, and market. Those targets go directly into your signed
-                        contract — not a verbal agreement. <b>If we miss within 90 days:</b> we continue working at zero
+                        contract. Not a verbal agreement. <b>If we miss within 90 days:</b> we continue working at zero
                         additional cost until the contract targets are fully delivered. No time cap. No renegotiation.
                         No additional invoices. We keep going because we built a system we know delivers.</div>
                 </div>
@@ -4940,15 +5902,15 @@
                     <div class="fa">Minimal, by deliberate design. After a thorough onboarding where we learn your
                         business, brand voice, ideal client, and goals in depth, we handle all execution independently.
                         <b>You invest approximately 2 hours per month</b> reviewing performance reports and attending
-                        monthly strategy calls. Every other element — ad management, content, funnel optimisation, email
-                        automation, analytics — is handled entirely by our team, every day.
+                        monthly strategy calls. Every other element: ad management, content, funnel optimisation, email
+                        automation, analytics. All handled entirely by our team, every day.
                     </div>
                 </div>
                 <div class="fi">
                     <div class="fq" onclick="tFaq(this)">What actually happens on the free strategy call?<div
                             class="fi-ico">+</div>
                     </div>
-                    <div class="fa">30 minutes with the senior strategist who would actually run your account — <b>not a
+                    <div class="fa">30 minutes with the senior strategist who would actually run your account. <b>Not a
                             salesperson, not a closer, not a junior consultant reading from a script.</b> The actual
                         expert. We audit your current marketing, find your growth leaks, benchmark your results against
                         industry standards, and present a clear written plan. The call is genuinely valuable whether or
@@ -4959,9 +5921,9 @@
                         </div>
                     </div>
                     <div class="fa">Because every engagement is custom-scoped for that specific business, market, and
-                        growth goal. Displaying a flat price would mean offering a flat, one-size-fits-all solution —
-                        and that is not how we operate. <b>Showing you a price before understanding your situation would
-                            be like a doctor prescribing medication before examining the patient.</b> Investment is
+                        growth goal. Displaying a flat price would mean offering a flat, one-size-fits-all solution.
+                        That is not how we operate. <b>Showing you a price before understanding your situation would be
+                            like a doctor prescribing medication before examining the patient.</b> Investment is
                         discussed with complete transparency on your call. Every number. Every deliverable. Before you
                         commit to anything.</div>
                 </div>
@@ -4970,11 +5932,11 @@
                             class="fi-ico">+</div>
                     </div>
                     <div class="fa">A single in-house hire covers one or two disciplines at most. PMA deploys a <b>full
-                            team — senior strategist, conversion copywriter, creative designer, paid media buyer, and
-                            analytics specialist</b> — all with proven systems from hundreds of campaigns, available
-                        from day one with zero ramp-up. You also get a results guarantee, which no individual employee
-                        can ever offer. And a team with cross-industry experience rather than one person learning on
-                        your budget.</div>
+                            team: senior strategist, conversion copywriter, creative designer, paid media buyer, and
+                            analytics specialist</b>. All with proven systems from hundreds of campaigns, available from
+                        day one with zero ramp-up. You also get a results guarantee, which no individual employee can
+                        ever offer. And a team with cross-industry experience rather than one person learning on your
+                        budget.</div>
                 </div>
             </div>
         </div>
@@ -4990,7 +5952,7 @@
         <p class="close-body">
             Every business owner who reads this page falls into one of two categories.
             The first closes this tab and tells themselves they will come back to it when things slow down.
-            They return six months from now in exactly the same position — same cashflow pressure,
+            They return six months from now in exactly the same position. Same cashflow pressure,
             same inconsistent leads, same frustration, same excuses. Not because they lack the capability.
             <b>Because they never made the decision.</b>
         </p>
@@ -4999,7 +5961,7 @@
             numbers, not the fear.
             In 90 days their business looks completely different. Which one are you?
         </p>
-        <a href="#booking" class="btn btn-lg">I'm Ready — Book My Free Call Now <span class="arr">&#8594;</span></a>
+        <a href="#booking" class="btn btn-lg">Book My Free Call Now <span class="arr">&#8594;</span></a>
         <div class="subnote" style="margin-top:16px;">30 seconds to book &middot; Free &middot; No obligation &middot;
             Results guaranteed in writing &middot; Written plan included</div>
     </div>
@@ -5019,8 +5981,8 @@
                 you still leave with more clarity on your growth path than you had before you found this page.
                 What exactly do you have to lose?
                 <br><br>
-                <a href="#booking" class="ps-link">Book your free strategy session now — before this month's slots are
-                    gone </a>
+                <a href="#booking" class="ps-link">Book your free strategy session now, before this month's slots are
+                    gone &#8594;</a>
             </p>
         </div>
         <div class="ps-item">
@@ -5028,16 +5990,16 @@
                 <span class="ps-lbl">P.P.S.</span>
                 Remember: this is the <em>only marketing agency</em> that will put your specific, measurable lead
                 guarantee
-                directly into a signed contract before we touch a single naira of your budget.
+                directly into a signed contract before we touch a single dollar of your budget.
                 <b>If we do not deliver the agreed results within 90 days, we keep working at our own expense until we
                     do.</b>
                 No other agency does this. Not because they do not want to. Because they cannot afford to.
                 We can afford to because we have deployed this system over 500 times across three continents
                 and we know exactly what it delivers in each market.
-                The guarantee exists because the track record backs it up — not the other way around.
+                The guarantee exists because the track record backs it up. Not the other way around.
                 <br><br>
                 <a href="#booking" class="ps-link">Click here to claim your guaranteed growth session right now
-                </a>
+                    &#8594;</a>
             </p>
         </div>
         <div class="ps-item">
@@ -5055,7 +6017,7 @@
                 <b>The call is free. The plan is free.
                     The only thing that costs you anything is doing nothing.</b>
                 <br><br>
-                <a href="#booking" class="ps-link">This is your final reminder. Book the call. Right now.</a>
+                <a href="#booking" class="ps-link">This is your final reminder. Book the call. Right now. &#8594;</a>
             </p>
         </div>
     </div>
@@ -5077,7 +6039,9 @@
                         <div class="sf-contact">
                             <div class="sf-ci">&#128205; Lagos, Nigeria</div>
                             <div class="sf-ci">&#128231; <a
-                                    href="mailto:hello@preciousmarketingagency.org">hello@preciousmarketingagency.org</a>
+                                    href="/cdn-cgi/l/email-protection#5d35383131321d2d2f383e3432282e303c2f36382934333a3c3a38333e2473322f3a"><span
+                                        class="__cf_email__"
+                                        data-cfemail="5f373a3333301f2f2d3a3c36302a2c323e2d343a2b3631383e383a313c2671302d38">[email&#160;protected]</span></a>
                             </div>
                         </div>
                         <div class="sf-socials">
@@ -5169,6 +6133,41 @@
             </div>
         </div>
 
+        <!-- Partner badges -->
+        <div class="sf-badges-row">
+            <div class="wrap">
+                <div class="sf-badges">
+                    <div class="sfb">
+                        <div class="sfb-ico">G</div>
+                        <div>
+                            <div class="sfb-t">Google</div>
+                            <div class="sfb-s">Partner</div>
+                        </div>
+                    </div>
+                    <div class="sfb">
+                        <div class="sfb-ico sfb-meta">&#8734;</div>
+                        <div>
+                            <div class="sfb-t">Meta</div>
+                            <div class="sfb-s">Business Partner</div>
+                        </div>
+                    </div>
+                    <div class="sfb">
+                        <div class="sfb-ico sfb-klaviyo">K</div>
+                        <div>
+                            <div class="sfb-t">Klaviyo</div>
+                            <div class="sfb-s">Partner</div>
+                        </div>
+                    </div>
+                    <div class="sfb">
+                        <div class="sfb-ico sfb-semrush">S</div>
+                        <div>
+                            <div class="sfb-t">SEMrush</div>
+                            <div class="sfb-s">Certified Agency</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- Bottom bar -->
         <div class="sf-bottom">
@@ -5189,9 +6188,10 @@
 
     <div class="sfooter" id="sf">
         <div class="sft"><b>Limited strategy call slots remaining this month.</b> Book now before they are gone.</div>
-        <a href="#booking" class="sfbtn">Book Your Free Call Now </a>
+        <a href="#booking" class="sfbtn">Book Your Free Call Now &#8594;</a>
     </div>
 
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script>
         // TIMER
         (function () {
@@ -5322,9 +6322,15 @@
             const el = document.getElementById('sf-email');
             const msg = document.getElementById('sf-nl-msg');
             const v = el.value.trim();
-            if (!v || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) { msg.textContent = 'Please enter a valid email.'; msg.style.color = '#FF3B3B'; return; }
-            el.value = ''; msg.textContent = '&#10003; You are in! First tip lands in your inbox shortly.'; msg.style.color = 'var(--g)';
-            msg.innerHTML = '&#10003; You are in! First tip lands in your inbox shortly.';
+            if (!v || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) { msg.textContent = 'Please enter a valid email address.'; msg.style.color = 'var(--red)'; return; }
+            fetch('https://ilnhoxhxqciyeqquzbjj.supabase.co/rest/v1/leads', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlsbmhveGh4cWNpeWVxcXV6YmpqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMwOTE5ODEsImV4cCI6MjA4ODY2Nzk4MX0.R0DPlzpY2CWOglJN7Ve70gohBfmrw0SR8hIk_EW-Daw', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlsbmhveGh4cWNpeWVxcXV6YmpqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMwOTE5ODEsImV4cCI6MjA4ODY2Nzk4MX0.R0DPlzpY2CWOglJN7Ve70gohBfmrw0SR8hIk_EW-Daw', 'Prefer': 'return=minimal,resolution=ignore-duplicates' },
+                body: JSON.stringify({ email: v, source: 'newsletter' })
+            }).catch(() => { });
+            msg.textContent = 'You are in! Growth tips coming your way.';
+            msg.style.color = 'var(--g)';
+            el.value = '';
         }
     </script>
 </body>
