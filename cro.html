@@ -520,7 +520,7 @@
 
         @media(max-width:900px) {
             .nav-links {
-                display: none;
+                display: none !important;
             }
         }
 
@@ -4460,12 +4460,13 @@
             color: var(--g);
         }
 
+
         /* ═══════════════════════════════════════════════════════
-   SENIOR MOBILE RESPONSIVE PATCH — All Service Pages
-   Breakpoints: 960px → 768px → 640px → 480px → 380px
+   CRO PAGE — COMPLETE MOBILE RESPONSIVE PATCH
+   Breakpoints: 960 → 768 → 640 → 480 → 380
 ═══════════════════════════════════════════════════════ */
 
-        /* ── HAMBURGER BUTTON ── */
+        /* Hamburger button — hidden by default */
         .ham {
             display: none;
             flex-direction: column;
@@ -4507,16 +4508,13 @@
             transform: translateY(-7px) rotate(-45deg);
         }
 
-        /* ── MOBILE DRAWER ── */
+        /* Mobile drawer */
         .mob-menu {
             display: none;
             position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
+            inset: 0;
             z-index: 299;
-            background: rgba(5, 7, 10, .96);
+            background: rgba(5, 7, 10, .97);
             backdrop-filter: blur(20px);
             flex-direction: column;
             align-items: center;
@@ -4531,7 +4529,7 @@
 
         .mob-menu a {
             font-family: var(--fh);
-            font-size: clamp(28px, 7vw, 44px);
+            font-size: clamp(26px, 7vw, 44px);
             color: var(--t1);
             text-decoration: none;
             letter-spacing: .04em;
@@ -4548,23 +4546,8 @@
             color: var(--g);
         }
 
-        .mob-menu a:last-child {
+        .mob-menu a:last-of-type {
             border-bottom: none;
-        }
-
-        .mob-menu .mob-cta {
-            margin-top: 20px;
-            background: var(--g);
-            color: #05070A;
-            font-family: var(--fb);
-            font-size: 16px;
-            font-weight: 900;
-            padding: 16px 40px;
-            border-radius: 10px;
-            border: none;
-            letter-spacing: .02em;
-            border-bottom: none;
-            width: auto;
         }
 
         .mob-close {
@@ -4589,9 +4572,29 @@
             background: rgba(255, 255, 255, .06);
         }
 
+        .mob-cta {
+            margin-top: 20px;
+            background: var(--g);
+            color: #05070A;
+            font-family: var(--fb);
+            font-size: 16px;
+            font-weight: 900;
+            padding: 16px 40px;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            letter-spacing: .02em;
+            transition: background .2s;
+        }
+
+        .mob-cta:hover {
+            background: var(--g2);
+        }
+
+        /* ── 960px: show hamburger, hide desktop nav ── */
         @media(max-width:960px) {
             .ham {
-                display: flex;
+                display: flex !important;
             }
 
             .nav-links {
@@ -4599,10 +4602,13 @@
             }
 
             .nav-cta {
-                display: none;
+                display: none !important;
             }
 
-            /* HERO — single column */
+            .nav-in {
+                padding: 0 20px !important;
+            }
+
             .hero {
                 padding: 52px 0 44px;
             }
@@ -4632,33 +4638,21 @@
                 justify-content: center;
             }
 
-            .hero-trust {
-                gap: 12px;
-            }
-
-            /* WRAP padding */
             .wrap {
                 padding-left: 20px !important;
                 padding-right: 20px !important;
             }
 
-            .nav-in {
-                padding: 0 20px !important;
-            }
-
-            /* BOOK LAYOUT */
             .book-layout {
                 grid-template-columns: 1fr !important;
                 gap: 36px !important;
             }
 
-            /* OFFER LAYOUT */
             .offer-in {
                 grid-template-columns: 1fr !important;
                 gap: 36px !important;
             }
 
-            /* GUARANTEE */
             .guar-grid {
                 grid-template-columns: 1fr !important;
                 gap: 36px !important;
@@ -4673,50 +4667,35 @@
             .g-pts {
                 text-align: left;
             }
-
-            /* PROCESS */
-            .proc-steps {
-                grid-template-columns: 1fr 1fr !important;
-                gap: 20px !important;
-            }
         }
 
+        /* ── 768px ── */
         @media(max-width:768px) {
-
-            /* HERO */
             .hero {
                 padding: 44px 0 36px;
             }
 
-            .sw-row {
+            .tgrid {
                 grid-template-columns: 1fr 1fr !important;
             }
 
-            /* CAMPS */
-            .camp-grid {
+            .mech-layers {
                 grid-template-columns: 1fr !important;
             }
 
-            /* PROB GRID */
-            .prob-grid {
+            .ovn {
                 grid-template-columns: 1fr !important;
             }
 
-            /* RESULTS scrolling track */
-            .results-wrap {
-                overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
+            .abt-grid {
+                grid-template-columns: 1fr !important;
             }
 
-            .results-track {
-                gap: 16px !important;
+            .cta-bar {
+                flex-direction: column !important;
+                text-align: center;
             }
 
-            .rc {
-                min-width: 280px;
-            }
-
-            /* COMP TABLE */
             .comp-wrap {
                 overflow-x: auto;
                 -webkit-overflow-scrolling: touch;
@@ -4726,55 +4705,22 @@
             .comp-row {
                 min-width: 560px;
             }
-
-            /* OVN */
-            .ovn {
-                grid-template-columns: 1fr !important;
-            }
-
-            /* PROCESS */
-            .proc-steps {
-                grid-template-columns: 1fr !important;
-            }
-
-            /* TGRID */
-            .tgrid {
-                grid-template-columns: 1fr 1fr !important;
-            }
-
-            /* MECH LAYERS */
-            .mech-layers {
-                grid-template-columns: 1fr !important;
-            }
-
-            /* CTA BAR */
-            .cta-bar {
-                flex-direction: column !important;
-                text-align: center;
-            }
-
-            /* CLOSE */
-            .close-h {
-                font-size: clamp(34px, 9vw, 56px);
-            }
         }
 
+        /* ── 640px ── */
         @media(max-width:640px) {
-
-            /* TYPOGRAPHY */
             .h2 {
-                font-size: clamp(30px, 9vw, 48px) !important;
+                font-size: clamp(28px, 9vw, 46px) !important;
             }
 
             .hero-h1 {
-                font-size: clamp(38px, 11vw, 60px) !important;
+                font-size: clamp(36px, 11vw, 58px) !important;
             }
 
             .agit-h {
-                font-size: clamp(30px, 9vw, 48px) !important;
+                font-size: clamp(28px, 9vw, 46px) !important;
             }
 
-            /* SECTIONS */
             .sec {
                 padding: 56px 0 !important;
             }
@@ -4787,87 +4733,73 @@
                 padding: 56px 0 !important;
             }
 
-            /* TGRID */
             .tgrid {
                 grid-template-columns: 1fr !important;
             }
 
-            /* BA BLOCK */
-            .ba-block {
-                grid-template-columns: 1fr !important;
-            }
-
-            .ba-arrow {
-                transform: rotate(90deg);
-            }
-
-            /* CR ROW */
-            .cr-row {
-                grid-template-columns: 1fr 1fr !important;
-            }
-
-            /* FOOTER GRID */
             .sf-grid {
                 grid-template-columns: 1fr !important;
             }
 
-            /* OFFER BADGE */
-            .offer-badge {
-                padding: 28px 20px !important;
-            }
-
-            .ob-value {
-                font-size: clamp(44px, 12vw, 72px) !important;
-            }
-
-            /* FORM */
             .frow {
                 grid-template-columns: 1fr !important;
-                gap: 12px;
             }
 
             .form-card {
                 padding: 24px 20px !important;
             }
 
-            /* SFOOTER */
             .sfooter {
                 flex-direction: column !important;
                 gap: 10px;
                 padding: 14px 20px !important;
             }
 
-            /* UBAR */
             .ubar-in {
                 font-size: 11px;
                 text-align: center;
                 flex-wrap: wrap;
                 justify-content: center;
             }
+
+            .lt-inputs {
+                gap: 12px;
+            }
+
+            .lt-inp {
+                width: 110px !important;
+                font-size: 17px !important;
+            }
+
+            .funnel-vis {
+                padding: 24px 16px !important;
+            }
+
+            .fv-stage {
+                grid-template-columns: 80px 1fr 48px !important;
+                gap: 8px !important;
+            }
         }
 
+        /* ── 480px ── */
         @media(max-width:480px) {
             .hero {
-                padding: 36px 0 32px;
+                padding: 36px 0 28px;
             }
 
             .hero-h1 {
-                font-size: clamp(34px, 12vw, 52px) !important;
+                font-size: clamp(32px, 12vw, 50px) !important;
             }
 
             .sw-big {
-                padding: 20px !important;
+                padding: 18px !important;
             }
 
             .sw-n {
-                font-size: clamp(36px, 12vw, 52px) !important;
+                font-size: clamp(34px, 11vw, 50px) !important;
             }
 
             .sec {
-                padding: 48px 0 !important;
-            }
-
-            .agit {
                 padding: 48px 0 !important;
             }
 
@@ -4875,20 +4807,8 @@
                 font-size: clamp(14px, 3.5vw, 16px) !important;
             }
 
-            .prob-grid {
-                gap: 12px !important;
-            }
-
             .pcard {
                 padding: 20px 16px !important;
-            }
-
-            .camp {
-                padding: 22px 18px !important;
-            }
-
-            .guar-grid .h2 {
-                font-size: clamp(28px, 9vw, 44px) !important;
             }
 
             .close-sec {
@@ -4899,19 +4819,25 @@
                 font-size: clamp(30px, 10vw, 48px) !important;
             }
 
-            .num-bar-track {
-                gap: 40px;
-            }
-
             .nb-n {
                 font-size: 22px !important;
             }
 
-            .faq-list {
-                margin-top: 28px;
+            .rev-math {
+                padding: 24px 18px !important;
+            }
+
+            .lt-num {
+                font-size: clamp(36px, 10vw, 60px) !important;
+            }
+
+            .close-sec .btn {
+                width: 100%;
+                white-space: normal;
             }
         }
 
+        /* ── 380px ── */
         @media(max-width:380px) {
             .wrap {
                 padding-left: 16px !important;
@@ -4919,15 +4845,7 @@
             }
 
             .hero-h1 {
-                font-size: 34px !important;
-            }
-
-            .cr-4 {
-                grid-template-columns: 1fr 1fr !important;
-            }
-
-            .cr-metrics {
-                grid-template-columns: 1fr !important;
+                font-size: 32px !important;
             }
         }
     </style>
@@ -4964,18 +4882,24 @@
                 <a href="#booking">Free Audit</a>
             </div>
             <a href="#booking" class="nav-cta">Get Free CRO Audit</a>
+
             <button class="ham" id="ham" onclick="toggleMenu()"
                 aria-label="Open menu"><span></span><span></span><span></span></button>
         </div>
     </nav>
+
     <!-- MOBILE MENU -->
     <div class="mob-menu" id="mob-menu">
         <button class="mob-close" onclick="toggleMenu()" aria-label="Close">&times;</button>
-        <a href="#leak">The Revenue Leak</a><a href="#system">The System</a><a href="#results">Proof</a><a
-            href="#guarantee">Guarantee</a><a href="#booking">Free Audit</a>
+        <a href="#leak">The Revenue Leak</a>
+        <a href="#system">The System</a>
+        <a href="#results">Proof</a>
+        <a href="#guarantee">Guarantee</a>
+        <a href="#booking">Free Audit</a>
         <button class="mob-cta"
-            onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'});toggleMenu()">Get Free CRO
-            Audit &rarr;</button>
+            onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'});toggleMenu()">
+            Get Free CRO Audit &rarr;
+        </button>
     </div>
 
     <!-- HERO -->
@@ -6040,9 +5964,9 @@
                         <div class="sf-contact">
                             <div class="sf-ci">&#128205; Lagos, Nigeria</div>
                             <div class="sf-ci">&#128231; <a
-                                    href="/cdn-cgi/l/email-protection#4b232e2727240b3b392e2822243e38262a39202e3f22252c2a2c2e2528326524392c"><span
+                                    href="/cdn-cgi/l/email-protection#fb939e979794bb8b899e9892948e88969a89909e8f92959c9a9c9e959882d594899c"><span
                                         class="__cf_email__"
-                                        data-cfemail="5a323f3636351a2a283f3933352f29373b28313f2e33343d3b3d3f3439237435283d">[email&#160;protected]</span></a>
+                                        data-cfemail="ec8489808083ac9c9e898f8583999f818d9e87899885828b8d8b89828f95c2839e8b">[email&#160;protected]</span></a>
                             </div>
                         </div>
                         <div class="sf-socials">
@@ -6131,18 +6055,29 @@
     <script>
         // TIMER
         (function () {
-            var K = 'pma_cro_t2', s = localStorage.getItem(K);
-            var e = s ? parseInt(s) : Date.now() + 86340000;
-            if (!s) localStorage.setItem(K, e);
+            var K = 'pma_cro_t2';
+            var stored = localStorage.getItem(K);
+            var expiry = stored ? parseInt(stored, 10) : 0;
+            if (!expiry || isNaN(expiry) || expiry <= Date.now()) {
+                expiry = Date.now() + (23 * 3600000) + (47 * 60000);
+                localStorage.setItem(K, String(expiry));
+            }
             var el = document.getElementById('timerEl');
+            if (!el) return;
             function tick() {
-                var d = Math.max(0, e - Date.now());
+                var d = expiry - Date.now();
+                if (d <= 0) {
+                    expiry = Date.now() + (23 * 3600000) + (47 * 60000);
+                    localStorage.setItem(K, String(expiry));
+                    d = expiry - Date.now();
+                }
                 var h = String(Math.floor(d / 3600000)).padStart(2, '0');
-                var m = String(Math.floor(d % 3600000 / 60000)).padStart(2, '0');
-                var sc = String(Math.floor(d % 60000 / 1000)).padStart(2, '0');
-                if (el) el.textContent = h + ':' + m + ':' + sc;
-                if (d > 0) setTimeout(tick, 1000);
-            } tick();
+                var m = String(Math.floor((d % 3600000) / 60000)).padStart(2, '0');
+                var s = String(Math.floor((d % 60000) / 1000)).padStart(2, '0');
+                el.textContent = h + ':' + m + ':' + s;
+                setTimeout(tick, 1000);
+            }
+            tick();
         })();
 
         // REVEALS
@@ -6255,8 +6190,8 @@
                     document.querySelectorAll('.fv-bar').forEach(function (bar) {
                         var w = bar.getAttribute('data-w');
                         setTimeout(function () {
-                            bar.style.width = w;
-                        }, 50);
+                            bar.style.width = w + '%';
+                        }, 200);
                     });
                     obs.unobserve(fvEl);
                 }
@@ -6265,24 +6200,27 @@
         })();
 
         // Mobile menu
-                            function toggleMenu() {
-                                var ham = document.getElementById('ham');
-                                var menu = document.getElementById('mob-menu');
-                                if (!ham || !menu) return;
-                                ham.classList.toggle('open');
-                                menu.classList.toggle('open');
-                                document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
-                            }
-                            // Close on link click
-                            document.addEventListener('DOMContentLoaded', function () {
-                                var menu = document.getElementById('mob-menu');
-                                if (!menu) return;
-                                menu.querySelectorAll('a').forEach(function (a) {
-                                    a.addEventListener('click', function () {
-                                        document.getElementById('ham').classList.remove('open');
-                                        menu.classList.remove('open');
-                                        document.body.style.overflow = '';
-                                    });
-                                });
-                            });
+        function toggleMenu() {
+            var ham = document.getElementById('ham');
+            var menu = document.getElementById('mob-menu');
+            if (!ham || !menu) return;
+            ham.classList.toggle('open');
+            menu.classList.toggle('open');
+            document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
+        }
+        document.addEventListener('DOMContentLoaded', function () {
+            var menu = document.getElementById('mob-menu');
+            if (!menu) return;
+            menu.querySelectorAll('a').forEach(function (a) {
+                a.addEventListener('click', function () {
+                    var h = document.getElementById('ham');
+                    if (h) h.classList.remove('open');
+                    menu.classList.remove('open');
+                    document.body.style.overflow = '';
+                });
+            });
+        });
     </script>
+</body>
+
+</html>

@@ -6254,18 +6254,39 @@
     <script>
         // TIMER
         (function () {
-            const K = 'pma_s_t4'; let s = localStorage.getItem(K);
-            let e = s ? parseInt(s) : Date.now() + 23 * 3600000 + 47 * 60000;
-            if (!s) localStorage.setItem(K, e);
-            const el = document.getElementById('timerEl');
+            var K = 'pma_s_t4';
+            var stored = localStorage.getItem(K);
+            var expiry = stored ? parseInt(stored, 10) : 0;
+
+            // If no key, or key is expired or invalid, set a fresh 23h 47m countdown
+            if (!expiry || isNaN(expiry) || expiry <= Date.now()) {
+                expiry = Date.now() + (23 * 3600000) + (47 * 60000);
+                localStorage.setItem(K, String(expiry));
+            }
+
+            var el = document.getElementById('timerEl');
+            if (!el) return; // guard: element not in DOM yet
+
             function tick() {
-                const d = Math.max(0, e - Date.now());
-                const h = String(Math.floor(d / 3600000)).padStart(2, '0');
-                const m = String(Math.floor((d % 3600000) / 60000)).padStart(2, '0');
-                const sec = String(Math.floor((d % 60000) / 1000)).padStart(2, '0');
-                el.textContent = `${h}:${m}:${sec}`;
-                if (d > 0) setTimeout(tick, 1000);
-            } tick();
+                var now = Date.now();
+                var d = expiry - now;
+
+                // When it hits zero, reset to a fresh 23h 47m and keep going
+                if (d <= 0) {
+                    expiry = Date.now() + (23 * 3600000) + (47 * 60000);
+                    localStorage.setItem(K, String(expiry));
+                    d = expiry - Date.now();
+                }
+
+                var h = String(Math.floor(d / 3600000)).padStart(2, '0');
+                var m = String(Math.floor((d % 3600000) / 60000)).padStart(2, '0');
+                var sec = String(Math.floor((d % 60000) / 1000)).padStart(2, '0');
+                el.textContent = h + ':' + m + ':' + sec;
+                setTimeout(tick, 1000);
+            }
+
+            // Kick off immediately, then every second
+            tick();
         })();
 
         // REVEALS
