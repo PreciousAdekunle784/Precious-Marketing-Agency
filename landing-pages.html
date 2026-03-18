@@ -4636,6 +4636,392 @@
                 min-width: 50%;
             }
         }
+
+        /* ═══════════════════════════════════════════════════════
+   NAV HAMBURGER + FULL MOBILE PATCH
+═══════════════════════════════════════════════════════ */
+
+        /* Ham button */
+        .ham {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            width: 40px;
+            height: 40px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 6px;
+            border-radius: 8px;
+            transition: background .2s;
+            flex-shrink: 0;
+        }
+
+        .ham:hover {
+            background: rgba(255, 255, 255, .06);
+        }
+
+        .ham span {
+            display: block;
+            width: 100%;
+            height: 2px;
+            background: var(--t1);
+            border-radius: 2px;
+            transition: transform .3s, opacity .3s;
+        }
+
+        .ham.open span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        .ham.open span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .ham.open span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        /* Mobile drawer */
+        .mob-menu {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 299;
+            background: rgba(5, 7, 10, .97);
+            backdrop-filter: blur(20px);
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 80px 32px 40px;
+        }
+
+        .mob-menu.open {
+            display: flex;
+        }
+
+        .mob-menu a {
+            font-family: var(--fh);
+            font-size: clamp(26px, 7vw, 44px);
+            color: var(--t1);
+            text-decoration: none;
+            letter-spacing: .04em;
+            text-transform: uppercase;
+            line-height: 1;
+            padding: 10px 0;
+            width: 100%;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, .06);
+            transition: color .2s;
+        }
+
+        .mob-menu a:hover {
+            color: var(--g);
+        }
+
+        .mob-menu a:last-of-type {
+            border-bottom: none;
+        }
+
+        .mob-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 28px;
+            color: var(--t2);
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            transition: background .2s;
+        }
+
+        .mob-close:hover {
+            background: rgba(255, 255, 255, .06);
+        }
+
+        .mob-cta-btn {
+            margin-top: 20px;
+            background: var(--g);
+            color: #05070A;
+            font-family: var(--fb);
+            font-size: 16px;
+            font-weight: 900;
+            padding: 16px 40px;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            letter-spacing: .02em;
+            transition: background .2s;
+        }
+
+        .mob-cta-btn:hover {
+            background: var(--g2);
+        }
+
+        /* ── 960px: show ham, hide desktop nav ── */
+        @media(max-width:960px) {
+            .ham {
+                display: flex;
+            }
+
+            .nav-links {
+                display: none !important;
+            }
+
+            .nav-cta {
+                display: none !important;
+            }
+
+            .nav-in {
+                padding: 0 20px !important;
+            }
+
+            .hero {
+                padding: 52px 0 44px;
+            }
+
+            .hero-in {
+                grid-template-columns: 1fr !important;
+                gap: 36px !important;
+            }
+
+            .sw {
+                width: 100%;
+                max-width: 480px;
+                margin: 0 auto;
+            }
+
+            .hero-h1 {
+                font-size: clamp(42px, 10vw, 72px) !important;
+            }
+
+            .hero-ctas {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .hero-ctas .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .wrap {
+                padding-left: 20px !important;
+                padding-right: 20px !important;
+            }
+
+            .book-layout {
+                grid-template-columns: 1fr !important;
+                gap: 36px !important;
+            }
+
+            .offer-in {
+                grid-template-columns: 1fr !important;
+                gap: 36px !important;
+            }
+
+            .guar-grid {
+                grid-template-columns: 1fr !important;
+                gap: 36px !important;
+                text-align: center;
+            }
+
+            .badge-wrap {
+                display: flex;
+                justify-content: center;
+            }
+
+            .g-pts {
+                text-align: left;
+            }
+
+            .anatomy-inner {
+                grid-template-columns: 1fr !important;
+            }
+        }
+
+        /* ── 768px ── */
+        @media(max-width:768px) {
+            .hero {
+                padding: 44px 0 36px;
+            }
+
+            .tgrid {
+                grid-template-columns: 1fr 1fr !important;
+            }
+
+            .mech-layers {
+                grid-template-columns: 1fr !important;
+            }
+
+            .ovn {
+                grid-template-columns: 1fr !important;
+            }
+
+            .cta-bar {
+                flex-direction: column !important;
+                text-align: center;
+            }
+
+            .comp-wrap {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .comp-head,
+            .comp-row {
+                min-width: 560px;
+            }
+
+            .results-wrap {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .rc {
+                min-width: 280px;
+            }
+
+            .page-compare {
+                grid-template-columns: 1fr !important;
+            }
+        }
+
+        /* ── 640px ── */
+        @media(max-width:640px) {
+            .h2 {
+                font-size: clamp(28px, 9vw, 46px) !important;
+            }
+
+            .hero-h1 {
+                font-size: clamp(36px, 11vw, 58px) !important;
+            }
+
+            .agit-h {
+                font-size: clamp(28px, 9vw, 46px) !important;
+            }
+
+            .sec {
+                padding: 56px 0 !important;
+            }
+
+            .agit {
+                padding: 56px 0 !important;
+            }
+
+            .guar {
+                padding: 56px 0 !important;
+            }
+
+            .tgrid {
+                grid-template-columns: 1fr !important;
+            }
+
+            .sf-grid {
+                grid-template-columns: 1fr !important;
+            }
+
+            .offer-badge {
+                padding: 28px 20px !important;
+            }
+
+            .frow {
+                grid-template-columns: 1fr !important;
+            }
+
+            .form-card {
+                padding: 24px 20px !important;
+            }
+
+            .sfooter {
+                flex-direction: column !important;
+                gap: 10px;
+                padding: 14px 20px !important;
+            }
+
+            .ubar-in {
+                font-size: 11px;
+                text-align: center;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+        /* ── 480px ── */
+        @media(max-width:480px) {
+            .hero {
+                padding: 36px 0 28px;
+            }
+
+            .hero-h1 {
+                font-size: clamp(32px, 12vw, 50px) !important;
+            }
+
+            .sw-big {
+                padding: 18px !important;
+            }
+
+            .sw-n {
+                font-size: clamp(34px, 11vw, 50px) !important;
+            }
+
+            .sec {
+                padding: 48px 0 !important;
+            }
+
+            .lead {
+                font-size: clamp(14px, 3.5vw, 16px) !important;
+            }
+
+            .pcard {
+                padding: 20px 16px !important;
+            }
+
+            .camp {
+                padding: 22px 18px !important;
+            }
+
+            .close-sec {
+                padding: 48px 0 !important;
+            }
+
+            .close-h {
+                font-size: clamp(30px, 10vw, 48px) !important;
+            }
+
+            .lp-stack-row {
+                padding: 14px 18px !important;
+            }
+
+            .nb-n {
+                font-size: 22px !important;
+            }
+
+            .close-sec .btn {
+                width: 100%;
+                white-space: normal;
+            }
+        }
+
+        /* ── 380px ── */
+        @media(max-width:380px) {
+            .wrap {
+                padding-left: 16px !important;
+                padding-right: 16px !important;
+            }
+
+            .hero-h1 {
+                font-size: 32px !important;
+            }
+        }
     </style>
 </head>
 
@@ -4669,6 +5055,9 @@
                 <a href="#booking">Get a Page Built</a>
             </div>
             <a href="#booking" class="nav-cta">Get My Page Built</a>
+
+            <button class="ham" id="ham" onclick="toggleMenu()"
+                aria-label="Open menu"><span></span><span></span><span></span></button>
         </div>
     </nav>
 
@@ -4680,7 +5069,7 @@
         <a href="#results">Results</a>
         <a href="#guarantee">Guarantee</a>
         <a href="#booking">Get a Page Built</a>
-        <button class="mob-cta"
+        <button class="mob-cta-btn"
             onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'});toggleMenu()">
             Get My Page Built &rarr;
         </button>
