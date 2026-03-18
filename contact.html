@@ -704,6 +704,94 @@
                 animation-duration: .01ms !important
             }
         }
+
+        /* ═══════════════════════════════════════════
+   CONTACT.HTML — MOBILE RESPONSIVE PATCH
+═══════════════════════════════════════════ */
+        @media(max-width:900px) {
+            .contact-grid {
+                grid-template-columns: 1fr !important;
+                gap: 36px !important;
+            }
+
+            nav {
+                padding: 0 20px !important;
+            }
+
+            .contact-info {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 16px;
+            }
+        }
+
+        @media(max-width:640px) {
+            .contact-info {
+                grid-template-columns: 1fr !important;
+            }
+
+            .page-header {
+                padding: 40px 0 32px !important;
+            }
+
+            .page-header h1 {
+                font-size: clamp(32px, 9vw, 52px) !important;
+            }
+
+            [class*="wrap"],
+            [class*="container"] {
+                padding-left: 20px !important;
+                padding-right: 20px !important;
+            }
+        }
+
+        @media(max-width:500px) {
+            .field-row {
+                grid-template-columns: 1fr !important;
+            }
+
+            [class*="btn"],
+            [class*="submit"] {
+                width: 100% !important;
+                text-align: center !important;
+            }
+
+            nav {
+                height: 58px !important;
+            }
+        }
+
+
+        @media(max-width:480px) {
+            nav {
+                height: 58px !important;
+                padding: 0 16px !important;
+            }
+
+            .page-header h1,
+            [class*="hero"] h1 {
+                font-size: clamp(26px, 9vw, 40px) !important;
+            }
+
+            [class*="card"],
+            [class*="form"] {
+                padding: 20px 16px !important;
+            }
+
+            [class*="btn"],
+            [class*="submit"],
+            [class*="cta"] {
+                width: 100% !important;
+                text-align: center !important;
+                justify-content: center !important;
+            }
+
+            [class*="wrap"],
+            [class*="container"] {
+                padding-left: 16px !important;
+                padding-right: 16px !important;
+            }
+        }
     </style>
 </head>
 
@@ -741,8 +829,9 @@
                             <div class="cc-icon">✉️</div>
                             <div>
                                 <div class="cc-label">Email Us</div><a
-                                    href="mailto:workwithpreciousmarketingagency@gmail.com"
-                                    class="cc-link">workwithpreciousmarketingagency@gmail.com</a>
+                                    href="/cdn-cgi/l/email-protection#d5a2baa7bea2bca1bda5a7b0b6bcbaa0a6b8b4a7beb0a1bcbbb2b4b2b0bbb6ac95b2b8b4bcb9fbb6bab8"
+                                    class="cc-link"><span class="__cf_email__"
+                                        data-cfemail="790e160b120e100d11090b1c1a10160c0a14180b121c0d10171e181e1c171a00391e14181015571a1614">[email&#160;protected]</span></a>
                                 <div class="cc-note">For general enquiries & partnership requests</div>
                             </div>
                         </div>
@@ -893,6 +982,7 @@
         </footer>
     </div>
 
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script>
         // ── SUPABASE CONFIG — paste your same values from the opt-in page here ──
         const SUPA_URL = 'https://ilnhoxhxqciyeqquzbjj.supabase.co';  // ← your Project URL
@@ -947,9 +1037,6 @@
 
             } catch (err) {
                 console.error(err);
-                btn.innerHTML = orig;
-                btn.disabled = false;
-                showError('Something went wrong. Please try again.');
             }
         }
     </script>

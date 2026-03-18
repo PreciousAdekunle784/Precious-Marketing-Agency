@@ -2616,6 +2616,477 @@
             transform: translate(-50%, -50%);
             transition: left .1s ease, top .1s ease;
         }
+
+        /* ═══════════════════════════════════════════════════════
+   SENIOR MOBILE RESPONSIVE PATCH — All Service Pages
+   Breakpoints: 960px → 768px → 640px → 480px → 380px
+═══════════════════════════════════════════════════════ */
+
+        /* ── HAMBURGER BUTTON ── */
+        .ham {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            width: 40px;
+            height: 40px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 6px;
+            border-radius: 8px;
+            transition: background .2s;
+            flex-shrink: 0;
+        }
+
+        .ham:hover {
+            background: rgba(255, 255, 255, .06);
+        }
+
+        .ham span {
+            display: block;
+            width: 100%;
+            height: 2px;
+            background: var(--t1);
+            border-radius: 2px;
+            transition: transform .3s, opacity .3s;
+        }
+
+        .ham.open span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        .ham.open span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .ham.open span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        /* ── MOBILE DRAWER ── */
+        .mob-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 299;
+            background: rgba(5, 7, 10, .96);
+            backdrop-filter: blur(20px);
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 80px 32px 40px;
+        }
+
+        .mob-menu.open {
+            display: flex;
+        }
+
+        .mob-menu a {
+            font-family: var(--fh);
+            font-size: clamp(28px, 7vw, 44px);
+            color: var(--t1);
+            text-decoration: none;
+            letter-spacing: .04em;
+            text-transform: uppercase;
+            line-height: 1;
+            padding: 10px 0;
+            width: 100%;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, .06);
+            transition: color .2s;
+        }
+
+        .mob-menu a:hover {
+            color: var(--g);
+        }
+
+        .mob-menu a:last-child {
+            border-bottom: none;
+        }
+
+        .mob-menu .mob-cta {
+            margin-top: 20px;
+            background: var(--g);
+            color: #05070A;
+            font-family: var(--fb);
+            font-size: 16px;
+            font-weight: 900;
+            padding: 16px 40px;
+            border-radius: 10px;
+            border: none;
+            letter-spacing: .02em;
+            border-bottom: none;
+            width: auto;
+        }
+
+        .mob-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 28px;
+            color: var(--t2);
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            transition: background .2s;
+        }
+
+        .mob-close:hover {
+            background: rgba(255, 255, 255, .06);
+        }
+
+        @media(max-width:960px) {
+            .ham {
+                display: flex;
+            }
+
+            .nav-links {
+                display: none !important;
+            }
+
+            .nav-cta {
+                display: none;
+            }
+
+            /* HERO — single column */
+            .hero {
+                padding: 52px 0 44px;
+            }
+
+            .hero-in {
+                grid-template-columns: 1fr !important;
+                gap: 36px !important;
+            }
+
+            .sw {
+                width: 100%;
+                max-width: 480px;
+                margin: 0 auto;
+            }
+
+            .hero-h1 {
+                font-size: clamp(42px, 10vw, 72px) !important;
+            }
+
+            .hero-ctas {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .hero-ctas .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .hero-trust {
+                gap: 12px;
+            }
+
+            /* WRAP padding */
+            .wrap {
+                padding-left: 20px !important;
+                padding-right: 20px !important;
+            }
+
+            .nav-in {
+                padding: 0 20px !important;
+            }
+
+            /* BOOK LAYOUT */
+            .book-layout {
+                grid-template-columns: 1fr !important;
+                gap: 36px !important;
+            }
+
+            /* OFFER LAYOUT */
+            .offer-in {
+                grid-template-columns: 1fr !important;
+                gap: 36px !important;
+            }
+
+            /* GUARANTEE */
+            .guar-grid {
+                grid-template-columns: 1fr !important;
+                gap: 36px !important;
+                text-align: center;
+            }
+
+            .badge-wrap {
+                display: flex;
+                justify-content: center;
+            }
+
+            .g-pts {
+                text-align: left;
+            }
+
+            /* PROCESS */
+            .proc-steps {
+                grid-template-columns: 1fr 1fr !important;
+                gap: 20px !important;
+            }
+        }
+
+        @media(max-width:768px) {
+
+            /* HERO */
+            .hero {
+                padding: 44px 0 36px;
+            }
+
+            .sw-row {
+                grid-template-columns: 1fr 1fr !important;
+            }
+
+            /* CAMPS */
+            .camp-grid {
+                grid-template-columns: 1fr !important;
+            }
+
+            /* PROB GRID */
+            .prob-grid {
+                grid-template-columns: 1fr !important;
+            }
+
+            /* RESULTS scrolling track */
+            .results-wrap {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .results-track {
+                gap: 16px !important;
+            }
+
+            .rc {
+                min-width: 280px;
+            }
+
+            /* COMP TABLE */
+            .comp-wrap {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .comp-head,
+            .comp-row {
+                min-width: 560px;
+            }
+
+            /* OVN */
+            .ovn {
+                grid-template-columns: 1fr !important;
+            }
+
+            /* PROCESS */
+            .proc-steps {
+                grid-template-columns: 1fr !important;
+            }
+
+            /* TGRID */
+            .tgrid {
+                grid-template-columns: 1fr 1fr !important;
+            }
+
+            /* MECH LAYERS */
+            .mech-layers {
+                grid-template-columns: 1fr !important;
+            }
+
+            /* CTA BAR */
+            .cta-bar {
+                flex-direction: column !important;
+                text-align: center;
+            }
+
+            /* CLOSE */
+            .close-h {
+                font-size: clamp(34px, 9vw, 56px);
+            }
+        }
+
+        @media(max-width:640px) {
+
+            /* TYPOGRAPHY */
+            .h2 {
+                font-size: clamp(30px, 9vw, 48px) !important;
+            }
+
+            .hero-h1 {
+                font-size: clamp(38px, 11vw, 60px) !important;
+            }
+
+            .agit-h {
+                font-size: clamp(30px, 9vw, 48px) !important;
+            }
+
+            /* SECTIONS */
+            .sec {
+                padding: 56px 0 !important;
+            }
+
+            .agit {
+                padding: 56px 0 !important;
+            }
+
+            .guar {
+                padding: 56px 0 !important;
+            }
+
+            /* TGRID */
+            .tgrid {
+                grid-template-columns: 1fr !important;
+            }
+
+            /* BA BLOCK */
+            .ba-block {
+                grid-template-columns: 1fr !important;
+            }
+
+            .ba-arrow {
+                transform: rotate(90deg);
+            }
+
+            /* CR ROW */
+            .cr-row {
+                grid-template-columns: 1fr 1fr !important;
+            }
+
+            /* FOOTER GRID */
+            .sf-grid {
+                grid-template-columns: 1fr !important;
+            }
+
+            /* OFFER BADGE */
+            .offer-badge {
+                padding: 28px 20px !important;
+            }
+
+            .ob-value {
+                font-size: clamp(44px, 12vw, 72px) !important;
+            }
+
+            /* FORM */
+            .frow {
+                grid-template-columns: 1fr !important;
+                gap: 12px;
+            }
+
+            .form-card {
+                padding: 24px 20px !important;
+            }
+
+            /* SFOOTER */
+            .sfooter {
+                flex-direction: column !important;
+                gap: 10px;
+                padding: 14px 20px !important;
+            }
+
+            /* UBAR */
+            .ubar-in {
+                font-size: 11px;
+                text-align: center;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+        @media(max-width:480px) {
+            .hero {
+                padding: 36px 0 32px;
+            }
+
+            .hero-h1 {
+                font-size: clamp(34px, 12vw, 52px) !important;
+            }
+
+            .sw-big {
+                padding: 20px !important;
+            }
+
+            .sw-n {
+                font-size: clamp(36px, 12vw, 52px) !important;
+            }
+
+            .sec {
+                padding: 48px 0 !important;
+            }
+
+            .agit {
+                padding: 48px 0 !important;
+            }
+
+            .lead {
+                font-size: clamp(14px, 3.5vw, 16px) !important;
+            }
+
+            .prob-grid {
+                gap: 12px !important;
+            }
+
+            .pcard {
+                padding: 20px 16px !important;
+            }
+
+            .camp {
+                padding: 22px 18px !important;
+            }
+
+            .guar-grid .h2 {
+                font-size: clamp(28px, 9vw, 44px) !important;
+            }
+
+            .close-sec {
+                padding: 48px 0 !important;
+            }
+
+            .close-h {
+                font-size: clamp(30px, 10vw, 48px) !important;
+            }
+
+            .num-bar-track {
+                gap: 40px;
+            }
+
+            .nb-n {
+                font-size: 22px !important;
+            }
+
+            .faq-list {
+                margin-top: 28px;
+            }
+        }
+
+        @media(max-width:380px) {
+            .wrap {
+                padding-left: 16px !important;
+                padding-right: 16px !important;
+            }
+
+            .hero-h1 {
+                font-size: 34px !important;
+            }
+
+            .cr-4 {
+                grid-template-columns: 1fr 1fr !important;
+            }
+
+            .cr-metrics {
+                grid-template-columns: 1fr !important;
+            }
+        }
     </style>
 </head>
 
@@ -2650,8 +3121,19 @@
                 <a href="#booking">Book Audit</a>
             </div>
             <a href="#booking" class="nav-cta">Get Free Strategy Call</a>
+            <button class="ham" id="ham" onclick="toggleMenu()"
+                aria-label="Open menu"><span></span><span></span><span></span></button>
         </div>
     </nav>
+    <!-- MOBILE MENU -->
+    <div class="mob-menu" id="mob-menu">
+        <button class="mob-close" onclick="toggleMenu()" aria-label="Close">&times;</button>
+        <a href="#problem">The Problem</a><a href="#campaigns">What We Do</a><a href="#results">Proof</a><a
+            href="#guarantee">Guarantee</a><a href="#booking">Book Audit</a>
+        <button class="mob-cta"
+            onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'});toggleMenu()">Get Free Audit
+            &rarr;</button>
+    </div>
 
     <!-- HERO -->
     <section class="hero">
@@ -3610,7 +4092,9 @@
                         <div class="sf-contact">
                             <div class="sf-ci">&#128205; Lagos, Nigeria</div>
                             <div class="sf-ci">&#128231; <a
-                                    href="mailto:hello@preciousmarketingagency.org">hello@preciousmarketingagency.org</a>
+                                    href="/cdn-cgi/l/email-protection#c7afa2ababa887b7b5a2a4aea8b2b4aaa6b5aca2b3aea9a0a6a0a2a9a4bee9a8b5a0"><span
+                                        class="__cf_email__"
+                                        data-cfemail="5b333e3737341b2b293e3832342e28363a29303e2f32353c3a3c3e3538227534293c">[email&#160;protected]</span></a>
                             </div>
                         </div>
                         <div class="sf-socials">
@@ -3695,6 +4179,7 @@
         <a href="#booking" class="sfbtn">Get My Free Audit &rarr;</a>
     </div>
 
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script>
         // TIMER
         (function () {
@@ -3790,6 +4275,29 @@
             if (msg) { msg.textContent = 'You are in. First insight arrives tomorrow.'; msg.style.color = 'var(--g)'; }
             inp.value = '';
         }
+
+        // Mobile menu
+        function toggleMenu() {
+            var ham = document.getElementById('ham');
+            var menu = document.getElementById('mob-menu');
+            if (!ham || !menu) return;
+            ham.classList.toggle('open');
+            menu.classList.toggle('open');
+            document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
+        }
+        
+        // Close on link click
+        document.addEventListener('DOMContentLoaded', function () {
+            var menu = document.getElementById('mob-menu');
+            if (!menu) return;
+            menu.querySelectorAll('a').forEach(function (a) {
+                a.addEventListener('click', function () {
+                    document.getElementById('ham').classList.remove('open');
+                    menu.classList.remove('open');
+                    document.body.style.overflow = '';
+                });
+            });
+        });
     </script>
 </body>
 
