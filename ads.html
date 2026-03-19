@@ -4172,8 +4172,8 @@
         // TIMER
         (function () {
             var K = 'pma_ga_t6', s = localStorage.getItem(K);
-            var e = s ? parseInt(s) : Date.now() + 86340000;
-            if (!s) localStorage.setItem(K, e);
+            var e = s ? parseInt(s) : 0;
+            if (!e || e <= Date.now()) { e = Date.now() + 86340000; localStorage.setItem(K, e); }
             var el = document.getElementById('timerEl');
             function tick() {
                 var d = Math.max(0, e - Date.now());
@@ -4181,8 +4181,8 @@
                 var m = String(Math.floor(d % 3600000 / 60000)).padStart(2, '0');
                 var sc = String(Math.floor(d % 60000 / 1000)).padStart(2, '0');
                 if (el) el.textContent = h + ':' + m + ':' + sc;
-                if (d > 0) setTimeout(tick, 1000);
-            } tick();
+            }
+            tick(); setInterval(tick, 1000);
         })();
 
         // REVEALS
@@ -4273,7 +4273,7 @@
             menu.classList.toggle('open');
             document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
         }
-        
+
         // Close on link click
         document.addEventListener('DOMContentLoaded', function () {
             var menu = document.getElementById('mob-menu');

@@ -1731,11 +1731,7 @@
                     to help clients generate consistent leads, dominate their market, and get <strong>maximum ROI from
                         every marketing naira they spend.</strong></p>
 
-                <div class="live-activity">
-                    <span class="live-dot-g"></span>
-                    <span><em id="live-count">247</em> people are viewing this page right now — <strong>37 free copies
-                            remaining</strong></span>
-                </div>
+
 
                 <div class="section-divider">
                     <div class="sd-line"></div><span class="sd-text">What You'll Discover Inside</span>
@@ -1792,7 +1788,7 @@
                         <div class="proof-label">Businesses Served</div>
                     </div>
                     <div class="proof-item">
-                        <div class="proof-num">$100k+</div>
+                        <div class="proof-num">$84M+</div>
                         <div class="proof-label">Revenue Generated</div>
                     </div>
                     <div class="proof-item">
@@ -1976,7 +1972,10 @@
 
         // ── 4. COUNTDOWN TIMER
         (function () {
-            const end = Date.now() + (23 * 3600 + 47 * 60 + 59) * 1000;
+            const K = 'pma_idx_t1';
+            let stored = localStorage.getItem(K);
+            let end = stored ? parseInt(stored) : Date.now() + (23 * 3600 + 47 * 60 + 59) * 1000;
+            if (!stored) localStorage.setItem(K, end);
             let ph = -1, pm = -1, ps = -1;
             function flip(id) { const e = document.getElementById(id); if (!e) return; e.classList.remove('flip'); void e.offsetWidth; e.classList.add('flip'); }
             function pad(n) { return String(n).padStart(2, '0'); }
@@ -1992,42 +1991,11 @@
             tick(); setInterval(tick, 1000);
         })();
 
-        // ── 5. LIVE VIEWER COUNT
-        (function () {
-            let n = 247;
-            function go() {
-                n = Math.max(230, Math.min(290, n + Math.floor(Math.random() * 5) - 2));
-                const a = document.getElementById('live-count'), b = document.getElementById('live-dl');
-                if (a) a.textContent = n; if (b) b.textContent = n;
-                setTimeout(go, 5000 + Math.random() * 5000);
-            }
-            setTimeout(go, 4000);
-        })();
+        // ── 5. LIVE VIEWER COUNT (removed)
 
-        // ── 6. SPOTS COUNTDOWN
-        (function () {
-            let s = 37;
-            function go() {
-                if (s > 12) { s--; const e = document.getElementById('spots-num'); if (e) e.textContent = s; }
-                setTimeout(go, 50000 + Math.random() * 60000);
-            }
-            setTimeout(go, 35000);
-        })();
+        // ── 6. SPOTS COUNTDOWN (removed)
 
-        // ── 7. SCARCITY BAR
-        (function () {
-            let pct = 73;
-            const fill = document.getElementById('slots-fill');
-            const txt = document.getElementById('slots-pct-text');
-            function go() {
-                if (pct >= 96) return;
-                pct = Math.min(96, pct + (Math.random() < .5 ? 1 : 2));
-                if (fill) { fill.style.transition = 'width 1.2s ease'; fill.style.width = pct + '%'; }
-                if (txt) txt.textContent = pct + '% taken';
-                setTimeout(go, 65000);
-            }
-            setTimeout(go, 65000);
-        })();
+        // ── 7. SCARCITY BAR (static)
 
         // ── 8. MAGNETIC CTA
         (function () {

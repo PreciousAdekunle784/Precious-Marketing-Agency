@@ -3196,48 +3196,122 @@
             transform: translateX(0);
         }
 
+        /* ═══════════════════════════════════════════════════════
+   SVC2-BTN — ANIMATED CLICKABLE BUTTON
+═══════════════════════════════════════════════════════ */
         .svc2-btn {
             display: flex;
             align-items: center;
             justify-content: space-between;
             margin-top: 16px;
-            padding: 12px 18px;
+            padding: 13px 18px;
             border-radius: 9px;
-            background: var(--bg4);
-            border: 1px solid var(--bdr);
+            background: var(--bg3);
+            border: 1px solid rgba(0, 230, 118, .22);
             font-family: var(--fd);
             font-size: 13px;
             font-weight: 700;
-            color: var(--t2);
+            color: var(--t1);
             text-decoration: none;
-            transition: border-color .2s, color .2s, background .2s, transform .2s;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: border-color .25s, color .25s, background .25s, transform .2s, box-shadow .25s;
         }
 
-        .svc2-btn:hover {
-            border-color: var(--bdrg);
-            color: var(--g);
-            background: var(--gl);
-            transform: translateX(4px);
+        /* Shimmer sweep — always running */
+        .svc2-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 60%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 230, 118, .12), transparent);
+            animation: svcBtnShimmer 2.2s ease infinite;
         }
 
+        @keyframes svcBtnShimmer {
+            0% {
+                left: -60%;
+            }
+
+            60%,
+            100% {
+                left: 110%;
+            }
+        }
+
+        /* Green bouncing arrow pill — always visible */
         .svc2-btn span {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: rgba(0, 230, 118, .12);
+            border: 1px solid rgba(0, 230, 118, .28);
+            color: var(--g);
             font-size: 15px;
-            transition: transform .2s;
+            flex-shrink: 0;
+            animation: svcArrowBounce 1.6s ease-in-out infinite;
+            transition: background .2s, transform .2s;
+        }
+
+        .svc2-btn span::after {
+            content: '→';
+        }
+
+        @keyframes svcArrowBounce {
+
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            50% {
+                transform: translateX(4px);
+            }
+        }
+
+        /* Hover state */
+        .svc2-btn:hover {
+            background: rgba(0, 230, 118, .1);
+            border-color: rgba(0, 230, 118, .5);
+            color: var(--g);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 230, 118, .15);
         }
 
         .svc2-btn:hover span {
-            transform: translateX(4px);
+            background: var(--g);
+            color: #05070A;
+            border-color: var(--g);
+            animation: none;
+            transform: translateX(3px);
         }
 
+        .svc2-btn:hover::before {
+            animation-duration: 0.8s;
+        }
+
+        .svc2-btn:active {
+            transform: translateY(0);
+            box-shadow: none;
+        }
+
+        /* Live variant */
         .svc2-btn-live {
-            border-color: var(--bdrg);
+            border-color: rgba(0, 230, 118, .4);
             color: var(--g);
-            background: var(--gl);
+            background: rgba(0, 230, 118, .08);
         }
 
         .svc2-btn-live:hover {
-            background: rgba(0, 230, 118, .14);
-            border-color: rgba(0, 230, 118, .4);
+            background: rgba(0, 230, 118, .16);
+            border-color: rgba(0, 230, 118, .6);
+            box-shadow: 0 8px 24px rgba(0, 230, 118, .2);
         }
 
         /* ── FOOTER ── */
@@ -5815,7 +5889,7 @@
             </div>
         </div>
         <div class="wrap">
-            <div class="ticker rv">
+            <div class="ticker">
                 <div class="tick"><span class="tick-n shimmer" data-target="500">0</span><span class="tick-l">Businesses
                         Grown</span></div>
                 <div class="tick"><span class="tick-n shimmer">$84M+</span><span class="tick-l">Revenue Generated</span>
@@ -6317,18 +6391,23 @@
     <script>
         // TIMER
         (function () {
-            const K = 'pma_s_t4'; let s = localStorage.getItem(K);
-            let e = s ? parseInt(s) : Date.now() + 23 * 3600000 + 47 * 60000;
-            if (!s) localStorage.setItem(K, e);
+            const K = 'pma_s_t4';
+            let s = localStorage.getItem(K);
+            let e = s ? parseInt(s) : 0;
+            if (!e || e <= Date.now()) {
+                e = Date.now() + 23 * 3600000 + 47 * 60000;
+                localStorage.setItem(K, e);
+            }
             const el = document.getElementById('timerEl');
             function tick() {
                 const d = Math.max(0, e - Date.now());
                 const h = String(Math.floor(d / 3600000)).padStart(2, '0');
                 const m = String(Math.floor((d % 3600000) / 60000)).padStart(2, '0');
                 const sec = String(Math.floor((d % 60000) / 1000)).padStart(2, '0');
-                el.textContent = `${h}:${m}:${sec}`;
-                if (d > 0) setTimeout(tick, 1000);
-            } tick();
+                if (el) el.textContent = h + ':' + m + ':' + sec;
+            }
+            tick();
+            setInterval(tick, 1000);
         })();
 
         // REVEALS
@@ -6407,6 +6486,8 @@
             if (!budget) return alert('Please select your monthly ad spend.');
             const btn = document.getElementById('book-btn');
             btn.textContent = 'Booking your session...'; btn.disabled = true;
+            const fc = btn.closest('.form-card');
+            if (fc) Array.from(fc.children).forEach(c => { if (c.id !== 'book-success') c.style.display = 'none'; });
             document.getElementById('book-success').style.display = 'block';
             setTimeout(() => {
                 const n = encodeURIComponent(`${fname} ${lname}`.trim());

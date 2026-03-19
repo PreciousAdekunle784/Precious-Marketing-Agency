@@ -442,14 +442,14 @@
         .fields {
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 18px;
             margin-bottom: 24px
         }
 
         .field-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 12px
+            gap: 16px
         }
 
         .field-label {
@@ -480,6 +480,7 @@
         .field-select,
         .field-textarea {
             width: 100%;
+            box-sizing: border-box;
             background: var(--s3);
             border: 1.5px solid var(--b1);
             border-radius: var(--radius-sm);
@@ -492,7 +493,7 @@
         }
 
         .field-select {
-            padding: 13px 16px;
+            padding: 13px 16px 13px 42px;
             -webkit-appearance: none;
             cursor: pointer
         }
@@ -500,8 +501,8 @@
         .field-textarea {
             padding: 13px 16px;
             resize: vertical;
-            min-height: 90px;
-            max-height: 150px;
+            min-height: 110px;
+            max-height: 180px;
             line-height: 1.6
         }
 
@@ -913,36 +914,43 @@
                                 </div>
                                 <div>
                                     <label class="field-label" for="c-subject">Subject</label>
-                                    <select class="field-select no-icon" id="c-subject">
-                                        <option value="" disabled selected>Please select an enquiry type...</option>
-                                        <optgroup label="Business Growth & Strategy">
-                                            <option>I require a comprehensive digital marketing strategy</option>
-                                            <option>I need assistance generating qualified leads & revenue</option>
-                                            <option>I am seeking a full-service agency retainer</option>
-                                            <option>I would like to request a free strategy consultation</option>
-                                        </optgroup>
-                                        <optgroup label="Paid Advertising">
-                                            <option>I need management of my Facebook & Instagram ad campaigns</option>
-                                            <option>I require Google Ads setup & optimisation</option>
-                                            <option>My current ads are underperforming and need a review</option>
-                                        </optgroup>
-                                        <optgroup label="Social Media & Content">
-                                            <option>I require professional social media management</option>
-                                            <option>I need content creation, reels & brand storytelling</option>
-                                            <option>I want to grow and monetise my social media presence</option>
-                                        </optgroup>
-                                        <optgroup label="Web, Funnels & Automation">
-                                            <option>I need a high-converting website or sales funnel</option>
-                                            <option>I require email marketing & automation setup</option>
-                                            <option>I need a CRM & lead nurturing system</option>
-                                        </optgroup>
-                                        <optgroup label="General Enquiries">
-                                            <option>I have a question regarding your services & pricing</option>
-                                            <option>I am interested in a partnership or collaboration</option>
-                                            <option>I require technical support or have a website issue</option>
-                                            <option>Other I will provide details in my message</option>
-                                        </optgroup>
-                                    </select>
+                                    <div class="field-wrap"><span class="field-icon"><svg width="15" height="15"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <path
+                                                    d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                                            </svg></span>
+                                        <select class="field-select" id="c-subject">
+                                            <option value="" disabled selected>Please select an enquiry type...</option>
+                                            <optgroup label="Business Growth & Strategy">
+                                                <option>I require a comprehensive digital marketing strategy</option>
+                                                <option>I need assistance generating qualified leads & revenue</option>
+                                                <option>I am seeking a full-service agency retainer</option>
+                                                <option>I would like to request a free strategy consultation</option>
+                                            </optgroup>
+                                            <optgroup label="Paid Advertising">
+                                                <option>I need management of my Facebook & Instagram ad campaigns
+                                                </option>
+                                                <option>I require Google Ads setup & optimisation</option>
+                                                <option>My current ads are underperforming and need a review</option>
+                                            </optgroup>
+                                            <optgroup label="Social Media & Content">
+                                                <option>I require professional social media management</option>
+                                                <option>I need content creation, reels & brand storytelling</option>
+                                                <option>I want to grow and monetise my social media presence</option>
+                                            </optgroup>
+                                            <optgroup label="Web, Funnels & Automation">
+                                                <option>I need a high-converting website or sales funnel</option>
+                                                <option>I require email marketing & automation setup</option>
+                                                <option>I need a CRM & lead nurturing system</option>
+                                            </optgroup>
+                                            <optgroup label="General Enquiries">
+                                                <option>I have a question regarding your services & pricing</option>
+                                                <option>I am interested in a partnership or collaboration</option>
+                                                <option>I require technical support or have a website issue</option>
+                                                <option>Other I will provide details in my message</option>
+                                            </optgroup>
+                                        </select>
+                                    </div>
                                 </div>
                                 <div>
                                     <label class="field-label" for="c-msg">Your Message</label>
