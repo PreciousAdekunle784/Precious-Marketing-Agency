@@ -2039,7 +2039,7 @@
             btn.disabled = true;
 
             try {
-                // 1. Save lead to Supabase — ignore if email already exists
+                // 1. Save lead to Supabase
                 const res = await fetch(`${SUPA_URL}/rest/v1/leads`, {
                     method: 'POST',
                     headers: {
@@ -2050,27 +2050,32 @@
                     },
                     body: JSON.stringify({ fname, email, source: 'Opt-In Page' })
                 });
-                if (!res.ok && res.status !== 409) throw new Error(`DB error HTTP ${res.status}`);
 
-                // 2. Always send the email — even if they submitted before
-                const emailRes = await fetch(`${SUPA_URL}/functions/v1/quick-handler`, {
+                // 409 = duplicate email (already exists) — still proceed
+                if (!res.ok && res.status !== 409) {
+                    const errBody = await res.text();
+                    console.error('DB error:', res.status, errBody);
+                    // If table doesn't exist yet, still let them through
+                    if (res.status !== 404 && res.status !== 400) {
+                        throw new Error(`DB error ${res.status}`);
+                    }
+                }
+
+                // 2. Fire edge function — non-blocking: user proceeds even if email fails
+                fetch(`${SUPA_URL}/functions/v1/quick-handler`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                         'Authorization': `Bearer ${SUPA_KEY}`
                     },
                     body: JSON.stringify({ fname, email })
-                });
-                if (!emailRes.ok) throw new Error(`Email error HTTP ${emailRes.status}`);
+                }).catch(e => console.warn('Email function error (non-blocking):', e));
 
-                // 3. Save email so same address can't submit again
+                // 3. Mark submitted locally
                 submitted.push(email.toLowerCase());
                 localStorage.setItem('pma_submitted', JSON.stringify(submitted));
 
-                // 4. Redirect to sales page after brief delay
-                setTimeout(() => { window.location.href = 'sales.html'; }, 1800);
-
-                // 5. Show success screen
+                // 4. Show success screen immediately
                 const u = document.getElementById('card-urgency');
                 const p = document.getElementById('report-preview');
                 if (u) u.style.display = 'none';
@@ -2078,11 +2083,14 @@
                 document.getElementById('optin-form-content').style.display = 'none';
                 document.getElementById('optin-success').style.display = 'block';
 
+                // 5. Redirect to sales page after delay
+                setTimeout(() => { window.location.href = 'sales.html'; }, 2200);
+
             } catch (err) {
-                console.error(err);
+                console.error('Optin error:', err);
                 btn.innerHTML = orig;
                 btn.disabled = false;
-                window.showOptinError('Something went wrong. Please try again.');
+                window.showOptinError('Something went wrong. Please try again in a moment.');
             }
         };
     </script>
