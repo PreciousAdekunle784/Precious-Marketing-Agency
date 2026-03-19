@@ -2026,72 +2026,52 @@
                 window.showOptinError('Please enter a valid email address.'); return;
             }
 
-            // Block duplicate submissions
             const submitted = JSON.parse(localStorage.getItem('pma_submitted') || '[]');
-            if (submitted.includes(email.toLowerCase())) {
-                window.showOptinError('This email has already been registered. Check your inbox!');
-                return;
-            }
 
             const btn = document.getElementById('optin-btn');
             const orig = btn.innerHTML;
             btn.innerHTML = '<span class="btn-spinner"></span> Sending\u2026';
             btn.disabled = true;
 
-            try {
-                // 1. Save lead to Supabase
-                const res = await fetch(`${SUPA_URL}/rest/v1/leads`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'apikey': SUPA_KEY,
-                        'Authorization': `Bearer ${SUPA_KEY}`,
-                        'Prefer': 'return=minimal,resolution=ignore-duplicates'
-                    },
-                    body: JSON.stringify({ fname, email, source: 'Opt-In Page' })
-                });
+            // Both DB save and email are fully non-blocking
+            // User always sees success and gets redirected regardless
 
-                // 409 = duplicate email (already exists) — still proceed
-                if (!res.ok && res.status !== 409) {
-                    const errBody = await res.text();
-                    console.error('DB error:', res.status, errBody);
-                    // If table doesn't exist yet, still let them through
-                    if (res.status !== 404 && res.status !== 400) {
-                        throw new Error(`DB error ${res.status}`);
-                    }
-                }
+            // 1. Save to Supabase — fire and forget
+            fetch(`${SUPA_URL}/rest/v1/leads`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'apikey': SUPA_KEY,
+                    'Authorization': `Bearer ${SUPA_KEY}`,
+                    'Prefer': 'return=minimal,resolution=ignore-duplicates'
+                },
+                body: JSON.stringify({ fname, email, source: 'Opt-In Page' })
+            }).catch(e => console.warn('DB save (non-blocking):', e));
 
-                // 2. Fire edge function — non-blocking: user proceeds even if email fails
-                fetch(`${SUPA_URL}/functions/v1/quick-handler`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${SUPA_KEY}`
-                    },
-                    body: JSON.stringify({ fname, email })
-                }).catch(e => console.warn('Email function error (non-blocking):', e));
+            // 2. Fire edge function — fire and forget
+            fetch(`${SUPA_URL}/functions/v1/quick-handler`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${SUPA_KEY}`
+                },
+                body: JSON.stringify({ fname, email })
+            }).catch(e => console.warn('Email function (non-blocking):', e));
 
-                // 3. Mark submitted locally
-                submitted.push(email.toLowerCase());
-                localStorage.setItem('pma_submitted', JSON.stringify(submitted));
+            // 3. Mark submitted locally
+            submitted.push(email.toLowerCase());
+            localStorage.setItem('pma_submitted', JSON.stringify(submitted));
 
-                // 4. Show success screen immediately
-                const u = document.getElementById('card-urgency');
-                const p = document.getElementById('report-preview');
-                if (u) u.style.display = 'none';
-                if (p) p.style.display = 'none';
-                document.getElementById('optin-form-content').style.display = 'none';
-                document.getElementById('optin-success').style.display = 'block';
+            // 4. Show success screen immediately
+            const u = document.getElementById('card-urgency');
+            const p = document.getElementById('report-preview');
+            if (u) u.style.display = 'none';
+            if (p) p.style.display = 'none';
+            document.getElementById('optin-form-content').style.display = 'none';
+            document.getElementById('optin-success').style.display = 'block';
 
-                // 5. Redirect to sales page after delay
-                setTimeout(() => { window.location.href = 'sales.html'; }, 2200);
-
-            } catch (err) {
-                console.error('Optin error:', err);
-                btn.innerHTML = orig;
-                btn.disabled = false;
-                window.showOptinError('Something went wrong. Please try again in a moment.');
-            }
+            // 5. Redirect to sales page
+            setTimeout(() => { window.location.href = 'sales.html'; }, 2200);
         };
     </script>
     <script>
