@@ -2096,6 +2096,41 @@
             });
         });
     </script>
+
+    <!-- ── TAB ATTENTION ANIMATION ── -->
+    <script>
+        (function () {
+            var original = document.title;
+            var messages = [
+                '👋 Hey, come back!',
+                "💰 You're leaving money behind...",
+                "🔥 Your competitors won't wait",
+                '⚡ Free blueprint waiting for you',
+                '✅ We can fix this — come back',
+            ];
+            var idx = 0;
+            var interval = null;
+            var favicon = document.querySelector('link[rel~="icon"]');
+            var originalFavicon = favicon ? favicon.href : '';
+
+            document.addEventListener('visibilitychange', function () {
+                if (document.hidden) {
+                    // Tab is hidden — start cycling messages
+                    interval = setInterval(function () {
+                        document.title = messages[idx % messages.length];
+                        idx++;
+                    }, 1800);
+                } else {
+                    // Tab is visible again — restore
+                    clearInterval(interval);
+                    interval = null;
+                    idx = 0;
+                    document.title = original;
+                }
+            });
+        })();
+    </script>
+    <!-- ── END TAB ANIMATION ── -->
 </body>
 
 </html>
