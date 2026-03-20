@@ -6392,11 +6392,27 @@
 
         // NEWSLETTER
         function sfSignup() {
-            var inp = document.getElementById('sf-email');
-            var msg = document.getElementById('sf-nl-msg');
-            if (!inp || !inp.value.includes('@')) { if (msg) { msg.textContent = 'Please enter a valid email.'; msg.style.color = 'var(--red)'; } return; }
-            if (msg) { msg.textContent = 'You are in. First insight arrives tomorrow.'; msg.style.color = 'var(--g)'; }
-            inp.value = '';
+            const el = document.getElementById('sf-email');
+            const msg = document.getElementById('sf-nl-msg');
+            const v = el.value.trim();
+            if (!v || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) {
+                msg.textContent = 'Please enter a valid email address.';
+                msg.style.color = 'var(--red)';
+                return;
+            }
+            fetch('https://ilnhoxhxqciyeqquzbjj.supabase.co/rest/v1/newsletter', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlsbmhveGh4cWNpeWVxcXV6YmpqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMwOTE5ODEsImV4cCI6MjA4ODY2Nzk4MX0.R0DPlzpY2CWOglJN7Ve70gohBfmrw0SR8hIk_EW-Daw',
+                    'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlsbmhveGh4cWNpeWVxcXV6YmpqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMwOTE5ODEsImV4cCI6MjA4ODY2Nzk4MX0.R0DPlzpY2CWOglJN7Ve70gohBfmrw0SR8hIk_EW-Daw',
+                    'Prefer': 'return=minimal,resolution=ignore-duplicates'
+                },
+                body: JSON.stringify({ email: v, source: window.location.pathname || 'footer' })
+            }).catch(() => { });
+            msg.textContent = 'You are in! Growth tips coming your way.';
+            msg.style.color = 'var(--g)';
+            el.value = '';
         }
     </script>
     <script>
