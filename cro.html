@@ -6224,6 +6224,25 @@
             });
         });
     </script>
+
+    <!-- ── TAB ATTENTION ANIMATION ── -->
+    <script>
+        (function () {
+            var original = document.title;
+            var away = '🚪 Visitors are leaving your site unconverted';
+            var interval = null;
+
+            document.addEventListener('visibilitychange', function () {
+                if (document.hidden) {
+                    document.title = away;
+                } else {
+                    clearInterval(interval);
+                    document.title = original;
+                }
+            });
+        })();
+    </script>
+    <!-- ── END TAB ANIMATION ── -->
 </body>
 
 </html>

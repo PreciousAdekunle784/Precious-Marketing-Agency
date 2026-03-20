@@ -6667,6 +6667,25 @@
         });
     </script>
 
+
+    <!-- ── TAB ATTENTION ANIMATION ── -->
+    <script>
+        (function () {
+            var original = document.title;
+            var away = '🔍 Your competitors are ranking above you right now';
+            var interval = null;
+
+            document.addEventListener('visibilitychange', function () {
+                if (document.hidden) {
+                    document.title = away;
+                } else {
+                    clearInterval(interval);
+                    document.title = original;
+                }
+            });
+        })();
+    </script>
+    <!-- ── END TAB ANIMATION ── -->
 </body>
 
 </html>

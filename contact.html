@@ -1050,6 +1050,26 @@
             }
         }
     </script>
+
+    <!-- ── TAB ATTENTION ANIMATION ── -->
+    <script>
+        (function () {
+            var original = document.title;
+            // ✅ CORRECT:
+            var away = 'We\'d love to hear from you!';
+            var interval = null;
+
+            document.addEventListener('visibilitychange', function () {
+                if (document.hidden) {
+                    document.title = away;
+                } else {
+                    clearInterval(interval);
+                    document.title = original;
+                }
+            });
+        })();
+    </script>
+    <!-- ── END TAB ANIMATION ── -->
 </body>
 
 </html>
