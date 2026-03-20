@@ -1974,8 +1974,11 @@
         (function () {
             const K = 'pma_idx_t1';
             let stored = localStorage.getItem(K);
-            let end = stored ? parseInt(stored) : Date.now() + (23 * 3600 + 47 * 60 + 59) * 1000;
-            if (!stored) localStorage.setItem(K, end);
+            let end = stored ? parseInt(stored) : 0;
+            if (!end || end <= Date.now()) {
+                end = Date.now() + (23 * 3600 + 47 * 60 + 59) * 1000;
+                localStorage.setItem(K, end);
+            }
             let ph = -1, pm = -1, ps = -1;
             function flip(id) { const e = document.getElementById(id); if (!e) return; e.classList.remove('flip'); void e.offsetWidth; e.classList.add('flip'); }
             function pad(n) { return String(n).padStart(2, '0'); }
@@ -2096,25 +2099,6 @@
             });
         });
     </script>
-
-    <!-- ── TAB ATTENTION ANIMATION ── -->
-    <script>
-        (function () {
-            var original = document.title;
-            var away = '⚡ Your free blueprint is still waiting...';
-            var interval = null;
-
-            document.addEventListener('visibilitychange', function () {
-                if (document.hidden) {
-                    document.title = away;
-                } else {
-                    clearInterval(interval);
-                    document.title = original;
-                }
-            });
-        })();
-    </script>
-    <!-- ── END TAB ANIMATION ── -->
 </body>
 
 </html>
